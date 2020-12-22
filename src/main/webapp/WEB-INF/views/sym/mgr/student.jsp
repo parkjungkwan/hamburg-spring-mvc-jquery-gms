@@ -17,7 +17,7 @@
 
 	<title>Profile | AdminKit Demo</title>
 
-	<link href="<%=application.getContextPath()%>/assets/mgr/css/app.css" rel="stylesheet">
+	<link href="${mgr}/css/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -289,7 +289,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-                <img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="${mgr}/img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
@@ -317,7 +317,7 @@
 									<h5 class="card-title mb-0">상세 프로필</h5>
 								</div>
 								<div class="card-body text-center" id="profileImage">
-									<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-4.jpg" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" />
+									<img src="${mgr}/img/avatars/avatar-4.jpg" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" />
 									<h5 class="card-title mb-0">Christina Mason</h5>
 									<div class="text-muted mb-2">Lead Developer</div>
 
@@ -372,7 +372,7 @@
 								<div class="card-body h-100">
 
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Vanessa Tucker">
+										<img src="${mgr}/img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Vanessa Tucker">
 										<div class="media-body">
 											<small class="float-right text-navy">5m ago</small>
 											<strong>Vanessa Tucker</strong> started following <strong>Christina Mason</strong><br />
@@ -383,7 +383,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Charles Hall">
+										<img src="${mgr}/img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Charles Hall">
 										<div class="media-body">
 											<small class="float-right text-navy">30m ago</small>
 											<strong>Charles Hall</strong> posted something on <strong>Christina Mason</strong>'s timeline<br />
@@ -400,7 +400,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Christina Mason">
+										<img src="${mgr}/img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Christina Mason">
 										<div class="media-body">
 											<small class="float-right text-navy">1h ago</small>
 											<strong>Christina Mason</strong> posted a new blog<br />
@@ -411,7 +411,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle mr-2" alt="William Harris">
+										<img src="${mgr}/img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle mr-2" alt="William Harris">
 										<div class="media-body">
 											<small class="float-right text-navy">3h ago</small>
 											<strong>William Harris</strong> posted two photos on <strong>Christina Mason</strong>'s timeline<br />
@@ -422,7 +422,7 @@
 													<img src="<%=application.getContextPath()%>/assets/mgr/img/photos/unsplash-1.jpg" class="img-fluid pr-2" alt="Unsplash">
 												</div>
 												<div class="col-6 col-md-4 col-lg-4 col-xl-3">
-													<img src="<%=application.getContextPath()%>/assets/mgr/img/photos/unsplash-2.jpg" class="img-fluid pr-2" alt="Unsplash">
+													<img src="${mgr}/img/photos/unsplash-2.jpg" class="img-fluid pr-2" alt="Unsplash">
 												</div>
 											</div>
 
@@ -432,7 +432,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle mr-2" alt="William Harris">
+										<img src="${mgr}/img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle mr-2" alt="William Harris">
 										<div class="media-body">
 											<small class="float-right text-navy">1d ago</small>
 											<strong>William Harris</strong> started following <strong>Christina Mason</strong><br />
@@ -453,7 +453,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Christina Mason">
+										<img src="${mgr}/img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Christina Mason">
 										<div class="media-body">
 											<small class="float-right text-navy">1d ago</small>
 											<strong>Christina Mason</strong> posted a new blog<br />
@@ -463,7 +463,7 @@
 
 									<hr />
 									<div class="media">
-										<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Charles Hall">
+										<img src="${mgr}/img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Charles Hall">
 										<div class="media-body">
 											<small class="float-right text-navy">1d ago</small>
 											<strong>Charles Hall</strong> started following <strong>Christina Mason</strong><br />
@@ -511,32 +511,9 @@
 		</div>
 	</div>
 
-	<script src="<%=application.getContextPath()%>/assets/mgr/js/vendor.js"></script>
-	<script src="<%=application.getContextPath()%>/assets/mgr/js/app.js"></script>
-	<script>
-		const userid = localStorage.getItem('searchId')
-		$.getJSON(`/students/${userid}`, d => {
-			$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />
-									<h5 class="card-title mb-0">${d.name}</h5>
-									<div class="text-muted mb-2">Lead Developer</div>
-
-									<div>
-										<a class="btn btn-primary btn-sm" href="#">Follow</a>
-										<a class="btn btn-primary btn-sm" href="#"><span data-feather="message-square"></span> Message</a>
-									</div>`)		
-			$(`#subject`).html(`<h5 class="h6 card-title">수강과목</h5>
-									<a href="#" class="badge badge-primary mr-1 my-1">${d.subject}</a>
-									`)
-									//stuNum, userid, password, name, ssn, regDate, subject, profileImage
-			$(`#about`).html(`<h5 class="h6 card-title">About</h5>
-									<ul class="list-unstyled mb-0">
-										<li class="mb-1"><span data-feather="home" class="feather-sm mr-1"></span> 학생번호 : <a href="#">${d.stuNum}</a></li>
-
-										<li class="mb-1"><span data-feather="briefcase" class="feather-sm mr-1"></span> 생년월일 : <a href="#">${d.ssn}</a></li>
-										<li class="mb-1"><span data-feather="map-pin" class="feather-sm mr-1"></span> 주소 : <a href="#">서울</a></li>
-									</ul>`)
-		})
-	</script>
+	<script src="${mgr}/js/vendor.js"></script>
+	<script src="${mgr}/js/app.js"></script>
+	<script src="${mgr}/js/student.js"></script>
 
 </body>
 

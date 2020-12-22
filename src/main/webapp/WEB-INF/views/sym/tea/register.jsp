@@ -10,20 +10,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Coming Soon | Triangle</title>
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/font-awesome.min.css" rel="stylesheet"> 
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/main.css" rel="stylesheet">
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/responsive.css" rel="stylesheet">
+    <link href="${cmm}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${cmm}/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="${cmm}/css/main.css" rel="stylesheet">
+    <link href="${cmm}/css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-        <script src="<%=application.getContextPath()%>/assets/cmm/js/html5shiv.js"></script>
-        <script src="<%=application.getContextPath()%>/assets/cmm/js/respond.min.js"></script>
+        <script src="${cmm}/js/html5shiv.js"></script>
+        <script src="${cmm}/js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="<%=application.getContextPath()%>/assets/cmm/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="${cmm}/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${cmm}/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${cmm}/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${cmm}/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="${cmm}/images/ico/apple-touch-icon-57-precomposed.png">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -99,7 +99,7 @@
 
 <body>
     <div class="logo-image">                                
-       <a id="home" href="#"><img class="img-responsive" src="<%=application.getContextPath()%>/assets/cmm/images/logo.png" alt=""> </a> 
+       <a id="home" href="#"><img class="img-responsive" src="${cmm}/images/logo.png" alt=""> </a> 
     </div>
      <section id="coming-soon">        
          <div class="container">
@@ -183,38 +183,11 @@
             </div>
         </div>       
     </section>
-    
-
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/jquery.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/wow.min.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/coundown-timer.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/main.js"></script>
-    <script>
-        $('#home').click(e => { location.href = '/'})
-        $('#facebook').click(e => {location.href = '/transfer/sym/tea/index'})
-        $('#signupbtn').click(e => {
-            e.preventDefault()
-            $.ajax({
-                url: `/teachers`,
-                type: 'POST',
-                data: JSON.stringify({
-                    name: $('#name').val(),
-                    password: $('#password').val(),
-                    subject: $('#subject').val()
-                }),
-                dataType: 'json',
-                contentType: 'application/json',
-                success: d => {
-                   location.href='/transfer/sym/tea/index'
-                },
-                error: e => {
-                    console.log(`교강사등록 실패: ${e.responseText}`)
-                    location.href = '/move/cmm/404'
-                }
-            })
-        })
-    </script>
-    
+    <script src="${cmm}/js/jquery.js"></script>
+    <script src="${cmm}/js/bootstrap.min.js"></script>
+    <script src="${cmm}/js/wow.min.js"></script>
+    <script src="${cmm}/js/coundown-timer.js"></script>
+    <script src="${cmm}/js/main.js"></script>
+    <script src="${tea}/js/register.js"></script>
 </body>
 </html>
