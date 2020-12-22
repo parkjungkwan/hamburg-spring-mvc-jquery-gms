@@ -28,6 +28,12 @@
 		<ojdbc7-version>12.1.0.2</ojdbc7-version>
 		<mybatis-version>3.4.1</mybatis-version>
 		<mybatis-spring-version>1.3.0</mybatis-spring-version>
+		<jstl-api-version>1.2</jstl-api-version>
+		<taglibs-standard-impl-version>1.2.5</taglibs-standard-impl-version>
+		<javax.mail-version>1.6.2</javax.mail-version>
+		<commons-io-version>2.6</commons-io-version>
+		<lombok-version>1.18.16</lombok-version>
+		<commons-fileupload-version>1.4</commons-fileupload-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -47,6 +53,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${spring-version}</version>
 		</dependency>
 				
 		<!-- AspectJ -->
@@ -124,6 +135,41 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl-version}</version>
 		</dependency>
+		<!-- JSP -->
+		<dependency>
+		    <groupId>javax.servlet.jsp.jstl</groupId>
+		    <artifactId>jstl-api</artifactId>
+		    <version>${jstl-api-version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.taglibs</groupId>
+		    <artifactId>taglibs-standard-impl</artifactId>
+		    <version>${taglibs-standard-impl-version}</version>
+		</dependency>
+		<!-- JavaMail API (2019-11-20일 기준 최신버전) -->
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>${javax.mail-version}</version>
+		</dependency>
+		
+		<!-- Apache Commons IO (2019-11-20일 기준 최신버전) -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>${commons-io-version}</version>
+		</dependency>
+		
+		<!-- Apache Commons FileUpload (2019-11-20일 기준 최신버전) -->
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>${commons-fileupload-version}</version>
+		</dependency>
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -169,7 +215,7 @@
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>1.18.16</version>
+		    <version>${lombok-version}</version>
 		    <scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -178,7 +224,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
+                <version>2.10</version>
                 <configuration>
                     <additionalProjectnatures>
                         <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
@@ -193,10 +239,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
@@ -205,7 +251,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>1.6.0</version>
                 <configuration>
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
