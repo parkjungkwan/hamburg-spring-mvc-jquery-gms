@@ -29,7 +29,7 @@ public class HomeController {
     	session.setAttribute("cmm", ctx+"/resources/cmm");
     	session.setAttribute("mgr", ctx+"/resources/mgr");
     	session.setAttribute("tea", ctx+"/resources/tea");
-    	session.setAttribute("uss", ctx+"/resources/tea");
+    	session.setAttribute("uss", ctx+"/resources/uss");
     	
         logger.info("Project Initialized ... ");
         

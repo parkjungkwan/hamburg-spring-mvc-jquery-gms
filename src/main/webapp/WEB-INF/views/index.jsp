@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -10,7 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Triangle</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link href="${cmm}/css/bootstrap.min.css" rel="stylesheet">
@@ -334,11 +333,14 @@
     </footer>
     <!--/#footer-->
 
-    <script type="text/javascript" src="${cmm}/js/jquery.js"></script>
-    <script type="text/javascript" src="${cmm}/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${cmm}/js/lightbox.min.js"></script>
-    <script type="text/javascript" src="${cmm}/js/wow.min.js"></script>
-    <script type="text/javascript" src="${cmm}/js/main.js"></script>   
-    <script type="text/javascript" src="${cmm}/js/index.js"></script>
+    <script src="${cmm}/js/jquery.js"></script>
+    <script src="${cmm}/js/bootstrap.min.js"></script>
+    <script src="${cmm}/js/lightbox.min.js"></script>
+    <script src="${cmm}/js/wow.min.js"></script>
+    <script src="${cmm}/js/main.js"></script>   
+    <script src="${cmm}/js/index.js"></script>
+    <script	>
+    cmm.init(`${ctx}`)
+    </script>
 </body>
 </html>
