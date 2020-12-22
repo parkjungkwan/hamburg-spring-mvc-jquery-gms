@@ -25,10 +25,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        logger.info("Hello. This is LogManager's logger");
+        logger.info("Project Initialized ... ");
         return "index";
     }
-
+    
     @GetMapping("/move/{dir}/{page}")
     public String move(@PathVariable String dir, @PathVariable String page) {
         logger.info("이동 디렉토리: " + dir);
