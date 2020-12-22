@@ -10,20 +10,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Coming Soon | Triangle</title>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/font-awesome.min.css" rel="stylesheet"> 
-    <link href="/resources/css/main.css" rel="stylesheet">
-    <link href="/resources/css/responsive.css" rel="stylesheet">
+    <link href="<%=application.getContextPath()%>/assets/cmm/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=application.getContextPath()%>/assets/cmm/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="<%=application.getContextPath()%>/assets/cmm/css/main.css" rel="stylesheet">
+    <link href="<%=application.getContextPath()%>/assets/cmm/css/responsive.css" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-        <script src="/resources/js/html5shiv.js"></script>
-        <script src="/resources/js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="/resources/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resources/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/resources/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/resources/images/ico/apple-touch-icon-57-precomposed.png">
+         
+    <link rel="shortcut icon" href="<%=application.getContextPath()%>/assets/mgr/images/ ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=application.getContextPath()%>/assets/mgr/images/ ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=application.getContextPath()%>/assets/mgr/images/ ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=application.getContextPath()%>/assets/mgr/images/ ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="<%=application.getContextPath()%>/assets/mgr/images/ ico/apple-touch-icon-57-precomposed.png">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -99,7 +96,7 @@
 
 <body>
     <div class="logo-image">                                
-       <a id="home" href="#"><img class="img-responsive" src="/resources/images/logo.png" alt=""> </a> 
+       <a id="home" href="#"><img class="img-responsive" src="<%=application.getContextPath()%>/assets/mgr/images/ logo.png" alt=""> </a> 
     </div>
      <section id="coming-soon">        
          <div class="container">
@@ -185,11 +182,11 @@
     </section>
     
 
-    <script type="text/javascript" src="/resources/js/jquery.js"></script>
-    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/js/wow.min.js"></script>
-    <script type="text/javascript" src="/resources/js/coundown-timer.js"></script>
-    <script type="text/javascript" src="/resources/js/main.js"></script>
+    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/mgr/js/ jquery.js"></script>
+    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/mgr/js/ bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/mgr/js/ wow.min.js"></script>
+    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/mgr/js/ coundown-timer.js"></script>
+    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/mgr/js/ main.js"></script>
     <script>
         $('#home').click(e => { location.href = '/'})
         $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})

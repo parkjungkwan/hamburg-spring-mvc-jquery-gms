@@ -13,11 +13,11 @@
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
-	<link rel="shortcut icon" href="/mgr/img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="<%=application.getContextPath()%>/assets/mgr/img/icons/icon-48x48.png" />
 
 	<title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
 
-	<link href="/mgr/css/app.css" rel="stylesheet">
+	<link href="<%=application.getContextPath()%>/assets/mgr/css/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -579,8 +579,8 @@
 		</div>
 	</div>
 
-	<script src="/mgr/js/vendor.js"></script>
-	<script src="/mgr/js/app.js"></script>
+	<script src="<%=application.getContextPath()%>/assets<%=application.getContextPath()%>/assets/mgr/js/vendor.js"></script>
+	<script src="<%=application.getContextPath()%>/assets<%=application.getContextPath()%>/assets/mgr/js/app.js"></script>
 
 	<script>
 		$(function() {

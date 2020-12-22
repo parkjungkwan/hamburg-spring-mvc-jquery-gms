@@ -13,11 +13,11 @@
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
-	<link rel="shortcut icon" href="/mgr/img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="<%=application.getContextPath()%>/assets/mgr/img/icons/icon-48x48.png" />
 
 	<title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
 
-	<link href="/mgr/css/app.css" rel="stylesheet">
+	<link href="<%=application.getContextPath()%>/assets/mgr/css/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -232,7 +232,7 @@
 									<a href="#" class="list-group-item">
 										<div class="row no-gutters align-items-center">
 											<div class="col-2">
-												<img src="/mgr/img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
+												<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
 											</div>
 											<div class="col-10 pl-2">
 												<div class="text-dark">Vanessa Tucker</div>
@@ -244,7 +244,7 @@
 									<a href="#" class="list-group-item">
 										<div class="row no-gutters align-items-center">
 											<div class="col-2">
-												<img src="/mgr/img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
+												<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
 											</div>
 											<div class="col-10 pl-2">
 												<div class="text-dark">William Harris</div>
@@ -256,7 +256,7 @@
 									<a href="#" class="list-group-item">
 										<div class="row no-gutters align-items-center">
 											<div class="col-2">
-												<img src="/mgr/img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
+												<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
 											</div>
 											<div class="col-10 pl-2">
 												<div class="text-dark">Christina Mason</div>
@@ -268,7 +268,7 @@
 									<a href="#" class="list-group-item">
 										<div class="row no-gutters align-items-center">
 											<div class="col-2">
-												<img src="/mgr/img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
+												<img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
 											</div>
 											<div class="col-10 pl-2">
 												<div class="text-dark">Sharon Lessman</div>
@@ -289,7 +289,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-                <img src="/mgr/img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="<%=application.getContextPath()%>/assets/mgr/img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
@@ -579,8 +579,8 @@
 		</div>
 	</div>
 
-	<script src="/mgr/js/vendor.js"></script>
-	<script src="/mgr/js/app.js"></script>
+	<script src="<%=application.getContextPath()%>/assets/mgr/js/vendor.js"></script>
+	<script src="<%=application.getContextPath()%>/assets/mgr/js/app.js"></script>
 
 	<script>
 		$(function() {

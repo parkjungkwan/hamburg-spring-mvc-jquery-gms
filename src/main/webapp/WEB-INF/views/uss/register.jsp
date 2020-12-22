@@ -10,20 +10,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Coming Soon | Triangle</title>
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/font-awesome.min.css" rel="stylesheet"> 
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/main.css" rel="stylesheet">
-    <link href="<%=application.getContextPath()%>/assets/cmm/css/responsive.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="/resources/css/main.css" rel="stylesheet">
+    <link href="/resources/css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-        <script src="<%=application.getContextPath()%>/assets/cmm/js/html5shiv.js"></script>
-        <script src="<%=application.getContextPath()%>/assets/cmm/js/respond.min.js"></script>
+        <script src="/resources/js/html5shiv.js"></script>
+        <script src="/resources/js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="<%=application.getContextPath()%>/assets/cmm/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="<%=application.getContextPath()%>/assets/cmm/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/resources/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resources/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/resources/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/resources/images/ico/apple-touch-icon-57-precomposed.png">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -99,15 +99,15 @@
 
 <body>
     <div class="logo-image">                                
-       <a id="home" href="#"><img class="img-responsive" src="<%=application.getContextPath()%>/assets/cmm/images/logo.png" alt=""> </a> 
+       <a id="home" href="#"><img class="img-responsive" src="/resources/images/logo.png" alt=""> </a> 
     </div>
      <section id="coming-soon">        
          <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">                    
                     <div class="text-center coming-content">
-                      <h1>교강사 인트로 화면</h1>
-                      <p>교강사화면 이동시 페이스북 클릭</p>   
+                      <h1>학습자 인트로 화면</h1>
+                      <p>학습자화면 이동시 페이스북 클릭</p>   
                         <div class="social-link">
                             <span><a id="facebook" href="#"><i class="fa fa-facebook"></i></a></span>
                             <span><a href="#"><i class="fa fa-twitter"></i></a></span>
@@ -116,22 +116,26 @@
                     </div>                    
                 </div>
                 <div class="col-sm-12">
-                    <h1>교강사 등록화면</h1>
+                    <h1>학습자 등록화면</h1>
                     <div class="time-count">
                         <form style="border:1px solid #ccc">
                             <div class="container">
                               <h1>Sign Up</h1>
                               <p>Please fill in this form to create an account.</p>
                               <hr>
-                          
+                              
+                              <label for="name"><b>아이디</b></label>
+                              <input type="text" placeholder="아이디 등록" id="userid" required>
                               <label for="name"><b>이 름</b></label>
                               <input type="text" placeholder="이름 등록" id="name" required>
-                          
-                              <label for="psw"><b>비밀번호</b></label>
-                              <input type="password" placeholder="비번 등록" id="password" required>
-                          
-                              <label for="psw-repeat"><b>담당과목</b></label>
-                              <input type="text" placeholder="과목 등록" id="subject" required>
+                              <label for="password"><b>비밀번호</b></label>
+                              <input type="password" value="1" id="password" required>
+                              <label for="ssn"><b>주민번호(생년월일-1자리 900101-1)</b></label>
+                              <input type="text" placeholder="비번 등록" id="ssn" required>
+                              <label for="regDate"><b>등록일</b></label>
+                              <input type="text" value="2020-03" id="regDate" required>
+                              <label for="subject"><b>수강과목</b></label>
+                              <input type="text" value="영어" id="subject" required>
                               
                               <label>
                                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -185,31 +189,34 @@
     </section>
     
 
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/jquery.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/wow.min.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/coundown-timer.js"></script>
-    <script type="text/javascript" src="<%=application.getContextPath()%>/assets/cmm/js/main.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/wow.min.js"></script>
+    <script type="text/javascript" src="/resources/js/coundown-timer.js"></script>
+    <script type="text/javascript" src="/resources/js/main.js"></script>
     <script>
         $('#home').click(e => { location.href = '/'})
         $('#facebook').click(e => {location.href = '/transfer/sym/tea/index'})
         $('#signupbtn').click(e => {
             e.preventDefault()
             $.ajax({
-                url: `/teachers`,
+                url: `/students`,
                 type: 'POST',
                 data: JSON.stringify({
+                    userid: $('#userid').val(), 
+                    ssn: $('#ssn').val(), 
+                    regDate: $('#regDate').val(), 
+                    subject: $('#subject').val(), 
                     name: $('#name').val(),
-                    password: $('#password').val(),
-                    subject: $('#subject').val()
+                    password: $('#password').val()
                 }),
                 dataType: 'json',
                 contentType: 'application/json',
                 success: d => {
-                   location.href='/transfer/sym/tea/index'
+                   location.href='/move/uss/login'
                 },
                 error: e => {
-                    console.log(`교강사등록 실패: ${e.responseText}`)
+                    console.log(`학습자등록 실패: ${e.responseText}`)
                     location.href = '/move/cmm/404'
                 }
             })
