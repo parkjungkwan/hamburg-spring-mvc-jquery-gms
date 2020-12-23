@@ -10,7 +10,7 @@ cmm = (()=>{
 		$('#manager_register').click(e => { location.href = `${ctx}/transfer/sym/mgr/register`})
 		$('#teacher_register').click(e => { location.href = `${ctx}/transfer/sym/tea/register`})
 		$(`#linkedin`).click(e => {
-			alert(`타일즈 보러가기`)
+			location.href = `${ctx}/home`
 		})
 		
 	}
