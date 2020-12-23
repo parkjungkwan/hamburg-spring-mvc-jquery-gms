@@ -43,14 +43,12 @@ public class HomeController {
         return String.format("%s/%s", dir, page);
     }
 
-    @GetMapping("/transfer/{group}/{dir}/{page}")
-    public String transfer(@PathVariable String group, 
-    						@PathVariable String dir, 
+    @GetMapping("/admin/{dir}/{page}")
+    public String transfer(@PathVariable String dir, 
     						@PathVariable String page) {
-        logger.info("이동 그룹: " + group);
         logger.info("이동 디렉토리: " + dir);
         logger.info("이동 파일: " + page);
-        return String.format("%s:%s/%s", group, dir, page);
+        return String.format("admin:%s/%s", dir, page);
     }
     @GetMapping("/home")
     public String home() {
