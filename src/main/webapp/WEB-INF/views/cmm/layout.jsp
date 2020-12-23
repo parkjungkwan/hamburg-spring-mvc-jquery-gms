@@ -7,9 +7,10 @@
 <html>
 <jsp:include page="head.jsp"/>
 <style>
-table{1px solid black; width: 80%;}
+table{1px solid black; width: 80%; margin: 0 auto}
 table tr {1px solid black}
 table tr td{1px solid black}
+
 </style>
 <body>
 <table>
@@ -33,9 +34,6 @@ table tr td{1px solid black}
 				<tiles:insertAttribute name="container"/>
 			</article>
 		</td>
-	</tr>
-	<tr>
-		<td></td>
 	</tr>
 	<tr>
 		<td>
