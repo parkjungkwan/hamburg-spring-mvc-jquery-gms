@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="cmm/header.jsp"/>
+<jsp:include page="cmm/head.jsp"/>
 <body>
 	<header id="header">      
         <div class="container">

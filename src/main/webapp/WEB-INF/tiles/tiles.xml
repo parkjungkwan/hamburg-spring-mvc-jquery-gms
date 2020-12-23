@@ -5,7 +5,10 @@
 <tiles-definitions>
  
     <definition name="public" template="/WEB-INF/views/cmm/layout.jsp">
-	   
+    	<put-attribute name="header" value="/WEB-INF/views/cmm/logo.jsp"/>
+	    <put-attribute name="gnb" value="/WEB-INF/views/cmm/navbar.jsp"/>
+	    <put-attribute name="container" value="/WEB-INF/views/cmm/wow.jsp"/>
+	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
 	</definition>
 
  
