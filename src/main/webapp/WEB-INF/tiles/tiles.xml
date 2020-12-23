@@ -10,6 +10,15 @@
 	    <put-attribute name="container" value="/WEB-INF/views/cmm/wow.jsp"/>
 	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
 	</definition>
+	<definition name="mgr" extends="public">
+    	<put-attribute name="header" value="/WEB-INF/views/sym/mgr/intro.jsp"/>
+	    <put-attribute name="gnb" value="/WEB-INF/views/sym/mgr/newsletter.jsp"/>
+	    <put-attribute name="container" value=""/>
+	    <put-attribute name="footer" value="/WEB-INF/views/sym/footer.jsp"/>
+	</definition>
+	<definition name="mgr:*/*" extends="mgr">
+	    <put-attribute name="container" value="/WEB-INF/views/sym/{1}/{2}.jsp"/>
+	</definition>
 
  
 </tiles-definitions>
