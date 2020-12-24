@@ -50,11 +50,7 @@ public class HomeController {
         logger.info("이동 파일: " + page);
         return String.format("admin:%s/%s", dir, page);
     }
-    @GetMapping("/home")
-    public String home() {
-    	logger.info("타일즈 테스트 진입 성공" );
-    	return "public";
-    }
+
   
 	
 }

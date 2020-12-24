@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="cmm/head.jsp"/>
+<jsp:include page="cmm/script.jsp"/>
 <body>
 	<header id="header">      
         <div class="container">
@@ -28,10 +29,11 @@
 	<jsp:include page="cmm/features.jsp"/>
     <jsp:include page="cmm/clients.jsp"/>
 	<jsp:include page="cmm/footer.jsp"/>
-    <jsp:include page="cmm/script.jsp"/>
+  
     <script	>
     
     cmm.init(`${ctx}`)
+   
     </script>
 </body>
 </html>
