@@ -19,7 +19,7 @@
          </li>                  
          <li class="dropdown"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
              <ul role="menu" class="sub-menu">
-                 <li><a href="#">Blog Default</a></li>
+                 <li><a id="blog_default" href="#">Blog Default</a></li>
                  <li><a href="#">Timeline Blog</a></li>
                  <li><a href="#">2 Columns + Right Sidebar</a></li>
                  <li><a href="#">1 Column + Left Sidebar</a></li>
@@ -41,3 +41,6 @@
          <li><a id="teacher_register" href="#">Teacher</a></li>               
      </ul>
  </div>
+ <script>
+ 
+ </script>
