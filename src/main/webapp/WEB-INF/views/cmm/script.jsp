@@ -20,6 +20,7 @@
 <script src="${cmm}/js/vendor/respond.min.js"></script>
 <script src="${cmm}/js/vendor/wow.min.js"></script>
 <script src="${cmm}/js/index.js"></script>
+<script src="${cmm}/js/navbar.js"></script>
 <script src="${mgr}/js/app.js"></script>
 <script src="${mgr}/js/index.js"></script>
 <script src="${mgr}/js/student.js"></script>
