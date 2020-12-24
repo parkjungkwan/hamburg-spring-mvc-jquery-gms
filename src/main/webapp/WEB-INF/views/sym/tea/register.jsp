@@ -2,23 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Coming Soon | Triangle</title>
-    <link href="${cmm}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${cmm}/css/font-awesome.min.css" rel="stylesheet"> 
-    <link href="${cmm}/css/main.css" rel="stylesheet">
-    <link href="${cmm}/css/responsive.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-        <script src="${cmm}/js/html5shiv.js"></script>
-        <script src="${cmm}/js/respond.min.js"></script>
-    <![endif]-->       
+    
     <link rel="shortcut icon" href="${cmm}/images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${cmm}/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${cmm}/images/ico/apple-touch-icon-114-precomposed.png">
@@ -95,9 +79,9 @@
           }
         }
     </style>
-</head><!--/head-->
 
-<body>
+
+
     <div class="logo-image">                                
        <a id="home" href="#"><img class="img-responsive" src="${cmm}/images/logo.png" alt=""> </a> 
     </div>
@@ -183,11 +167,5 @@
             </div>
         </div>       
     </section>
-    <script src="${cmm}/js/jquery.js"></script>
-    <script src="${cmm}/js/bootstrap.min.js"></script>
-    <script src="${cmm}/js/wow.min.js"></script>
-    <script src="${cmm}/js/coundown-timer.js"></script>
-    <script src="${cmm}/js/main.js"></script>
-    <script src="${tea}/js/register.js"></script>
-</body>
-</html>
+    
+  

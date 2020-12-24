@@ -44,7 +44,7 @@ public class HomeController {
     }
 
     @GetMapping("/admin/{dir}/{page}")
-    public String transfer(@PathVariable String dir, 
+    public String admin(@PathVariable String dir, 
     						@PathVariable String page) {
         logger.info("이동 디렉토리: " + dir);
         logger.info("이동 파일: " + page);

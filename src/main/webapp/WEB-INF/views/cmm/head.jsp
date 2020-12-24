@@ -8,7 +8,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Home | Triangle</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	<link rel="shortcut icon" href="images/ico/favicon.ico">
 	<link href="${cmm}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${cmm}/css/font-awesome.min.css" rel="stylesheet">
