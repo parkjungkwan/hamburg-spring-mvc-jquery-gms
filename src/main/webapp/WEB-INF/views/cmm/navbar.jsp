@@ -11,12 +11,7 @@
                  <li><a href="#">About 2</a></li>
              </ul>
          </li>                  
-         <li id="bbs" class="dropdown"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
-             <ul role="menu" class="sub-menu">
-                 <li><a id="blog_default" href="#">Blog Default</a></li>
-                 <li><a href="#">Timeline Blog</a></li>
-             </ul>
-         </li>
+         <li id="bbs" class="dropdown"></li>
          <li class="dropdown"><a href="portfolio.html">Portfolio <i class="fa fa-angle-down"></i></a>
              <ul role="menu" class="sub-menu">
                  <li><a href="#">Portfolio Default</a></li>
