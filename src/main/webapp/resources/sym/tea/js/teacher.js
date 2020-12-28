@@ -79,3 +79,6 @@ $.getJSON(`/teachers/${teaNum}`, d => {
 		})
 	})						 
 }) // getJSON 의 scope
+
+
+

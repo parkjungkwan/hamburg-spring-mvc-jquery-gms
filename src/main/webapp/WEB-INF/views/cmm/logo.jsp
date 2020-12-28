@@ -13,6 +13,3 @@
     	<h1><img id="goHome" src="${cmm}/images/logo.png" alt="logo"></h1>
     </a>
 </div>
-<script>
-cmm.goHome()
-</script>   

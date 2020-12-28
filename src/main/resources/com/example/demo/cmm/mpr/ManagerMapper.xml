@@ -2,5 +2,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.cmm.mpr.ManagerMapper">
+	<insert id="insert" parameterType="com.example.demo.sym.service.model.Manager">
+		insert into managers(mgr_num, email, password) 
+		values (mgr_seq.next_val, #{email}, #{password})
+	</insert>
   
 </mapper>

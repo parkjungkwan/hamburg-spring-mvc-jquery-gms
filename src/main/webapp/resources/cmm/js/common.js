@@ -2,8 +2,8 @@
 var common = common || {}
 common = (()=>{
 	const init = ctx => {
-		alert(`TEST 15:15`)
 		localStorage.setItem('ctx', ctx)
+		$('#home').click(e => { location.href = '/'})
 		$('#manager_register').click(e => {location.href = `${ctx}/admin/mgr/register`})
 		$('#teacher_register').click(e => {location.href = `${ctx}/admin/tea/register`})
 		$(`#linkedin`).click(e => {location.href = `${ctx}/`})
@@ -18,6 +18,7 @@ common = (()=>{
 							한국 학생간에 회화 교육을 하는 사이트 구축.`)
 		$(`#bbs`).html(`<a href="#">게시판<i class="fa fa-angle-down"></i></a>
 						<ul id="ul" role="menu" class="sub-menu"></ul>`)
+		$('#facebook').click(e => {location.href = '/transfer/sym/tea/index'})
 		let arr = [{id:'a', val: 'a'}, {id:'b', val: 'b'},{id:'c', val: 'c'},{id:'d', val: 'd'},{id:'e', val: 'c'}]
 		$.each(arr, (i, j) => {
 			$(`<li/>`)
@@ -28,9 +29,11 @@ common = (()=>{
 				alert(`${j.id}`)
 			})
 		})
+		
 	}
 	const goHome = () => {
-		$(`#goHome`).click(e => {location.href = ` ${localStorage.getItem('ctx')}/`})
+		$(`#goHome`).click(e => {
+			location.href = ` ${localStorage.getItem('ctx')}/`})
 	}
 	return {init, goHome}
 })()
