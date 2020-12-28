@@ -114,5 +114,5 @@
     </section>
     
   <script>
-
+ manager.init()
   </script>  

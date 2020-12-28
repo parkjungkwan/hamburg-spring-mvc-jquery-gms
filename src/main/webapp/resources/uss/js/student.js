@@ -1,4 +1,9 @@
 'use strict'
+
+
+
+
+
 const userid = localStorage.getItem('searchId')
 $.getJSON(`/students/${userid}`, d => {
 	$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />

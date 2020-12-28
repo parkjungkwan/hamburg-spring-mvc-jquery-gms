@@ -14,6 +14,6 @@ create table replies(
    reply_num int primary key ,
    content varchar2(20),
    art_num int,
-   constraint replies_fk foreign key(art_num) refernces articles(art_num)
+   constraint replies_fk foreign key(art_num) references articles(art_num)
    )
  */

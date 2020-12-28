@@ -1,4 +1,14 @@
 'use strict'
+var manager = manager || {}
+manager = (()=>{
+	const init =()=>{
+		alert(`매니저 객체 연결 `)
+	}
+	return {init}
+})()
+
+
+
 $('#home').click(e => { location.href = '/'})
         $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
         $('#signupbtn').click(e => {

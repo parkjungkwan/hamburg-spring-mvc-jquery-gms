@@ -32,7 +32,7 @@
   
     <script	>
     
-    cmm.init(`${ctx}`)
+   common.init(`${ctx}`) 
    
     </script>
 </body>

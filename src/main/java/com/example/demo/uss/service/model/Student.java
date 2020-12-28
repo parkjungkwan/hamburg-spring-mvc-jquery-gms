@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Student {
-    private String stuNum, userid, password, name, ssn, regDate;
+    private String stuNum, userid, password, name, ssn, regDate, profileImage;
 }
 /*
 create table students(
@@ -20,6 +20,8 @@ create table students(
    ssn varchar2(20),
    reg_date varchar2(20),
    tea_num int,
-   constraint students_fk foreign key(tea_num) refernces teachers(tea_num)
+   subject varchar2(20),
+   profile_image varchar2(100)
+   constraint students_fk foreign key(tea_num) references teachers(tea_num)
    )
  */

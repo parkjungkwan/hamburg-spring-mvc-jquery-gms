@@ -15,5 +15,5 @@ create table articles(
    title varchar2(20),
    content varchar2(20),
    count varchar2(20),
-   writer_num int
+   writer_num int)
  */
