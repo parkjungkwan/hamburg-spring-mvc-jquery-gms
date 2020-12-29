@@ -17,13 +17,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	<mvc:annotation-driven />
-	
-	
-
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-
-	
-	
 	<context:property-placeholder location="classpath:config/application.properties"/>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}"/>
