@@ -1,8 +1,10 @@
 package com.example.demo.uss.service;
 
-import org.springframework.stereotype.Component;
+import java.util.List;
 
-@Component
-public interface StudentService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class StudentService {
 
 }

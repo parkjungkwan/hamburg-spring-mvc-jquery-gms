@@ -1,8 +1,9 @@
 package com.example.demo.cop.bbs.service;
 
-import org.springframework.stereotype.Component;
 
-@Component
-public interface ReplyService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class ReplyService  {
 
 }

@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.demo.cmm.mpr.ManagerMapper;
 import com.example.demo.sym.service.ManagerService;
-import com.example.demo.sym.service.model.Manager;
+import com.example.demo.sym.service.Manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,15 +17,15 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class ManagerController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    ManagerService managerService;
-    @Autowired ManagerMapper managerMapper;
+    
+    @Autowired ManagerService managerService;
+    
 
     @PostMapping("/managers")
     public Map<?, ?> register(@RequestBody Manager manager) {
         var map = new HashMap<>();
         logger.info("등록하려는 관리자정보: " + manager.toString());
-        map.put("message", (managerMapper.insert(manager) == 1) ? "SUCCESS" : "FAILURE");
+        map.put("message", (managerService.register(manager) == 1) ? "SUCCESS" : "FAILURE");
         return map;
     }
 }
