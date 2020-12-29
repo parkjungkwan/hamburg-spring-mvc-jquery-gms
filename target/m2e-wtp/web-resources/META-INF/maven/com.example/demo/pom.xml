@@ -40,6 +40,7 @@
 		<mysql-version>5.1.6</mysql-version>
 		<mariadb-version>2.7.0</mariadb-version>
 		<commons-el-version>1.0</commons-el-version>
+		<junit-version>4.13.1</junit-version>
 	</properties>
 	<dependencies>
                
@@ -249,12 +250,14 @@
 		    <scope>provided</scope>
 		</dependency>
 		<!-- Test -->
+		 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>  
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>${junit-version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
 		<!-- Jackson -->     
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
