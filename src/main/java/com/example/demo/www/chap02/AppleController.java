@@ -15,34 +15,6 @@ import lombok.Data;
 	
 }
 enum Color { RED, GREEN }
-/*
-class AppleWeightPredicate implements Predicate<Apple>{
-
-	@Override
-	public boolean test(Apple t) {
-		
-		return false;
-	}
-	
-}
-class AppleColorPredicate implements Predicate<Apple>{
-
-	@Override
-	public boolean test(Apple t) {
-		
-		return false;
-	}
-	
-}
-class AppleRedAndHeavyPredicate implements Predicate<Apple>{
-
-	@Override
-	public boolean test(Apple t) {
-		return false;
-	}
-	
-}
-*/
 class AppleService {
 	 List<Apple> filterApples(List<Apple> ls, Predicate<Apple> p){
 		List<Apple> r = new ArrayList<>();
@@ -66,7 +38,7 @@ class AppleService {
 	 public List<Apple> filterApplesByWeight(List<Apple> inventory, int weight) {
 	    List<Apple> result = new ArrayList<>();
 	    for (Apple apple : inventory) {
-	      if (apple.getWeight() > weight) {
+	      if (apple.getWeight() >= weight) {
 	        result.add(apple);
 	      }
 	    }
@@ -85,15 +57,22 @@ public class AppleController extends Util{
 						new Apple(100, Color.RED),
 						new Apple(110, Color.RED),
 						new Apple(120, Color.RED)});
-		print("녹색사과 필터링 결과");
+		print("1. 녹색사과 필터링 결과");
 		for(Apple a : as.filterApples(ls, as::isGreenApple)) print(a.toString());
-		print("빨간사과 필터링 결과 ... 단, 색깔은 외부주입");
-		for(Apple a : as.filterApplesByColor(ls, Color.RED)) print(a.toString());
-		print("100그램이상 사과 필터링 결과");
+		for(Apple a : as.filterApples(ls, (Apple a) -> a.getColor().equals(Color.GREEN) )) 
+			print(a.toString());
+		print("2. 100그램이상 사과 필터링 결과");
 		for(Apple a : as.filterApples(ls, as::isHeavyApple)) print(a.toString());
-		print("120그램이상 사과 필터링 결과 ... 단, 무게는 외부주입");
+		for(Apple a : as.filterApples(ls, (Apple a) -> a.getWeight() > 100))
+			print(a.toString());
+		print("3. 빨간사과 필터링 결과 ... 단, 색깔은 외부주입");
+		for(Apple a : as.filterApplesByColor(ls, Color.RED)) print(a.toString());
+		print("4. 120그램이상 사과 필터링 결과 ... 단, 무게는 외부주입");
 		for(Apple a : as.filterApplesByWeight(ls, 120)) print(a.toString());
-		
+		print("5. 100그램 이상 빨간 사과 필터링 결과");
+		for(Apple a : as.filterApples(ls, (Apple a) -> a.getWeight() > 100  
+				&& a.getColor().equals(Color.RED)))
+			print(a.toString());
 	}		
 }
 	
