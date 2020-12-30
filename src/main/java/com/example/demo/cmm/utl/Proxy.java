@@ -7,5 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component("px")
 public class Proxy {
-
+	public void print(String s) {
+		Consumer<String> c = System.out :: println;
+		c.accept(s);
+	}
 }
