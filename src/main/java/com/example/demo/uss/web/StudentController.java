@@ -2,7 +2,7 @@ package com.example.demo.uss.web;
 
 import java.util.Map;
 
-import com.example.demo.cmm.utl.Proxy;
+import com.example.demo.cmm.utl.Util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
