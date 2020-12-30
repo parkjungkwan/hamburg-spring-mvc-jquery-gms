@@ -2,10 +2,12 @@ package com.example.demo.www.chap02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
 import com.example.demo.cmm.utl.Util;
+import static java.util.Comparator.comparing;
 
 import lombok.Data;
 
@@ -49,6 +51,7 @@ class AppleService {
 	
 }
 public class AppleController extends Util{	
+	@SuppressWarnings("deprecation")
 	public static void main(String... args) {
 		AppleService as = new AppleService();
 		List<Apple> ls = Arrays.asList(
@@ -73,6 +76,38 @@ public class AppleController extends Util{
 		for(Apple a : as.filterApples(ls, (Apple a) -> a.getWeight() > 100  
 				&& a.getColor().equals(Color.RED)))
 			print(a.toString());
+		
+		print(">>> 정렬 >>>");
+		// 익명함수
+		Comparator<Apple> c = new Comparator<Apple>() {
+			@Override
+			public int compare(Apple o1, Apple o2) {
+				return Integer.valueOf(o1.getWeight()).compareTo(Integer.valueOf(o2.getWeight()));
+			}
+		};
+		// 람다
+		// 오름차순 정렬
+		ls.sort((Apple o1, Apple o2) 
+				-> integer(string(o1.getWeight()))
+						.compareTo(integer(string(o2.getWeight()))));
+		// 위 코드를 더 간략화 시킴. 단 import static java.util.Comparator.comparing; 주의 !!
+		// Comparator<Apple> app = Comparator.comparing((Apple a)-> a.getWeight());
+		ls.sort(comparing(Apple::getWeight));
+		for(Apple a : ls) print(a.toString());	
+		// 내림차순 정렬
+		ls.sort((Apple o1, Apple o2) 
+				-> integer(string(o1.getWeight()))
+						.compareTo(integer(string(o2.getWeight()))));
+		// 위 코드를 더 간략화 시킴. 단 import static java.util.Comparator.comparing; 주의 !!
+		ls.sort(comparing(Apple::getWeight).reversed());
+		for(Apple a : ls) print(a.toString());	
+		// 내림차순 정렬. 같은 무게 객체 존재
+		ls.sort(comparing(Apple::getWeight)
+				.reversed()
+				.thenComparing(Apple::getColor));
+		for(Apple a : ls) print(a.toString());	
+		
+		
 	}		
 }
 	
