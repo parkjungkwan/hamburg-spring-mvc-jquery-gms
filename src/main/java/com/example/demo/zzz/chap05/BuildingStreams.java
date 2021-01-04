@@ -13,20 +13,27 @@ public class BuildingStreams {
   public static void main(String... args) throws Exception {
     // Stream.of
     Stream<String> stream = Stream.of("Java 8", "Lambdas", "In", "Action");
-    stream.map(String::toUpperCase).forEach(System.out::println);
+    //stream.map(String::toUpperCase).forEach(System.out::println);
 
     // Stream.empty
     Stream<String> emptyStream = Stream.empty();
 
     // Arrays.stream
     int[] numbers = { 2, 3, 5, 7, 11, 13 };
-    System.out.println(Arrays.stream(numbers).sum());
-
+    //System.out.println(Arrays.stream(numbers).sum());
+    System.out.println("=====================");
     // Stream.iterate
+    Stream.iterate(0, n -> n + 2)
+    	    .limit(10).forEach(System.out::print);
+   
+    
+    System.out.println("=====================");
     Stream.iterate(0, n -> n + 2)
         .limit(10)
         .forEach(System.out::println);
 
+    
+   
     // iterate를 이용한 피보나치
     Stream.iterate(new int[] { 0, 1 }, t -> new int[] { t[1], t[0] + t[1] })
         .limit(10)
