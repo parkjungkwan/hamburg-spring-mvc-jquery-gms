@@ -79,7 +79,7 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" id="pwd" value="1" required>
         
-    <button id="login-btn-333">Login</button>
+    <button id="mgr-access-btn">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -93,22 +93,6 @@ span.psw {
 </form>
 <script>
 /*
-$(`#login-btn`).click(function(e){
-	e.preventDefault()
-	alert(`1`)
-	$.ajax({
-		url: `${ctx}/managers/access`,
-		type: `post`,
-		data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
-		dataType: 'json',
-		contentType: 'application/json',
-		success: function(d){
-			alert(d)
-		},
-		error: function(e){
-			alert(`Fail`)
-		}
-	})
-})
+
 */
 </script>

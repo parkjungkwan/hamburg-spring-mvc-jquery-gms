@@ -46,7 +46,7 @@ table tr td{1px solid black}
 	</tr>
 </table>
 <script	>
-manager.init()
+manager.init(`${ctx}`)
 </script>
 </body>
 </html>

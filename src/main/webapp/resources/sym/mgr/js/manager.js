@@ -2,8 +2,8 @@
 var manager = manager || {}
 manager = (()=>{
 	let _
-	const init =()=>{
-		_ = localStorage.getItem("ctx")
+	const init = ctx =>{
+		_ = ctx
 		siginup()
 		login()
 	}
@@ -30,10 +30,22 @@ manager = (()=>{
         })
 	}
 	const login = () => {
-		
-		$(`#login-btn-333`).click(e => {
-			e.preventDefault()
-			alert(`2`)
+			$(`#mgr-access-btn`).click(function(e){
+				alert(`${_}`)
+				e.preventDefault()
+				$.ajax({
+					url: `${_}/managers/access`,
+					type: `post`,
+					data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function(d){
+						alert(d)
+					},
+					error: function(e){
+						alert(`Fail`)
+					}
+				})
 		})
 	}
 	return {init}
