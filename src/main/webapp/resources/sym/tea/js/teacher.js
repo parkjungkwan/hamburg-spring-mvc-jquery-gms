@@ -1,7 +1,7 @@
 'use strict'
 
 
-
+/*
 
 const teaNum = localStorage.getItem(`searchTeacher`)
 $.getJSON(`/teachers/${teaNum}`, d => {
@@ -81,4 +81,4 @@ $.getJSON(`/teachers/${teaNum}`, d => {
 }) // getJSON 의 scope
 
 
-
+*/

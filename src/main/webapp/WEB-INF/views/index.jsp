@@ -30,10 +30,8 @@
     <jsp:include page="cmm/clients.jsp"/>
 	<jsp:include page="cmm/footer.jsp"/>
   
-    <script	>
-   
-   common.init(`${ctx}`) 
-
-    </script>
+<script	>
+common.init(`${ctx}`) 
+</script>
 </body>
 </html>

@@ -12,3 +12,8 @@
          </div>
      </div>       
  </section>
+     <script	>
+common.init(`${ctx}`) 
+manager.init(`${ctx}`)
+teacher.init(`${ctx}`)
+    </script>

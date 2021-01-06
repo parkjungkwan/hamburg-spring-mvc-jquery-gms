@@ -66,7 +66,7 @@ span.psw {
   }
 }
 </style>
-<form>
+
 <div>
   <div class="imgcontainer">
     <img style="width:100px;height:100px" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -90,9 +90,23 @@ span.psw {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </div>
-</form>
-<script>
-/*
 
-*/
+<script>
+$(`#mgr-access-btn`).click(function() {
+	e.preventDefault()
+	$.ajax({
+		url: `${ctx}/managers/access`,
+		type: `post`,
+		data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
+		dataType: 'json',
+		contentType: 'application/json',
+		success: function(d){
+			location.href = `${ctx}/admin/mgr/index`
+		},
+		error: function(e){
+			alert(`Fail`)
+		}
+	})
+})
+
 </script>
