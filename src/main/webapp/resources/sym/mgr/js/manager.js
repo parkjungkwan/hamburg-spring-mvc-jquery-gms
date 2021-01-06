@@ -5,6 +5,7 @@ manager = (()=>{
 	const init =()=>{
 		_ = localStorage.getItem("ctx")
 		siginup()
+		login()
 	}
 	const siginup =()=>{
 		$('#signupbtn').click(e => {
@@ -28,11 +29,18 @@ manager = (()=>{
             })
         })
 	}
+	const login = () => {
+		
+		$(`#login-btn-333`).click(e => {
+			e.preventDefault()
+			alert(`2`)
+		})
+	}
 	return {init}
 })()
 
 
 
-$('#home').click(e => { location.href = '/'})
-        $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
+//$('#home').click(e => { location.href = '/'})
+//$('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
         

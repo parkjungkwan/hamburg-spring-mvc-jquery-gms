@@ -66,19 +66,20 @@ span.psw {
   }
 }
 </style>
-<form action="/action_page.php" method="post">
+<form>
+<div>
   <div class="imgcontainer">
     <img style="width:100px;height:100px" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" id="uid" value="a@test.com" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" id="pwd" value="1" required>
         
-    <button type="submit">Login</button>
+    <button id="login-btn-333">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -88,4 +89,26 @@ span.psw {
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
+</div>
 </form>
+<script>
+/*
+$(`#login-btn`).click(function(e){
+	e.preventDefault()
+	alert(`1`)
+	$.ajax({
+		url: `${ctx}/managers/access`,
+		type: `post`,
+		data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
+		dataType: 'json',
+		contentType: 'application/json',
+		success: function(d){
+			alert(d)
+		},
+		error: function(e){
+			alert(`Fail`)
+		}
+	})
+})
+*/
+</script>

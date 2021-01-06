@@ -12,10 +12,7 @@
              </ul>
          </li>                  
          <li id="bbs" class="dropdown"></li>
-         <li id="manager" class="dropdown">
-         	<a href="#">관리자<i class="fa fa-angle-down"></i></a>
-						<ul id="mgr-ul" role="menu" class="sub-menu"></ul>
-         </li>     
+         <li id="manager" class="dropdown"></li>     
          <li id="teacher" class="dropdown"></li>               
      </ul>
  </div>

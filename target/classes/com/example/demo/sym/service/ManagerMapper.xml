@@ -6,5 +6,10 @@
 		insert into managers(email, password, name, profile_image) 
 		values (#{email}, #{password})
 	</insert>
+	<select id="access"
+		resultType="com.example.demo.sym.service.Manager"
+	 parameterType="com.example.demo.sym.service.Manager">
+		
+	</select>
   
 </mapper>
