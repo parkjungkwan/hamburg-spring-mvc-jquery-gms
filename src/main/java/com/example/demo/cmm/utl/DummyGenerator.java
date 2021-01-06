@@ -6,8 +6,15 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
+import com.example.demo.sym.service.Manager;
+import com.example.demo.sym.service.Teacher;
+import com.example.demo.uss.service.Student;
+
 import static com.example.demo.cmm.utl.Util.*;
 
+@Service("gen")
 public class DummyGenerator {
 	
 	/**
@@ -19,8 +26,19 @@ public class DummyGenerator {
 	 * 그 외의 나머지 연도는 평년이다.
 	 * */
 	public String makeBirthday() {
-		int year = rangeRandom.apply(1970, 2000);
-		int month = rangeRandom.apply(1, 13);
+		int year = random.apply(1970, 2000);
+		int month = random.apply(1, 13);
+		int date = 0;
+		switch(month) {
+		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 29 : 28;
+		case 4: case  6:case  9:case  11:date = 30;	
+		default: date = 31;
+		}
+		return year+"-"+month+"-"+date;
+	}
+	public String makeRegdate() {
+		int year = random.apply(2019, 2020);
+		int month = random.apply(1, 13);
 		int date = 0;
 		switch(month) {
 		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 29 : 28;
@@ -43,17 +61,19 @@ public class DummyGenerator {
 	 * a-z 0-9
 	 * */
 	public String makeUserid() {
-		String text = ""; 
-		String ran = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-		return text;
+		List<String> ls = Arrays.asList(
+				"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""));
+		Collections.shuffle(ls);
+		return ls.get(0)+ls.get(1)+ls.get(2)+ls.get(3);
 	}
 	/*
 	 * 랜덤 전화번호 생성하기
 	 * 
 	 * */
 	public String makePhoneNumber() {
-		return "";
+		return "010-"+random.apply(1000, 10000)+"-"+random.apply(1000, 10000); 
 	}
+	
 	/*
 	 * 랜덤 이름 생성하기
 	 * 
@@ -85,8 +105,6 @@ public class DummyGenerator {
 	    		"후", "려", "균", "묵", "송", "욱", "휴", "언", "령", "섬", "들", "견", "추", "걸", "삼", "열", "웅", "분", "변", "양",
 	    		"출", "타", "흥", "겸", "곤", "번", "식", "란", "더", "손", "술", "훔", "반", "빈", "실", "직", "흠", "흔", "악", "람",
 	    		"뜸", "권", "복", "심", "헌", "엽", "학", "개", "롱", "평", "늘", "늬", "랑", "얀", "향", "울", "련");
-
-	    
 	    Collections.shuffle(fname);
 	    Collections.shuffle(name1);
 	    Collections.shuffle(name2);
@@ -95,6 +113,38 @@ public class DummyGenerator {
 	    		.collect(Collectors.toList())
 	    		.get(0);
 	    return fname.get(0)+a[0]+a[1];
+	}
+	public String makeSubject() {
+		List<String> ls = Arrays.asList("Java","Spring","Python","jQuery","eGovframe");
+		 Collections.shuffle(ls);
+		 return ls.get(0);
+	}
+	
+	public String makeEmail() {
+		List<String> ls = Arrays.asList("@test.com","@gmail.com","@naver.com");
+		Collections.shuffle(ls);
+		return makeUserid()+ls.get(0);
+	}
+	public Manager makeManager() {
+		return new Manager("",makeEmail(), "1");
+	}
+	public Teacher makeTeacher() {
+		return new Teacher("", 
+				makeUsername(), 
+				"1", 
+				makeSubject(), 
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiuZGp08DDSD0P3PMfKSbbPu2nVmJdH74gHg&usqp=CAU"
+				);
+	}
+	public Student makeStudent() {
+		return new Student(makeUserid(), 
+				"1", 
+				makeUsername(), 
+				makeBirthday(), 
+				makeGender(),
+				makeRegdate(),
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiuZGp08DDSD0P3PMfKSbbPu2nVmJdH74gHg&usqp=CAU",
+				makeSubject());
 	}
 	
 }

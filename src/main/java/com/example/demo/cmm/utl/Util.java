@@ -19,7 +19,7 @@ public class Util {
 	public static Function<Object, String> string = String :: valueOf;
 	public static Function<String, Integer> integer = Integer :: valueOf;
 	public static BiPredicate<String, String> equals = String :: equals;
-	public static BiFunction<Integer, Integer, Integer> rangeRandom =(t,u)->(int)(Math.random()*(u-t))+t;
+	public static BiFunction<Integer, Integer, Integer> random =(t,u)->(int)(Math.random()*(u-t))+t;
 	public static Function<Integer, int[]> intArr = int[] :: new;
 	public static Supplier<LocalDate> today = () -> LocalDate.now();
 	public static Supplier<LocalTime> time = () -> LocalTime.now();
