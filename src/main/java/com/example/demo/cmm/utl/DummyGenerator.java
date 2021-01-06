@@ -8,13 +8,14 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.cmm.enm.Path;
 import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.Teacher;
 import com.example.demo.uss.service.Student;
 
 import static com.example.demo.cmm.utl.Util.*;
 
-@Service("gen")
+@Service("dummy")
 public class DummyGenerator {
 	
 	/**
@@ -126,14 +127,14 @@ public class DummyGenerator {
 		return makeUserid()+ls.get(0);
 	}
 	public Manager makeManager() {
-		return new Manager("",makeEmail(), "1");
+		return new Manager("",makeEmail(), "1", makeUsername(), Path.DEFAULT_PROFILE.toString());
 	}
 	public Teacher makeTeacher() {
 		return new Teacher("", 
 				makeUsername(), 
 				"1", 
 				makeSubject(), 
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiuZGp08DDSD0P3PMfKSbbPu2nVmJdH74gHg&usqp=CAU"
+				Path.DEFAULT_PROFILE.toString()
 				);
 	}
 	public Student makeStudent() {
@@ -143,7 +144,7 @@ public class DummyGenerator {
 				makeBirthday(), 
 				makeGender(),
 				makeRegdate(),
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiuZGp08DDSD0P3PMfKSbbPu2nVmJdH74gHg&usqp=CAU",
+				Path.DEFAULT_PROFILE.toString(),
 				makeSubject());
 	}
 	

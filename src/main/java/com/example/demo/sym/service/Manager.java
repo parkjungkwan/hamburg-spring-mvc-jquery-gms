@@ -18,5 +18,5 @@ create table managers(
 @Component
 @Data @AllArgsConstructor @Lazy @NoArgsConstructor
 public class Manager {
-    private String mgrNum, email, password;
+    private String mgrNum, email, password, name, profileImage;
 }

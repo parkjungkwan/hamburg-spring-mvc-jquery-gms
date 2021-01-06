@@ -12,16 +12,15 @@
              </ul>
          </li>                  
          <li id="bbs" class="dropdown"></li>
-         <li class="dropdown"><a href="portfolio.html">Portfolio <i class="fa fa-angle-down"></i></a>
-             <ul role="menu" class="sub-menu">
-                 <li><a href="#">Portfolio Default</a></li>
-                 <li><a href="#">Isotope 3 Columns + Right Sidebar</a></li>
-             </ul>
-         </li>                         
-         <li><a id="manager_register" href="#">Manager</a></li>     
-         <li><a id="teacher_register" href="#">Teacher</a></li>               
+         <li id="manager" class="dropdown">
+         	<a href="#">관리자<i class="fa fa-angle-down"></i></a>
+						<ul id="mgr-ul" role="menu" class="sub-menu"></ul>
+         </li>     
+         <li id="teacher" class="dropdown"></li>               
      </ul>
  </div>
 <script>
 common.goHome()
+common.init()
+
 </script>
