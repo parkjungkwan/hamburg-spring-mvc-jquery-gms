@@ -29,7 +29,11 @@ common = (()=>{
 				alert(`${j.id}`)
 			})
 		})
-		let mgr_arr = [{id:'sigin-up', val: '관리자등록'}, {id:'sign-in', val: '관리자접속'},{id:'c', val: 'c'},{id:'d', val: 'd'},{id:'e', val: 'c'}]
+		let mgr_arr = [{id:'sigin-up', val: '관리자등록', url:'/admin/mgr/register'}, 
+		{id:'sign-in', val: '관리자접속', url: `${ctx}/admin/mgr/access`},
+		{id:'c', val: 'c'},
+		{id:'d', val: 'd'},
+		{id:'e', val: 'c'}]
 		$('#manager').html(`<a href="#">관리자<i class="fa fa-angle-down"></i></a>
 						<ul id="mgr-ul" role="menu" class="sub-menu"></ul>`)
 		
@@ -39,10 +43,14 @@ common = (()=>{
 			.text(`${j.val}`)
 			.appendTo(`#mgr-ul`)
 			.click(e => {
-				alert(`${j.id}`)
+				location.href = j.url
 			})
 		})
-		let tea_arr = [{id:'sigin-up', val: '교강사등록'}, {id:'sign-in', val: '교강사접속'},{id:'c', val: 'c'},{id:'d', val: 'd'},{id:'e', val: 'c'}]
+		let tea_arr = [{id:'sigin-up', val: '교강사등록', url: '/admin/tea/register'}, 
+		{id:'sign-in', val: '교강사접속', url: `${ctx}/admin/tea/access`},
+		{id:'c', val: 'c'},
+		{id:'d', val: 'd'},
+		{id:'e', val: 'c'}]
 		$('#teacher').html(`<a href="#">교강사<i class="fa fa-angle-down"></i></a>
 						<ul id="tea-ul" role="menu" class="sub-menu"></ul>`)
 		
@@ -52,7 +60,7 @@ common = (()=>{
 			.text(`${j.val}`)
 			.appendTo(`#tea-ul`)
 			.click(e => {
-				alert(`${j.id}`)
+				location.href = j.url
 			})
 		})
 		
