@@ -92,7 +92,8 @@ span.psw {
 </div>
 
 <script>
-$(`#mgr-access-btn`).click(function() {
+$(`#mgr-access-btn`).click(function(e) {
+	alert(`mgr access`)
 	e.preventDefault()
 	$.ajax({
 		url: `${ctx}/managers/access`,

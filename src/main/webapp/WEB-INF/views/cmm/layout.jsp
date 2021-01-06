@@ -5,46 +5,24 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
+<head>
 <tiles:insertAttribute name="head"/>
-<tiles:insertAttribute name="script"/>
-<style>
-table{1px solid black; width: 80%; margin: 0 auto}
-table tr {1px solid black}
-table tr td{1px solid black}
-
-</style>
+</head>
 <body>
-<table>
-	<tr>
-		<td>
-			<header id="layout-header">
-				<tiles:insertAttribute name="header"/>
-			</header>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<article id="layout-gnb">
-				<tiles:insertAttribute name="gnb"/>
-			</article>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<article id="layout-container">
-				<tiles:insertAttribute name="container"/>
-			</article>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<footer id="layout-footer">
-				<tiles:insertAttribute name="footer"/>
-				
-			</footer>
-		</td>
-	</tr>
-</table>
+<article id="layout-gnb">
+	<tiles:insertAttribute name="gnb"/>
+</article>
+
+<h1>The article and footer elements + CSS</h1>
+<article id="layout-container">
+	<tiles:insertAttribute name="container"/>
+</article>
+
+
+<footer id="layout-footer">
+<tiles:insertAttribute name="footer"/>
+
+</footer>
 
 </body>
 </html>

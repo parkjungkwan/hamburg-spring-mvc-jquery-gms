@@ -3,16 +3,12 @@
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
- 
     <definition name="public" template="/WEB-INF/views/cmm/layout.jsp">
     	<put-attribute name="head" value="/WEB-INF/views/cmm/head.jsp"/>
-    	<put-attribute name="header" value="/WEB-INF/views/cmm/logo.jsp"/>
 	    <put-attribute name="gnb" value="/WEB-INF/views/cmm/navbar.jsp"/>
 	    <put-attribute name="container" value=""/>
 	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
-	    <put-attribute name="script" value="/WEB-INF/views/cmm/script.jsp"/>
 	</definition>
-
 	<definition name="admin:*/*" extends="public">
 	    <put-attribute name="container" value="/WEB-INF/views/sym/{1}/{2}.jsp"/>
 	</definition>
@@ -22,6 +18,4 @@
 	<definition name="content:*/*" extends="public">
 	    <put-attribute name="container" value="/WEB-INF/views/cop/{1}/{2}.jsp"/>
 	</definition>
-	
- 
 </tiles-definitions>

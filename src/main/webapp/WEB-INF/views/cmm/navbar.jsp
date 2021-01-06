@@ -2,22 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<div class="collapse navbar-collapse">
-     <ul class="nav navbar-nav navbar-right">
-         <li class="active"><a class="move-home" href="#">Home</a></li>
-         <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
-             <ul role="menu" class="sub-menu">
-                 <li><a href="#">About</a></li>
-                 <li><a href="#">About 2</a></li>
-             </ul>
-         </li>                  
-         <li id="bbs" class="dropdown"></li>
-         <li id="manager" class="dropdown"></li>     
-         <li id="teacher" class="dropdown"></li>               
-     </ul>
- </div>
+<ul>
+  <li><a class="active" href="#home">홈</a></li>
+  <li><a href="#contact">학생</a></li>
+  <li><a href="#contact">교강사</a></li>
+  <li style="float:right"><a href="#about">관리자</a></li>
+</ul>
 <script>
 common.goHome()
 common.init()
-
 </script>
