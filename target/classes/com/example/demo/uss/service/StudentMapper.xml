@@ -5,8 +5,8 @@
 	<delete id="truncate" parameterType="hashmap">${TRUNCATE_STUDENTS}</delete>
 	<select id="count" resultType="int">${COUNT_STUDENTS}</select>
 	<insert id="insert" parameterType="com.example.demo.uss.service.Student">
-		insert into students(userid, password, name, ssn, reg_date, profile_image, subject)
-		values (#{userid}, #{password}, #{name}, #{ssn}, #{regDate}, #{profileImage}, #{subject})
+		insert into students(userid, password, name, birthday, reg_date, profile_image, subject)
+		values (#{userid}, #{password}, #{name}, #{birthday}, #{regDate}, #{profileImage}, #{subject})
 
 	</insert>
 </mapper>
