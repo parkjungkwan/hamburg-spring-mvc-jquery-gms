@@ -69,7 +69,6 @@
 </div>
 <script>
 $(`#mgr-login-btn`).click(function(){
-	alert(`${ctx}`)
 	location.href = `${ctx}/admin/mgr/access`
 })
 </script>

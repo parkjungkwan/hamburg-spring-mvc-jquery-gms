@@ -5,8 +5,11 @@ import java.util.Map;
 import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.utl.Util;
 import com.example.demo.uss.service.Student;
+import com.example.demo.uss.service.StudentMapper;
 import com.example.demo.uss.service.StudentService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
-
+import static com.example.demo.cmm.utl.Util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,37 +33,48 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired StudentService studentService;
+    @Autowired StudentMapper studentMapper;
     @PostMapping("")
     public Messenger register(@RequestBody Student s){
-        return studentService.register(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
+        return studentMapper.insert(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     @PostMapping("/login")
     public Map<?,?> login(@RequestBody Student s){
         var map = new HashMap<>();
-        Student result = studentService.login(s);
+        Student result = studentMapper.login(s);
         map.put("message", result!=null?"SUCCESS":"FAILURE");
         map.put("sessionUser", result);
         return map;
     }
     @GetMapping("/{userid}")
     public Student profile(@PathVariable String userid){
-        return studentService.detail(userid);
+        return studentMapper.selectById(userid);
     }
     @GetMapping("")
     public List<?> list(){
-        return studentService.list();
+        return studentMapper.selectAll();
     }
     @PutMapping("")
     public Messenger update(@RequestBody Student s){
-        return studentService.update(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
+        return studentMapper.update(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     @DeleteMapping("")
     public Messenger delete(@RequestBody Student s){
-        return studentService.delete(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
+    	logger.info("Students Deleted Execute..");
+        return studentMapper.delete(s) ==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     @GetMapping("/truncate")
     public Messenger truncate() {
-    	return Messenger.SUCCESS;
+    	logger.info("Students Truncated Execute..");
+    	return studentService.truncate()==1?Messenger.SUCCESS:Messenger.FAILURE;
+    }
+    @GetMapping("/insert-many/{count}")
+    public Map<?,?> insertMany(@PathVariable String count) {
+    	logger.info(String.format("Insert %s Students ...",count));
+    	var map = new HashMap<String, String>();
+    	map.put("count", string.apply(studentService.insertMany(Integer.parseInt(count))));
+    	return map;
     }
 }

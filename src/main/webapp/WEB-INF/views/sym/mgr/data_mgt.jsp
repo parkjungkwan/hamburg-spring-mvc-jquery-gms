@@ -10,7 +10,8 @@
     	<tr>
     		<td>학 생</td>
     		<td>
-	    		<button id="">빅데이터생성</button>
+    			<input type="text" id="stu-data-count"/>
+	    		<button id="mgr-insert-many-stu">건의 더미 데이터생성</button>
 	    		<button>조회</button>
 	    		<button>수정</button>
 	    		<button>삭제</button>
@@ -20,7 +21,8 @@
     	<tr>
     		<td>교강사</td>
     		<td>
-    			<button>빅데이터생성</button>
+    			<input type="text" id="tea-data-count"/>
+    			<button id="mgr-insert-many-tea">건의 더미 데이터생성</button>
 	    		<button>조회</button>
 	    		<button>수정</button>
 	    		<button>삭제</button>
@@ -30,7 +32,6 @@
     	<tr>
     		<td>사 원 </td>
     		<td>
-    			<button>빅데이터생성</button>
 	    		<button>조회</button>
 	    		<button>수정</button>
 	    		<button>삭제</button>
@@ -42,8 +43,14 @@
 <script>
 $(`#mgr-truncate-stu`).click(function(e){
 	e.preventDefault()
-	$.getJSON(`${ctx}/`, function(d){
+	$.getJSON(`${ctx}/students/truncate`, function(d){
 		alert(d)
+	})
+})
+$(`#mgr-insert-many-stu`).click(function(e){
+	e.preventDefault()
+	$.getJSON(`${ctx}/students/insert-many/${$('#stu-data-count').val()}`, function(d){
+		alert(`${d.count}건이 입력되었습니다`)
 	})
 })
 </script>
