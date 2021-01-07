@@ -59,4 +59,8 @@ public class StudentController {
     public Messenger delete(@RequestBody Student s){
         return studentService.delete(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
+    @GetMapping("/truncate")
+    public Messenger truncate() {
+    	return Messenger.SUCCESS;
+    }
 }

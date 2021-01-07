@@ -39,6 +39,29 @@ li a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
+.my-tab {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black
+}
+
+.my-tab th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid black;
+  text-align:center;
+}
+
+.my-tab tr:nth-child(even){background-color: #f2f2f2}
+
+.my-tab th {
+  background-color: #4CAF50;
+  color: white;
+  text-align:center;
+  border: 1px solid black
+}
+
+
 </style>
 </head>
 <body>
