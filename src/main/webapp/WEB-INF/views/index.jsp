@@ -206,14 +206,6 @@
 <jsp:include page="./cmm/intro/footer.jsp"/>
 
 
-
-
-
-
-
-
-
-
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
