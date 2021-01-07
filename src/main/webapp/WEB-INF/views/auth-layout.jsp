@@ -16,7 +16,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 10%;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
@@ -70,7 +70,7 @@ li a:hover:not(.active) {
 <jsp:include page="./sym/mgr/sidebar.jsp"/>
 
 
-<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+<div style="margin-left:10%;padding:1px 5px;height:1000px;">
 		<article id="layout-container">
 			<tiles:insertAttribute name="container"/>
 		</article>

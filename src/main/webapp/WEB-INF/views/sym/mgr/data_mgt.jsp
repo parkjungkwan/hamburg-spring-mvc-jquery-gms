@@ -5,17 +5,21 @@
 <section id="data-mgt">
     <table class="my-tab" id="mgr-tab">
     	<tr>
-    		<th>관리 항목</th><th>관리 내용</th>
+    		<th style="width: 30%">관리 항목</th><th>조회결과</th>
     	</tr>
     	<tr>
-    		<td>학 생 (총 <span id="stu-count"></span> 명)</td>
-    		<td>
-    			<input type="text" id="stu-data-count"/>
-	    		<button id="mgr-insert-many-stu">건의 더미 데이터생성</button>
-	    		<button>조회</button>
-	    		<button>수정</button>
-	    		<button>삭제</button>
+    		<td>학 생 (총 <span id="stu-count"></span> 명) <br/><br/>
+    			<input type="text" id="stu-data-count"/><button id="mgr-insert-many-stu">건 데이터생성</button><br/><br/>
+	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성
+	    		<input type="radio" name="stu-data-gender" value="F"/>여성<button>성별조회</button><br/><br/>
+	    		<input type="text" id="stu-data-count"/><button>수정</button><br/><br/>
+	    		<input type="text" id="stu-data-count"/><button>삭제</button><br/><br/>
 	    		<button id="mgr-truncate-stu">전체삭제</button>
+    		
+    		</td>
+    		<td>
+    			
+	    		
     		</td>
     	</tr>
     	<tr>
