@@ -19,6 +19,7 @@
 	    <put-attribute name="container" value="/WEB-INF/views/cop/{1}/{2}.jsp"/>
 	</definition>
 	<definition name="auth" template="/WEB-INF/views/auth-layout.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/cmm/head.jsp"/>
 	    <put-attribute name="container" value=""/>
 	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
 	</definition>

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%-- <tiles:insertAttribute name="head"/> --%>
+<tiles:insertAttribute name="head"/> 
 
 <style>
 body {

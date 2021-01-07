@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<tiles:insertAttribute name="head"/> 
 <style>
 body {
   margin: 0;
