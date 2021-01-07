@@ -7,9 +7,9 @@ public enum Sql {
 		String query = "";
 		switch(this) {
 		case TRUNCATE_STUDENTS:
-			query = "truncate table students";
+			query = "truncate table students"; break;
 		case COUNT_STUDENTS:
-			query = "select count(*) count from students";
+			query = "select count(*) count from students"; break;
 		}
 		return query;
 	}

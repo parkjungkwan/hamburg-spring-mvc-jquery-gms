@@ -25,7 +25,9 @@ public class StudentService{
     	for(int i=0; i < count; i++) {
     		studentMapper.insert(dummy.makeStudent());
     	}
-    	return count();
+    	int a = count(); 
+    	System.out.println("---------------------------"+a);
+    	return a;
     }
     @Transactional
     public int truncate() {

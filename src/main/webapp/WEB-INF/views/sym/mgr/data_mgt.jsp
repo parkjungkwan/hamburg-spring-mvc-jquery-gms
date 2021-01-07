@@ -8,7 +8,7 @@
     		<th>관리 항목</th><th>관리 내용</th>
     	</tr>
     	<tr>
-    		<td>학 생</td>
+    		<td>학 생 (총 <span id="stu-count"></span> 명)</td>
     		<td>
     			<input type="text" id="stu-data-count"/>
 	    		<button id="mgr-insert-many-stu">건의 더미 데이터생성</button>
@@ -41,17 +41,20 @@
     </table>
 </section>
 <script>
+$.getJSON(`${ctx}/students/count`, function(d){
+	$(`#stu-count`).text(d)
+})
+
 $(`#mgr-truncate-stu`).click(function(e){
 	e.preventDefault()
 	$.getJSON(`${ctx}/students/truncate`, function(d){
-		alert(d)
+		location.reload();
 	})
 })
 $(`#mgr-insert-many-stu`).click(function(e){
 	e.preventDefault()
-	$.getJSON(`${ctx}/students/insert-many/${$('#stu-data-count').val()}`, function(d){
-		alert(`${d.count}건이 입력되었습니다`)
-	})
+	$.getJSON(`${ctx}/students/insert-many/`+$('#stu-data-count').val(), 
+			function(d){ location.reload();}) 
 })
 </script>
 

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -62,19 +63,22 @@ public class StudentController {
     }
     @DeleteMapping("")
     public Messenger delete(@RequestBody Student s){
-    	logger.info("Students Deleted Execute..");
+    	logger.info("Students Deleted Execute ...");
         return studentMapper.delete(s) ==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     @GetMapping("/truncate")
     public Messenger truncate() {
-    	logger.info("Students Truncated Execute..");
+    	logger.info("Students Truncated Execute ...");
     	return studentService.truncate()==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     @GetMapping("/insert-many/{count}")
-    public Map<?,?> insertMany(@PathVariable String count) {
+    public String insertMany(@PathVariable String count) {
     	logger.info(String.format("Insert %s Students ...",count));
-    	var map = new HashMap<String, String>();
-    	map.put("count", string.apply(studentService.insertMany(Integer.parseInt(count))));
-    	return map;
+    	return string.apply(studentService.insertMany(Integer.parseInt(count)));
+    }
+    @GetMapping("/count")
+    public String count() {
+    	logger.info(String.format("Count Students ..."));
+    	return string.apply(studentService.count());
     }
 }
