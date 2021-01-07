@@ -102,7 +102,7 @@ $(`#mgr-access-btn`).click(function(e) {
 		dataType: 'json',
 		contentType: 'application/json',
 		success: function(d){
-			location.href = `${ctx}/admin/mgr/index`
+			location.href = `${ctx}/mgr/index`
 		},
 		error: function(e){
 			alert(`Fail`)

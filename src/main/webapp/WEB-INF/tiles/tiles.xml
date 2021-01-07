@@ -3,7 +3,7 @@
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
-    <definition name="public" template="/WEB-INF/views/cmm/layout.jsp">
+    <definition name="public" template="/WEB-INF/views/pub-layout.jsp">
     	<put-attribute name="head" value="/WEB-INF/views/cmm/head.jsp"/>
 	    <put-attribute name="gnb" value="/WEB-INF/views/cmm/navbar.jsp"/>
 	    <put-attribute name="container" value=""/>
@@ -17,5 +17,12 @@
 	</definition>
 	<definition name="content:*/*" extends="public">
 	    <put-attribute name="container" value="/WEB-INF/views/cop/{1}/{2}.jsp"/>
+	</definition>
+	<definition name="auth" template="/WEB-INF/views/auth-layout.jsp">
+	    <put-attribute name="container" value=""/>
+	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
+	</definition>
+	<definition name="mgr:*" extends="auth">
+	    <put-attribute name="container" value="/WEB-INF/views/sym/mgr/{1}.jsp"/>
 	</definition>
 </tiles-definitions>

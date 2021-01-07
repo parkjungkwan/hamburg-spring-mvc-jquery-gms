@@ -60,11 +60,16 @@
           <p><strong>Endless</strong> Amet</p>
         </div>
         <div class="panel-footer">
-          <h3>$49</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
+          <button id="mgr-join-btn" class="btn btn-lg">Sign Up</button>
+          <button id="mgr-login-btn" class="btn btn-lg">Sign In</button>
         </div>
       </div>      
     </div>    
   </div>
 </div>
+<script>
+$(`#mgr-login-btn`).click(function(){
+	alert(`${ctx}`)
+	location.href = `${ctx}/admin/mgr/access`
+})
+</script>
