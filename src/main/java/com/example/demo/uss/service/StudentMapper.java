@@ -14,7 +14,7 @@ public interface StudentMapper {
 
 	public Student selectById(String userid);
 
-	public List<Student> selectAll();
+	public List<Student> selectAll(HashMap<String, String> map);
 
 	public int update(Student s);
 

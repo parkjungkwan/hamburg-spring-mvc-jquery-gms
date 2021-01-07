@@ -9,9 +9,9 @@
     	</tr>
     	<tr>
     		<td>학 생 (총 <span id="stu-count"></span> 명) <br/><br/>
-    			<input type="text" id="stu-data-count"/><button id="mgr-insert-many-stu">건 데이터생성</button><br/><br/>
+    			<input type="text" id="stu-data-count"/><button id="mgr-insert-many-stu">생성</button><br/><br/>
 	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성
-	    		<input type="radio" name="stu-data-gender" value="F"/>여성<button>성별조회</button><br/><br/>
+	    		<input type="radio" name="stu-data-gender" value="F" style="margin-left:20px"/>여성<button style="margin-left:38px">성별조회</button><br/><br/>
 	    		<input type="text" id="stu-data-count"/><button>수정</button><br/><br/>
 	    		<input type="text" id="stu-data-count"/><button>삭제</button><br/><br/>
 	    		<button id="mgr-truncate-stu">전체삭제</button>

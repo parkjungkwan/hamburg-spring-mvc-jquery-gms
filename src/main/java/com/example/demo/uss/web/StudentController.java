@@ -53,10 +53,12 @@ public class StudentController {
     public Student profile(@PathVariable String userid){
         return studentMapper.selectById(userid);
     }
+    /*
     @GetMapping("")
     public List<?> list(){
         return studentMapper.selectAll();
     }
+    */
     @PutMapping("")
     public Messenger update(@RequestBody Student s){
         return studentMapper.update(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
@@ -80,5 +82,10 @@ public class StudentController {
     public String count() {
     	logger.info(String.format("Count Students ..."));
     	return string.apply(studentService.count());
+    }
+    @GetMapping("/find-by-gender/{gender}")
+    public List<Student> findByGender(@PathVariable String gender) {
+    	logger.info(String.format("Find By %s from Students ...", gender));
+    	return studentService.selectByGender(gender);
     }
 }
