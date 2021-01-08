@@ -90,7 +90,6 @@ span.psw {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </div>
-<script src="${mgr}/js/mgr.js"></script>
 <script>
 $(`#mgr-access-btn`).click(function() {mgr.access(`${ctx}`)})
 </script>

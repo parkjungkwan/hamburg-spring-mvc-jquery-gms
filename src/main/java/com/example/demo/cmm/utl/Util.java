@@ -25,5 +25,6 @@ public class Util {
 	public static Supplier<LocalTime> time = () -> LocalTime.now();
 	public static BiFunction<String,String, File> mkDir = File::new;
 	public static BiFunction<File,String, File> mkFile = File::new;
+	// map -> count
 	
 }

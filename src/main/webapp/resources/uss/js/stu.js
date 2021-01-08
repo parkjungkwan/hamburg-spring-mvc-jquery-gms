@@ -4,7 +4,7 @@ stu.insertMany = x => {
 	$.getJSON(`${x}/students/insert-many/${$('#stu-data-count').val()}`, 
 			d => { location.reload();})}
 stu.truncate = x => {
-	$.getJSON(`${ctx}/students/truncate`,
+	$.getJSON(`${x}/students/truncate`,
 	 		d => { location.reload()})}
 stu.count = x => {
 	$.getJSON(`${x}/students/count`, 

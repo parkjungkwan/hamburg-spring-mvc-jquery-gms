@@ -51,8 +51,6 @@
     </table>
     
 </section>
-<script src="${mgr}/js/mgr.js"></script>
-<script src="${stu}/js/stu.js"></script>
 <script>
 stu.count(`${ctx}`)
 stu.list(`${ctx}`)
