@@ -15,7 +15,7 @@ mgr.list = x => {
 		$(`<th>${j}</th>`).css({backgroundColor: `gray`})
 		.appendTo(`#tr_1`)
 	})
-	$.each(x, function(i, j){
+	$.each(x, (i, j) => {
 		$(`<tr><td>${j.stuNum}</td>
 	   	    		<td>${j.userid}</td>
 	   	    		<td>${j.name}</td>
@@ -26,10 +26,26 @@ mgr.list = x => {
 					.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
 					.appendTo(`#tab`)
 	})
+	$(`<div/>`)
+	.attr({id: `stu_page`})
+	.addClass(`pagination`)
+	.appendTo(`#mgr-data-mgt-stu`)
+	const arr2 = [`<<`, `1`, `2`, `3`, `4`, `5`, `6`, `>>`]
+	$.each(arr2, (i, j) => {
+		$(`<a/>`)
+		.attr({href: `#`})
+		.text(`${j}`)
+		.appendTo(`#stu_page`)
+	})
+
 	
 	
 	
 }
+
+
+
+
 /*
 <style>
 .sub-table {
