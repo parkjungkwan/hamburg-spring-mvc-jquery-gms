@@ -90,23 +90,7 @@ span.psw {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </div>
-
+<script src="${mgr}/js/mgr.js"></script>
 <script>
-$(`#mgr-access-btn`).click(function(e) {
-	e.preventDefault()
-	$.ajax({
-		url: `${ctx}/managers/access`,
-		type: `post`,
-		data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
-		dataType: 'json',
-		contentType: 'application/json',
-		success: function(d){
-			location.href = `${ctx}/mgr/index`
-		},
-		error: function(e){
-			alert(`Fail`)
-		}
-	})
-})
-
+$(`#mgr-access-btn`).click(function() {mgr.access(`${ctx}`)})
 </script>

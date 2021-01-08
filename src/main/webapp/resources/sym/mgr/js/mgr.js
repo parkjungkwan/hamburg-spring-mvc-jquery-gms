@@ -1,4 +1,19 @@
 var mgr = mgr || {}
+mgr.access = x => {
+	$.ajax({
+		url: `${x}/managers/access`,
+		type: `post`,
+		data: JSON.stringify({email: $(`#uid`).val(), password:$(`#pwd`).val()}),
+		dataType: 'json',
+		contentType: 'application/json',
+		success: d => {
+			location.href = `${x}/mgr/index`
+		},
+		error: e => {
+			alert(`Fail`)
+		}
+	})
+}
 mgr.count = x => {$(`#stu-count`).text(x)}
 mgr.list = x => {
 	$(`<h3/>`)
@@ -36,6 +51,10 @@ mgr.list = x => {
 		.attr({href: `#`})
 		.text(`${j}`)
 		.appendTo(`#stu_page`)
+		.click(e=>{
+			e.preventDefault()
+			alert(j)
+		})
 	})
 
 	

@@ -31,9 +31,10 @@ public class DummyGenerator {
 		int month = random.apply(1, 13);
 		int date = 0;
 		switch(month) {
-		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 29 : 28;
-		case 4: case  6:case  9:case  11:date = 30;	
-		default: date = 31;
+		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 
+				random.apply(1, 30) : random.apply(1, 29) ; break;
+		case 4: case  6: case  9: case  11: date = random.apply(1, 31);	break;
+		default: date = random.apply(1, 32); break;
 		}
 		return year+"-"+month+"-"+date;
 	}
@@ -42,9 +43,10 @@ public class DummyGenerator {
 		int month = random.apply(1, 13);
 		int date = 0;
 		switch(month) {
-		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 29 : 28;
-		case 4: case  6:case  9:case  11:date = 30;	
-		default: date = 31;
+		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 
+				random.apply(1, 30) : random.apply(1, 29) ; break;
+		case 4: case  6: case  9: case  11: date = random.apply(1, 31);	break;
+		default: date = random.apply(1, 32); break;
 		}
 		return year+"-"+month+"-"+date;
 	}
