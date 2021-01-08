@@ -8,5 +8,9 @@
 		insert into students(userid, password, name, birthday, reg_date, profile_image, subject, gender)
 		values (#{userid}, #{password}, #{name}, #{birthday}, #{regDate}, #{profileImage}, #{subject}, #{gender})
 	</insert>
+	<select id="selectAll" resultType="com.example.demo.uss.service.Student">
+		select stu_num stuNum, userid, password, name, birthday,
+		 reg_date regDate, profile_image profileImage, subject, gender from students
+	</select>
 </mapper>
 

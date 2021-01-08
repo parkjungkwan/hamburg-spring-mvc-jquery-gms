@@ -53,12 +53,13 @@ public class StudentController {
     public Student profile(@PathVariable String userid){
         return studentMapper.selectById(userid);
     }
-    /*
+    
     @GetMapping("")
     public List<?> list(){
-        return studentMapper.selectAll();
+    	logger.info("Students List Execute ...");
+        return studentService.selectAll();
     }
-    */
+    
     @PutMapping("")
     public Messenger update(@RequestBody Student s){
         return studentMapper.update(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
