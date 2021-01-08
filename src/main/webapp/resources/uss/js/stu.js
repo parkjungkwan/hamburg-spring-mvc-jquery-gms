@@ -1,11 +1,89 @@
 'use strict'
+var stu = stu || {}
+stu.insertMany = x => {
+	$.getJSON(`${x}/students/insert-many/${$('#stu-data-count').val()}`, 
+			d => { location.reload();})}
+stu.truncate = x => {
+	$.getJSON(`${ctx}/students/truncate`,
+	 		d => { location.reload()})}
+stu.count = x => {
+	$.getJSON(`${x}/students/count`, 
+			d => { $(`#stu-count`).text(d)})}
+stu.list = x => {	
+	$.getJSON(`${x}/students`, d => { 
+		$(`<h3/>`)
+		.attr({id: `title`})
+		.text(`학생목록`)
+		.appendTo(`#mgr-data-mgt-stu`)
+		$(`<table/>`)
+		.attr({id: `tab`})
+		.css({width: `100%`})
+		.appendTo(`#title`) 
+		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
+		const arr = [`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`]
+		$.each(arr, function(i,j){
+			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
+			.appendTo(`#tr_1`)
+		})
+		$.each(d, (i, j) => {
+			$(`<tr><td>${j.stuNum}</td>
+		   	    		<td>${j.userid}</td>
+		   	    		<td>${j.name}</td>
+						<td>${j.birthday}</td>
+						<td>${j.gender}</td>
+						<td>${j.regDate}</td>
+						<td>${j.subject}</td></tr>`)
+						.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
+						.appendTo(`#tab`)
+		})
+		$(`<div/>`)
+		.attr({id: `stu_page`})
+		.addClass(`pagination`)
+		.appendTo(`#mgr-data-mgt-stu`)
+		const arr2 = [`<<`, `1`, `2`, `3`, `4`, `5`, `6`, `>>`]
+		$.each(arr2, (i, j) => {
+			$(`<a/>`)
+			.attr({href: `#`})
+			.text(`${j}`)
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				alert(j)
+			})
+		})
+	})
+}
 
 
+/*
+<style>
+.sub-table {
+  width:100%;
+}
+.sub-table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.sub-table th, td {
+  padding: 15px;
+  text-align: left;
+}
+.sub-table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+.sub-table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+.sub-table#t01 th {
+  background-color: black;
+  color: white;
+}
+</style>*/
 
 
-
-const userid = localStorage.getItem('searchId')
-$.getJSON(`/students/${userid}`, d => {
+/*
+const userid2 = localStorage.getItem('searchId')
+$.getJSON(`/students/${userid2}`, d => {
 	$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />
 							<h5 class="card-title mb-0">${d.name}</h5>
 							<div class="text-muted mb-2">Lead Developer</div>
@@ -73,4 +151,4 @@ const userid = sessionStorage.getItem('userid')
 										<li class="mb-1"><span data-feather="briefcase" class="feather-sm mr-1"></span> 생년월일 : <a href="#">${d.ssn}</a></li>
 										<li class="mb-1"><span data-feather="map-pin" class="feather-sm mr-1"></span> 주소 : <a href="#">서울</a></li>
 									</ul>`)
-		})
+		}) */

@@ -52,21 +52,12 @@
     
 </section>
 <script src="${mgr}/js/mgr.js"></script>
+<script src="${stu}/js/stu.js"></script>
 <script>
-$.getJSON(`${ctx}/students/count`, function(d){ mgr.count(d) })
-$.getJSON(`${ctx}/students`, function(d){ mgr.list(d)})
-
-$(`#mgr-truncate-stu`).click(function(e){
-	e.preventDefault()
-	$.getJSON(`${ctx}/students/truncate`, function(d){
-		location.reload();
-	})
-})
-$(`#mgr-insert-many-stu`).click(function(e){
-	e.preventDefault()
-	$.getJSON(`${ctx}/students/insert-many/`+$('#stu-data-count').val(), 
-			function(d){ location.reload();}) 
-})
+stu.count(`${ctx}`)
+stu.list(`${ctx}`)
+$(`#mgr-truncate-stu`).click(function(){stu.truncate(`${ctx}`)})
+$(`#mgr-insert-many-stu`).click(function(){ stu.insertMany(`${ctx}`)})
 </script>
 
 
