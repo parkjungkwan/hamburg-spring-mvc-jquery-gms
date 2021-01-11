@@ -33,7 +33,6 @@ public class ManagerController {
     
     @PostMapping("/access")
     public Manager access(@RequestBody Manager manager) {
-    	System.out.println("MGR ACCESS ============");
     	return managerMapper.access(manager);
     }
     

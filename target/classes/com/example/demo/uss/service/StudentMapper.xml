@@ -8,9 +8,20 @@
 		insert into students(userid, password, name, birthday, reg_date, profile_image, subject, gender)
 		values (#{userid}, #{password}, #{name}, #{birthday}, #{regDate}, #{profileImage}, #{subject}, #{gender})
 	</insert>
-	<select id="selectAll" resultType="com.example.demo.uss.service.Student">
-		select stu_num stuNum, userid, password, name, birthday,
-		 reg_date regDate, profile_image profileImage, subject, gender from students
+	<select id="selectAll" resultType="com.example.demo.uss.service.Student"
+							parameterType="com.example.demo.cmm.utl.Pagination">
+		 select a.stu_num stuNum, 
+		 		a.userid, 
+		 		a.password, 
+		 		a.name, 
+		 		a.birthday,
+		 		a.reg_date regDate, 
+		 		a.profile_image profileImage, 
+		 		a.subject, 
+		 		a.gender  
+		 from
+			(select *  from ${tname} order by stu_num desc) a
+			limit ${startRow}, ${pageSize};
 	</select>
 </mapper>
 

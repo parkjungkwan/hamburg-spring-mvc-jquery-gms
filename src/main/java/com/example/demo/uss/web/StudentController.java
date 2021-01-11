@@ -5,6 +5,7 @@ import java.util.Map;
 import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.enm.Table;
 import com.example.demo.cmm.service.CommonMapper;
+import com.example.demo.cmm.utl.Pagination;
 import com.example.demo.cmm.utl.Util;
 import com.example.demo.uss.service.Student;
 import com.example.demo.uss.service.StudentMapper;
@@ -40,6 +41,7 @@ public class StudentController {
     @Autowired StudentService studentService;
     @Autowired StudentMapper studentMapper;
     @Autowired CommonMapper commonMapper;
+    @Autowired Pagination page;
     @PostMapping("")
     public Messenger register(@RequestBody Student s){
         return studentMapper.insert(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
@@ -57,10 +59,15 @@ public class StudentController {
         return studentMapper.selectById(userid);
     }
     
-    @GetMapping("")
-    public List<?> list(){
+    @GetMapping("/page/{pageSize}/{pageNum}")
+    public List<?> list(@PathVariable String pageSize, 
+    					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
-        return studentService.selectAll();
+        return studentMapper.selectAll(new Pagination(
+				Table.STUDENTS.toString(), 
+				integer.apply(pageSize),
+				integer.apply(pageNum),
+				commonMapper.count(Table.STUDENTS.toString())));
     }
     
     @PutMapping("")
@@ -90,6 +97,6 @@ public class StudentController {
     @GetMapping("/find-by-gender/{gender}")
     public List<Student> findByGender(@PathVariable String gender) {
     	logger.info(String.format("Find By %s from Students ...", gender));
-    	return studentService.selectByGender(gender);
+    	return null; //studentService.selectByGender(gender);
     }
 }

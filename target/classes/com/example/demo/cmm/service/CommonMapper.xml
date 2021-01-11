@@ -4,4 +4,5 @@
 <select id="count" parameterType="string" resultType="int">
 	select count(*) count from ${value} 
 </select>
+
 </mapper>

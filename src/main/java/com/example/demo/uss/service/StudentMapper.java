@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.cmm.utl.Pagination;
+
 @Repository
 public interface StudentMapper {
 
@@ -14,7 +16,7 @@ public interface StudentMapper {
 
 	public Student selectById(String userid);
 
-	public List<Student> selectAll(HashMap<String, String> map);
+	public List<Student> selectAll(Pagination page);
 
 	public int update(Student s);
 

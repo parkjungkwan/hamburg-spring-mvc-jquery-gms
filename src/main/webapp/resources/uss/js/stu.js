@@ -10,7 +10,9 @@ stu.count = x => {
 	$.getJSON(`${x}/students/count`, 
 			d => { $(`#stu-count`).text(d)})}
 stu.list = x => {	
-	$.getJSON(`${x}/students`, d => { 
+	const url = `${x.ctx}/students/page/${x.pageSize}/${x.pageNum}`
+	alert('>>>>>>>>'+url)
+	$.getJSON(url, d => { 
 		$(`<h3/>`)
 		.attr({id: `title`})
 		.text(`학생목록`)

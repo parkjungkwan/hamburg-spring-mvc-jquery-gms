@@ -43,15 +43,17 @@ public class StudentService{
     	map.put("COUNT_STUDENTS", Sql.COUNT.toString() + "students");
     	return studentMapper.count(map);
     }
+    /*
     public List<Student> selectAll(){
     	var map = new HashMap<String,String>();
     	map.put("SELECT_ALL_STUDENTS", Sql.SELECT_ALL_STUDENTS.toString());
     	return studentMapper.selectAll(map);
     }
+    
     public List<Student> selectByGender(String gender){
     	return selectAll().stream()
     			
     			.collect(toList());
     }
-    
+    */
 }

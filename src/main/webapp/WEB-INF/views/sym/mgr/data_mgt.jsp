@@ -53,7 +53,7 @@
 </section>
 <script>
 stu.count(`${ctx}`)
-stu.list(`${ctx}`)
+stu.list({ctx: `${ctx}`, pageSize: `10`, pageNum: `1`})
 $(`#mgr-truncate-stu`).click(function(){stu.truncate(`${ctx}`)})
 $(`#mgr-insert-many-stu`).click(function(){ stu.insertMany(`${ctx}`)})
 </script>
