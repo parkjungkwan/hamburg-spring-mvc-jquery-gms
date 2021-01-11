@@ -63,6 +63,16 @@ public class StudentController {
     public List<?> list(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
+        return studentService.list(new Pagination(
+				Table.STUDENTS.toString(), 
+				integer.apply(pageSize),
+				integer.apply(pageNum),
+				commonMapper.count(Table.STUDENTS.toString())));
+    }
+    @GetMapping("/page/{pageSize}/{pageNum}/selectAll")
+    public List<?> selectAll(@PathVariable String pageSize, 
+    					@PathVariable String pageNum){
+    	logger.info("Students List Execute ...");
         return studentMapper.selectAll(new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),

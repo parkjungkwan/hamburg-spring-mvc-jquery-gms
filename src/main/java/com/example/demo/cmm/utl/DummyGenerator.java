@@ -140,7 +140,7 @@ public class DummyGenerator {
 				);
 	}
 	public Student makeStudent() {
-		return new Student("",makeUserid(), 
+		return new Student(0,makeUserid(), 
 				"1", 
 				makeUsername(), 
 				makeBirthday(), 

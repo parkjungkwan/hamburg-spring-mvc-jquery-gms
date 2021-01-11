@@ -15,9 +15,8 @@ public interface StudentMapper {
 	public Student login(Student s);
 
 	public Student selectById(String userid);
-
 	public List<Student> selectAll(Pagination page);
-
+	public List<Student> list();
 	public int update(Student s);
 
 	public int delete(Student s);

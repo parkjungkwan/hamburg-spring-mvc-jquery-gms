@@ -1,16 +1,20 @@
 package com.example.demo.uss.service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.utl.DummyGenerator;
+import com.example.demo.cmm.utl.Pagination;
+
 import static java.util.stream.Collectors.toList;
-import java.util.List;
+import static com.example.demo.cmm.utl.Util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,17 +47,19 @@ public class StudentService{
     	map.put("COUNT_STUDENTS", Sql.COUNT.toString() + "students");
     	return studentMapper.count(map);
     }
-    /*
-    public List<Student> selectAll(){
-    	var map = new HashMap<String,String>();
-    	map.put("SELECT_ALL_STUDENTS", Sql.SELECT_ALL_STUDENTS.toString());
-    	return studentMapper.selectAll(map);
+    
+    public List<Student> list(Pagination page){
+    	return studentMapper.list().stream()
+    			.sorted(Comparator.comparing(Student::getStuNum).reversed())
+    			.skip(page.getPageNum())
+    			.limit(page.getPageSize())
+    			.collect(Collectors.toList());
     }
     
-    public List<Student> selectByGender(String gender){
-    	return selectAll().stream()
+    /*public List<Student> selectByGender(String gender){
+    	return list().stream()
     			
     			.collect(toList());
-    }
-    */
+    }*/
+    
 }

@@ -23,5 +23,18 @@
 			(select *  from ${tname} order by stu_num desc) a
 			limit ${startRow}, ${pageSize};
 	</select>
+	<select id="list" resultType="com.example.demo.uss.service.Student">
+		 select stu_num stuNum, 
+		 		userid, 
+		 		password, 
+		 		name, 
+		 		birthday,
+		 		reg_date regDate, 
+		 		profile_image profileImage, 
+		 		subject, 
+		 		gender  
+		 from
+			students
+	</select>
 </mapper>
 
