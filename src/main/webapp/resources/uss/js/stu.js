@@ -10,9 +10,7 @@ stu.count = x => {
 	$.getJSON(`${x}/students/count`, 
 			d => { $(`#stu-count`).text(d)})}
 stu.list = x => {	
-	const url = `${x.ctx}/students/page/${x.pageSize}/${x.pageNum}`
-	alert('>>>>>>>>'+url)
-	$.getJSON(url, d => { 
+	$.getJSON(`${x.ctx}/students/page/${x.pageSize}/${x.pageNum}`, d => { 
 		$(`<h3/>`)
 		.attr({id: `title`})
 		.text(`학생목록`)
@@ -22,13 +20,15 @@ stu.list = x => {
 		.css({width: `100%`})
 		.appendTo(`#title`) 
 		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
-		const arr = [`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`]
-		$.each(arr, function(i,j){
+		$.each(
+			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`], 
+			(i,j) => {
 			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
 			.appendTo(`#tr_1`)
 		})
-		$.each(d, (i, j) => {
-			$(`<tr><td>${j.stuNum}</td>
+		$.each(d.list, 
+			(i, j) => {
+					$(`<tr><td>${j.stuNum}</td>
 		   	    		<td>${j.userid}</td>
 		   	    		<td>${j.name}</td>
 						<td>${j.birthday}</td>
@@ -42,8 +42,31 @@ stu.list = x => {
 		.attr({id: `stu_page`})
 		.addClass(`pagination`)
 		.appendTo(`#mgr-data-mgt-stu`)
-		const arr2 = [`<<`, `1`, `2`, `3`, `4`, `5`, `6`, `>>`]
-		$.each(arr2, (i, j) => {
+		const page = d.page
+		/*function* range(start, end) {
+			for (let i = start; i <= end; i++) {
+		        yield i;
+		    }
+		} 아래 형태는 for 가 배재된 재귀함수 */
+		function* range(start, end) {
+		    yield start;
+		    if (start === end) return;
+		    yield* range(start + 1, end);
+		}
+		
+		if(page.existPrev){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.text(`<<`)
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				alert(`앞페이지`)
+			})
+		}
+		$.each(
+			[...range(page.startPage, page.endPage)] ,
+			 (i, j) => {
 			$(`<a/>`)
 			.attr({href: `#`})
 			.text(`${j}`)
@@ -53,6 +76,16 @@ stu.list = x => {
 				alert(j)
 			})
 		})
+		if(page.existNext){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.text(`>>`)
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				alert(`다음페이지`)
+			})
+		}
 	})
 }
 

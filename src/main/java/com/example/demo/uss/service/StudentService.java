@@ -1,7 +1,7 @@
 package com.example.demo.uss.service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import static java.util.Comparator.comparing;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,8 +50,8 @@ public class StudentService{
     
     public List<Student> list(Pagination page){
     	return studentMapper.list().stream()
-    			.sorted(Comparator.comparing(Student::getStuNum).reversed())
-    			.skip(page.getPageNum())
+    			.sorted(comparing(Student::getStuNum).reversed())
+    			.skip(page.getPageSize() * (page.getPageNum()-1))
     			.limit(page.getPageSize())
     			.collect(Collectors.toList());
     }

@@ -60,14 +60,18 @@ public class StudentController {
     }
     
     @GetMapping("/page/{pageSize}/{pageNum}")
-    public List<?> list(@PathVariable String pageSize, 
+    public Map<?,?> list(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
-        return studentService.list(new Pagination(
+    	var map = new HashMap<String, Object>();
+    	var page = new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),
 				integer.apply(pageNum),
-				commonMapper.count(Table.STUDENTS.toString())));
+				commonMapper.count(Table.STUDENTS.toString()));
+    	map.put("list", studentService.list(page));
+    	map.put("page", page);
+        return map;
     }
     @GetMapping("/page/{pageSize}/{pageNum}/selectAll")
     public List<?> selectAll(@PathVariable String pageSize, 
