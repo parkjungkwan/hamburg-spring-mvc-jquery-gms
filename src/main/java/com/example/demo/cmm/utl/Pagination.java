@@ -1,17 +1,9 @@
 package com.example.demo.cmm.utl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-import com.example.demo.cmm.service.CommonMapper;
-import com.example.demo.uss.service.StudentService;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import static com.example.demo.cmm.utl.Util.*;
-
-import java.util.function.Function;
 
 @Component("page") @Data @Lazy @NoArgsConstructor
 public class Pagination {
@@ -35,7 +27,7 @@ public class Pagination {
 		this.endRow = (pageCount != pageNum) ? startRow + pageSize - 1  : totalCount - 1;
 		this.blockNum = (pageNum - 1) / BLOCK_SIZE;
 		this.startPage = blockNum * BLOCK_SIZE + 1;
-		this.endPage = ((blockNum + 1) != blockCount) ? startPage + (BLOCK_SIZE + 1) : pageCount;
+		this.endPage = ((blockNum + 1) != blockCount) ? startPage + (BLOCK_SIZE - 1) : pageCount;
 		this.existPrev = blockNum != 0;
 		this.existNext = (blockNum + 1) != blockCount;
 		this.nextBlock = startPage + BLOCK_SIZE;

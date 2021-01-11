@@ -67,14 +67,16 @@ stu.list = x => {
 		$.each(
 			[...range(page.startPage, page.endPage)] ,
 			 (i, j) => {
-			$(`<a/>`)
-			.attr({href: `#`})
-			.text(`${j}`)
-			.appendTo(`#stu_page`)
-			.click(e=>{
-				e.preventDefault()
-				alert(j)
-			})
+				$(`<a/>`)
+					.attr({href: `#`})
+					.css({backgroundColor: (j != page.pageNum) ? `gray` : `yellow`})
+					.text(`${j}`)
+					.appendTo(`#stu_page`)
+					.click(e=>{
+						e.preventDefault()
+						$(`#mgr-data-mgt-stu`).empty()
+						stu.list({ctx: x.ctx, pageSize: `10`, pageNum: j})
+					})
 		})
 		if(page.existNext){
 			$(`<a/>`)
