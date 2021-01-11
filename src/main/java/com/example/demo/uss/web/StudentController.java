@@ -3,6 +3,8 @@ package com.example.demo.uss.web;
 import java.util.Map;
 
 import com.example.demo.cmm.enm.Messenger;
+import com.example.demo.cmm.enm.Table;
+import com.example.demo.cmm.service.CommonMapper;
 import com.example.demo.cmm.utl.Util;
 import com.example.demo.uss.service.Student;
 import com.example.demo.uss.service.StudentMapper;
@@ -37,6 +39,7 @@ public class StudentController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired StudentService studentService;
     @Autowired StudentMapper studentMapper;
+    @Autowired CommonMapper commonMapper;
     @PostMapping("")
     public Messenger register(@RequestBody Student s){
         return studentMapper.insert(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
@@ -82,7 +85,7 @@ public class StudentController {
     @GetMapping("/count")
     public String count() {
     	logger.info(String.format("Count Students ..."));
-    	return string.apply(studentService.count());
+    	return string.apply(commonMapper.count(Table.STUDENTS.toString()));
     }
     @GetMapping("/find-by-gender/{gender}")
     public List<Student> findByGender(@PathVariable String gender) {

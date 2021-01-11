@@ -5,10 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommonService {
-	@Autowired CommonMapper commonMapper;
-	
-	public int count(String tname) {
-		return commonMapper.count(tname);
-	}
 	
 }
