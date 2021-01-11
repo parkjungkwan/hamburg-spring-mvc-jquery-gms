@@ -58,10 +58,12 @@ stu.list = x => {
 			$(`<a/>`)
 			.attr({href: `#`})
 			.text(`<<`)
+			.css({backgroundColor: `gray`})
 			.appendTo(`#stu_page`)
 			.click(e=>{
 				e.preventDefault()
-				alert(`앞페이지`)
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.prevBlock})
 			})
 		}
 		$.each(
@@ -81,11 +83,13 @@ stu.list = x => {
 		if(page.existNext){
 			$(`<a/>`)
 			.attr({href: `#`})
+			.css({backgroundColor: `gray`})
 			.text(`>>`)
 			.appendTo(`#stu_page`)
 			.click(e=>{
 				e.preventDefault()
-				alert(`다음페이지`)
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.nextBlock})
 			})
 		}
 	})
