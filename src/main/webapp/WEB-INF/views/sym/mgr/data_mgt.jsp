@@ -13,8 +13,10 @@
     			<input type="text" id="stu-data-count" placeholder="인원수 입력"/><button id="mgr-insert-many-stu">ID 생성</button><br/><br/>
 	    		<input type="text" id="stu-data-update" placeholder="ID 입력"/><button>ID 검색</button><br/><br/>
 	    		<input type="text" id="stu-data-delete" placeholder="ID 입력"/><button>ID 삭제</button><br/><br/>
-	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성
+	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성 <!--  P.167 anyMatch -->
 	    		<input type="radio" name="stu-data-gender" value="F" style="margin-left:20px"/>여성<button style="margin-left:38px">성별조회</button><br/><br/>
+	    		<input type="text" id="stu-data-birthday" placeholder="년도입력" /><button>년도 이후 출생 </button> <!--  P.167 allMatch -->
+	    		<input type="text" id="stu-data-birthday" placeholder="년도입력" /><button>년도 이전 출생 </button> <!--  P.167 noneMatch -->
 	    		
     		
     		</td>
