@@ -54,9 +54,9 @@ public enum Sql {
 					"   stu_num int,\n" + 
 					"   exam_date varchar(20)\n" + 
 					"   )\n" + 
-					"   constraint grades_fk foreign key(stu_num) " + 
+					"   constraint stu_grd_fk foreign key(stu_num) " + 
 					"        references students(stu_num)" +
-					"   constraint sub_tea_fk foreign key(sub_num) " + 
+					"   constraint sub_grd_fk foreign key(sub_num) " + 
 					"                references subjects(sub_num)\n"
 					; break;
 		case CREATE_ARTICLES:
