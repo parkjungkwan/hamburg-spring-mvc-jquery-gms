@@ -3,12 +3,11 @@
 <mapper namespace="com.example.demo.sts.service.GradeMapper">
 <insert id="insertMany" parameterType="list">
 	insert into grades
-	( subject, score, grade, stu_num, exam_date, pass_exam )
+	( subject, score, stu_num, exam_date )
 	values 
-	 <foreach item="i" collection="list"
-      open="(" separator="," close=")">
-        ( #{i.subject}, #{i.score}, #{i.grade}, 
-        #{i.stuNum}, #{i.examDate}, #{i.passExam} )
+	 <foreach item="i" collection="list" separator=",">
+        ( #{i.subject}, #{i.score}, 
+        #{i.stuNum}, #{i.examDate} )
   	</foreach>
 </insert>
 </mapper>

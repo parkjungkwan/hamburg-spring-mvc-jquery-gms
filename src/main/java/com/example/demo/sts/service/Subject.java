@@ -8,7 +8,7 @@ public class Subject {
 	private String subject, desc;
 }
 /*
- *  create table subjects 
- *  (sub_num int primary key auto_increment, 
- *  subject varchar(20), description varchar(100))
+create table subjects 
+(sub_num int primary key auto_increment, 
+subject varchar(20), description varchar(100))
  * */

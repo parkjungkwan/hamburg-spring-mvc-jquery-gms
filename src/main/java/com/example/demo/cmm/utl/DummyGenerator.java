@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.enm.Path;
+import com.example.demo.sts.service.Grade;
 import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.Teacher;
 import com.example.demo.uss.service.Student;
@@ -54,6 +55,9 @@ public class DummyGenerator {
 		default: date = random.apply(1, 32); break;
 		}
 		return year+"-"+month+"-"+date;
+	}
+	public String makeExamdate() {
+		return "2020-11-30";
 	}
 	/*
 	 * 랜덤 성별 생성하기
@@ -160,9 +164,14 @@ public class DummyGenerator {
 	 */
 	public List<Integer> makeScore(){
 		return Stream.generate(Math::random)
-				.limit(100)
+				.limit(1)
 				.map(i -> (int)(i * 100)).collect(Collectors.toList());
 	}
+	
+	public Grade makeGrade() {
+		return new Grade(makeSubject(), makeExamdate(), makeScore().get(0));
+	}
+	
 	
 }
 
