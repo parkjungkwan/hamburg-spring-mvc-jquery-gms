@@ -20,6 +20,7 @@
 	    		<input type="text" id="stu-data-subject" placeholder="수강과목 입력" /><button>수강과목별 학생 </button> <!--  P.168 findAny -->
 	    		<input type="text" id="stu-data-young-man" placeholder="년도입력" /><button>최연소자 학생 </button> <!--  P.169 findFirst -->
 	    		
+	    		
     		
     		</td>
     		<td>

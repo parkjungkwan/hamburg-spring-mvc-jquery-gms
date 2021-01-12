@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,10 @@ import static com.example.demo.cmm.utl.Util.*;
 
 @Service("dummy")
 public class DummyGenerator {
-	
+	/*********************************
+	 * Student Dummy Data Generator 
+	 * *******************************
+	 */
 	/**
 	 * 1970 ~ 2000 사이의 랜덤한 연도수 뽑기 
 	 * 
@@ -148,6 +153,15 @@ public class DummyGenerator {
 				makeRegdate(),
 				Path.DEFAULT_PROFILE.toString(),
 				makeSubject());
+	}
+	/*********************************
+	 * Grade Dummy Data Generator 
+	 * *******************************
+	 */
+	public List<Integer> makeScore(){
+		return Stream.generate(Math::random)
+				.limit(100)
+				.map(i -> (int)(i * 100)).collect(Collectors.toList());
 	}
 	
 }

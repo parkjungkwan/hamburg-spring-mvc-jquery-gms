@@ -21,6 +21,7 @@ public class Util {
 	public static Consumer<String> print = System.out::print;
 	public static Function<Object, String> string = String :: valueOf;
 	public static Function<String, Integer> integer = Integer :: valueOf;
+
 	public static Function<String, Object> intO = Integer :: valueOf;
 	public static BiPredicate<String, String> equals = String :: equals;
 	public static BiFunction<Integer, Integer, Integer> random =(t,u)->(int)(Math.random()*(u-t))+t;
