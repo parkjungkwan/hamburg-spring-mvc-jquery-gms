@@ -137,17 +137,8 @@ public class DummyGenerator {
 		Collections.shuffle(ls);
 		return makeUserid()+ls.get(0);
 	}
-	public Manager makeManager() {
-		return new Manager("",makeEmail(), "1", makeUsername(), Path.DEFAULT_PROFILE.toString());
-	}
-	public Teacher makeTeacher() {
-		return new Teacher("", 
-				makeUsername(), 
-				"1", 
-				makeSubject(), 
-				Path.DEFAULT_PROFILE.toString()
-				);
-	}
+	
+	
 	public Student makeStudent() {
 		return new Student(0,makeUserid(), 
 				"1", 
@@ -171,7 +162,25 @@ public class DummyGenerator {
 	public Grade makeGrade() {
 		return new Grade(makeSubject(), makeExamdate(), makeScore().get(0));
 	}
-	
+	/*********************************
+	 * Teacher Dummy Data Generator 
+	 * *******************************
+	 */
+	public Teacher makeTeacher() {
+		return new Teacher("", 
+				makeUsername(), 
+				"1", 
+				"", 
+				Path.DEFAULT_PROFILE.toString()
+				);
+	}
+	/*********************************
+	 * Manager Dummy Data Generator 
+	 * *******************************
+	 */
+	public Manager makeManager() {
+		return new Manager("",makeEmail(), "1", makeUsername(), Path.DEFAULT_PROFILE.toString());
+	}
 	
 }
 

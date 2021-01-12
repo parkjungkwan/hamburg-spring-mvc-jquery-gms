@@ -19,12 +19,10 @@ public class GradeService {
 		var list = new ArrayList<Grade>();
 		Grade g = null;
 		for(int i=0; i< 100; i++) {
-			g = new Grade();
+			g = dummy.makeGrade();
 			g.setStuNum(i);
 			list.add(g);
 		}
     	gradeMapper.insertMany(list);
-    	
-    	System.out.println("-----------입력 성공여부 :----------------");
     }
 }

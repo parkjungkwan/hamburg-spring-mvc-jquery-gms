@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 @Data @AllArgsConstructor @Lazy @NoArgsConstructor
 public class Grade {
 	private int gradeNum, score, stuNum;
-    private String subject, grade, examDate;
-    private boolean passExam;
+    private String subject, grade, examDate, passExam;
     
     public Grade(String subject, String examDate, int score) {
     	this.subject = subject;
