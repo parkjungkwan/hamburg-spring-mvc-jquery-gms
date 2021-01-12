@@ -16,7 +16,9 @@
 	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성 <!--  P.167 anyMatch -->
 	    		<input type="radio" name="stu-data-gender" value="F" style="margin-left:20px"/>여성<button style="margin-left:38px">성별조회</button><br/><br/>
 	    		<input type="text" id="stu-data-birthday" placeholder="년도입력" /><button>년도 이후 출생 </button> <!--  P.167 allMatch -->
-	    		<input type="text" id="stu-data-birthday" placeholder="년도입력" /><button>년도 이전 출생 </button> <!--  P.167 noneMatch -->
+	    		<input type="text" id="stu-data-birthday-after" placeholder="년도입력" /><button>년도 이전 출생 </button> <!--  P.167 noneMatch -->
+	    		<input type="text" id="stu-data-subject" placeholder="수강과목 입력" /><button>수강과목별 학생 </button> <!--  P.168 findAny -->
+	    		<input type="text" id="stu-data-young-man" placeholder="년도입력" /><button>최연소자 학생 </button> <!--  P.169 findFirst -->
 	    		
     		
     		</td>
