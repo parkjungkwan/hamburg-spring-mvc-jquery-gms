@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 @Data @Lazy @Component
 public class Subject {
-	private int subNum, teaNum;
+	private int subNum;
 	private String subject, description;
 }
 /*

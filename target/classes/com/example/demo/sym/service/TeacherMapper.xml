@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.sym.service.TeacherMapper">
+<insert id="insertMany" parameterType="list">
+	insert into teachers
+	( name, password, subject, profile_image )
+	values 
+	 <foreach item="i" collection="list" separator=",">
+        ( #{i.name}, #{i.password}, #{i.subject}, #{i.profileImage} )
+  	</foreach>
+</insert>
+</mapper>
