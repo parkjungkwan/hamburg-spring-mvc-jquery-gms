@@ -78,7 +78,7 @@ public enum Sql {
 					; break;
 		case CREATE_REPLIES:
 			query = "create table replies(\n" + 
-					"   rep_num int primary key ,\n" + 
+					"   rep_num int primary key auto_increment ,\n" + 
 					"   content varchar(20),\n" + 
 					"   reg_date varchar(20),\n" + 
 					"   art_num int,\n" + 
