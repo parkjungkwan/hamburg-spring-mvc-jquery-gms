@@ -22,12 +22,3 @@ public class Teacher {
     }
 
 }
-/*
-create table teachers(
-   tea_num int primary key ,
-   name varchar2(20),
-   password varchar2(20),
-   subject varchar2(20),
-   profile_image varchar2(100)
-   )
- */

@@ -21,15 +21,3 @@ public class Grade {
     	this.score = score;
     }
 }
-/*
-create table grades(
-   grade_num int primary key auto_increment,
-   subject varchar(20),
-   score varchar(20),
-   grade varchar(20),
-   stu_num int,
-   exam_date varchar(20)
-   
-   )
-   constraint grades_fk foreign key(stu_num) references students(stu_num)
- */
