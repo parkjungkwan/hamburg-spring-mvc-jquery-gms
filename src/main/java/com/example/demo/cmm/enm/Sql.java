@@ -2,8 +2,8 @@ package com.example.demo.cmm.enm;
 
 public enum Sql {
 	CREATE_MANAGERS, CREATE_SUBJECTS, CREATE_STUDENTS, CREATE_TEACHERS, 
-	CREATE_GRADES, CREATE_ARTICLES, CREATE_REPLIES,
-	TRUNCATE, COUNT, DROP;
+	CREATE_GRADES, CREATE_ARTICLES, CREATE_REPLIES, TABLE_COUNT,
+	TRUNCATE, TOTAL_COUNT, DROP_TABLE;
 	@Override
 	public String toString() {
 		String query = "";
@@ -90,16 +90,18 @@ public enum Sql {
 					"   constraint mgr_art_fk foreign key(mgr_num) " + 
 					"                references managers(mgr_num)\n" +
 					"   constraint stu_art_fk foreign key(stu_num) " + 
-					"                  references students(stu_num)" +
-					"   constraint tea_art_fk foreign key(tea_num) " + 
+					"                  references students(stu_num)\n" +
+					"   constraint tea_art_fk foreign key(tea_num) \t" + 
 					"                references teachers(tea_num)\n"
 					; break;
 		case TRUNCATE:
-			query = "truncate table "; break;
-		case COUNT:
-			query = "select count(*) count from "; break;
-		case DROP:
-			query = "drop table if exists "; break;
+			query = "truncate table \t"; break;
+		case TOTAL_COUNT:
+			query = "select count(*) count from \t"; break;
+		case DROP_TABLE:
+			query = "drop table if exists \t"; break;
+		case TABLE_COUNT:
+			query = "select count(*) from information_schema.tables where table_schema = \'mariadb\'";
 		}
 		return query;
 	}
