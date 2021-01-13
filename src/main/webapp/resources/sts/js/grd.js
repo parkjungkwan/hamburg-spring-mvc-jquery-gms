@@ -25,7 +25,7 @@ grd.register_form = x => {
 	
 	$(`<button />`)
 	.text(`성적등록`)
-	.apendTo(`#grd-register-form`)
+	.appendTo(`#grd-register-form`)
 	.click(e => {
 		e.preventDefault()
 		$.getJSON(`${x}/grades/register`, d => {

@@ -41,7 +41,7 @@
 	insert into grades
 	( sub_num, score, stu_num, exam_date )
 	values 
-	( #{i.subNum}, #{i.score}, #{i.stuNum}, #{i.examDate} )
+	( #{subNum}, #{score}, #{stuNum}, #{examDate} )
 </insert>
 <insert id="insertMany" parameterType="list">
 	insert into grades

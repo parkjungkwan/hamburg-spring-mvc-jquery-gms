@@ -18,8 +18,9 @@ public class GradeService {
 	@Transactional
 	public void insertMany() {
 		// int stuNum, int subNum, String examDate, int score
+		
 		for(int i=1; i<= 100; i++ ) {
-			for(int j=1; j<=5; i++) {
+			for(int j=1; j<=5; j++) {
 				gradeMapper.insert(dummy.makeGrade(i, j));
 			}
 		}

@@ -49,7 +49,6 @@ public enum Sql {
 		case CREATE_GRADES:
 			query = "create table grades(\r\n" + 
 					"   grd_num int primary key auto_increment,\n" + 
-					"   subject varchar(20),\n" + 
 					"   score varchar(20),\n" + 
 					"   grade varchar(20),\n" + 
 					"   exam_date varchar(20),\n" + 
