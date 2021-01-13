@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes({"ctx","cmm","mgr","tea","uss"})
+@SessionAttributes({"ctx","cmm","mgr","tea","uss","grd"})
 public class HomeController {
 	@Autowired HttpSession session;
 	@Autowired HttpServletRequest request;
@@ -30,7 +30,7 @@ public class HomeController {
     	session.setAttribute("mgr", ctx+"/resources/sym/mgr");
     	session.setAttribute("tea", ctx+"/resources/sym/tea");
     	session.setAttribute("stu", ctx+"/resources/uss");
-    	
+    	session.setAttribute("sts", ctx+"/resources/sts");
         logger.info("Project Initialized ... ");
         
         return "index";

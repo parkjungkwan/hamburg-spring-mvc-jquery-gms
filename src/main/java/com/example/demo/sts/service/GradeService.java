@@ -8,21 +8,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class GradeService {
 	@Autowired GradeMapper gradeMapper;
 	@Autowired DummyGenerator dummy;
 	
-	public void insertMany(int count) {
+	@Transactional
+	public void insertMany() {
 		// int stuNum, int subNum, String examDate, int score
-		var list = new ArrayList<Grade>();
-		Grade g = null;
-		for(int i=0; i< 100; i++) {
-			g = dummy.makeGrade((i+1));
-			g.setStuNum(i);
-			list.add(g);
+		for(int i=1; i<= 100; i++ ) {
+			for(int j=1; j<=5; i++) {
+				gradeMapper.insert(dummy.makeGrade(i, j));
+			}
 		}
-    	gradeMapper.insertMany(list);
     }
 }

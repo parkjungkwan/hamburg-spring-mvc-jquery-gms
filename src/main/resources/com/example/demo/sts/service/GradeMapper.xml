@@ -37,6 +37,12 @@
 	<result property="examDate" column="examDate"/>
 	<result property="stuProfileImage" column="stuProfileImage"/>
 </resultMap>
+<insert id="insert" parameterType="com.example.demo.sts.service.Grade">
+	insert into grades
+	( sub_num, score, stu_num, exam_date )
+	values 
+	( #{i.subNum}, #{i.score}, #{i.stuNum}, #{i.examDate} )
+</insert>
 <insert id="insertMany" parameterType="list">
 	insert into grades
 	( sub_num, score, stu_num, exam_date )

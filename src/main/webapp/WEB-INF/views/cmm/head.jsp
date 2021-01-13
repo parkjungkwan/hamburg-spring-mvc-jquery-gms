@@ -10,4 +10,5 @@
 <script src="${mgr}/js/mgr.js"></script> 
 <script src="${stu}/js/stu.js"></script>	
 <script src="${cmm}/js/cmm.js"></script>	
+<script src="${sts}/js/grd.js"></script>	
 </head>
