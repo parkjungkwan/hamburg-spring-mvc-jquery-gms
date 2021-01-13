@@ -11,4 +11,9 @@ public class ManagerService {
         return managerMapper.insert(manager);
     }
 
+	public int insertMany(int i) {
+		
+		return managerMapper.insertMany(i);
+	}
+
 }

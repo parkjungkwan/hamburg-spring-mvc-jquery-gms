@@ -9,4 +9,6 @@ public interface ManagerMapper {
 
 	public Manager access(Manager manager);
 
+	public int insertMany(int i);
+
 }

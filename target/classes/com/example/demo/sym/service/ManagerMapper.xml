@@ -4,7 +4,7 @@
 <mapper namespace="com.example.demo.sym.service.ManagerMapper">
 	<insert id="insert" parameterType="com.example.demo.sym.service.Manager">
 		insert into managers(email, password, name, profile_image) 
-		values (#{email}, #{password})
+		values (#{email}, #{password}, #{name}, #{profileImage})
 	</insert>
 	<select id="access"
 		resultType="com.example.demo.sym.service.Manager"
@@ -13,5 +13,12 @@
 		from managers
 		where email like #{email} and password like #{password}
 	</select>
-  
+	  <insert id="insertMany" parameterType="list">
+		insert into managers
+		(email, password, name, profile_image) 
+		values 
+		 <foreach item="i" collection="list" separator=",">
+	        (#{i.email}, #{i.password}, #{name}, #{profileImage})
+	  	</foreach>
+	</insert>
 </mapper>

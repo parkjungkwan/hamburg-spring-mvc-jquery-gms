@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 @Component
 @Data @AllArgsConstructor @Lazy @NoArgsConstructor
 public class Grade {
-	private int gradeNum, score, stuNum;
-    private String subject, grade, examDate, passExam;
+	private int grdNum, score, stuNum, subNum;
+    private String grade, examDate, passExam;
     
-    public Grade(String subject, String examDate, int score) {
-    	this.subject = subject;
+    public Grade(int stuNum, int subNum, String examDate, int score) {
+    	this.subNum = subNum;
     	this.examDate = examDate;
     	this.score = score;
+    	this.stuNum = stuNum;
     }
 }

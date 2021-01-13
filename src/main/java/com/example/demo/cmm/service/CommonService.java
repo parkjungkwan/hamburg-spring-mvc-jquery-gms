@@ -47,7 +47,9 @@ public class CommonService {
 			map.clear();
 		}
 		map.put("TABLE_COUNT", Sql.TABLE_COUNT.toString());
-		System.out.println("######## 만들어진 수: "+ commonMapper.tableCount(map));
+		
+		
+		
 		return (commonMapper.tableCount(map)!=0) ? 1: 0;
 	}
 	public int totalCount() {

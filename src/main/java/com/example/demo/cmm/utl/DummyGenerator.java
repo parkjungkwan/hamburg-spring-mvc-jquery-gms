@@ -131,6 +131,11 @@ public class DummyGenerator {
 		 Collections.shuffle(ls);
 		 return ls.get(0);
 	}
+	public int makeSubNum() {
+		List<Integer> ls = Arrays.asList(1,2,3,4,5);
+		 Collections.shuffle(ls);
+		 return ls.get(0);
+	}
 	
 	public String makeEmail() {
 		List<String> ls = Arrays.asList("@test.com","@gmail.com","@naver.com");
@@ -140,14 +145,14 @@ public class DummyGenerator {
 	
 	
 	public Student makeStudent() {
-		return new Student(0,makeUserid(), 
+		return new Student(makeUserid(), 
 				"1", 
 				makeUsername(), 
 				makeBirthday(), 
 				makeGender(),
 				makeRegdate(),
 				Path.DEFAULT_PROFILE.toString(),
-				makeSubject());
+				1);
 	}
 	/*********************************
 	 * Grade Dummy Data Generator 
@@ -159,8 +164,8 @@ public class DummyGenerator {
 				.map(i -> (int)(i * 100)).collect(Collectors.toList());
 	}
 	
-	public Grade makeGrade() {
-		return new Grade(makeSubject(), makeExamdate(), makeScore().get(0));
+	public Grade makeGrade(int stuNum) {
+		return new Grade(stuNum, makeSubNum(), makeExamdate(), makeScore().get(0));
 	}
 	/*********************************
 	 * Teacher Dummy Data Generator 

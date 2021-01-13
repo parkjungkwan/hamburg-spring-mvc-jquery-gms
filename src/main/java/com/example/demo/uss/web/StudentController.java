@@ -11,6 +11,7 @@ import com.example.demo.cmm.utl.Util;
 import com.example.demo.sts.service.GradeService;
 import com.example.demo.sts.service.SubjectMapper;
 import com.example.demo.sts.service.SubjectService;
+import com.example.demo.sym.service.ManagerService;
 import com.example.demo.sym.service.TeacherMapper;
 import com.example.demo.sym.service.TeacherService;
 import com.example.demo.uss.service.Student;
@@ -49,6 +50,7 @@ public class StudentController {
     @Autowired StudentMapper studentMapper;
     @Autowired SubjectService subjectService;
     @Autowired TeacherService teacherService;
+    @Autowired ManagerService managerService;
     @Autowired CommonMapper commonMapper;
     @Autowired Pagination page;
     @PostMapping("")
@@ -111,10 +113,14 @@ public class StudentController {
     @GetMapping("/insert-many/{count}")
     public String insertMany(@PathVariable String count) {
     	logger.info(String.format("Insert %s Students ...",count));
-    	gradeService.insertMany(Integer.parseInt(count));
+    	managerService.insertMany(1);
     	subjectService.insertMany(5);
+    	studentService.insertMany(Integer.parseInt(count));
     	teacherService.insertMany(5);
-    	return string.apply(studentService.insertMany(Integer.parseInt(count)));
+    	gradeService.insertMany(Integer.parseInt(count));
+    	var map = new HashMap<String, Object>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
+    	return string.apply(commonMapper.totalCount(map));
     }
     @GetMapping("/count")
     public String count() {

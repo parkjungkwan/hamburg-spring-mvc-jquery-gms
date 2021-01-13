@@ -29,8 +29,8 @@ public enum Sql {
 					"   gender varchar(20),\n" + 
 					"   reg_date varchar(20),\n" + 
 					"   profile_image varchar(100), \n" + 
-					"   mgr_num int,\n" + 
 					"   sub_num int,\n" + 
+					"   mgr_num int,\n" + 
 					"   constraint mgr_stu_fk foreign key(mgr_num) " + 
 					"                references managers(mgr_num)\n" +
 					"   )"; break;
