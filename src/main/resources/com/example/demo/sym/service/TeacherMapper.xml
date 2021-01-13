@@ -2,12 +2,28 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.sym.service.TeacherMapper">
-<insert id="insertMany" parameterType="list">
-	insert into teachers
-	( name, password, sub_num, profile_image )
-	values 
-	 <foreach item="i" collection="list" separator=",">
-        ( #{i.name}, #{i.password}, #{i.subNum}, #{i.profileImage} )
-  	</foreach>
-</insert>
+	<insert id="insertMany" parameterType="list">
+		insert into teachers
+		( name, password, sub_num, profile_image )
+		values 
+		 <foreach item="i" collection="list" separator=",">
+	        ( #{i.name}, #{i.password}, #{i.subNum}, #{i.profileImage} )
+	  	</foreach>
+	</insert>
+	<insert id="insert" parameterType="com.example.demo.sym.service.Teacher">
+			insert into teachers(name, password, sub_num, profile_image ) 
+			values (#{name}, #{password}, #{subNum}, #{profileImage} )
+	</insert>
+	<select id="access"
+		resultType="com.example.demo.sym.service.Teacher"
+	 parameterType="com.example.demo.sym.service.Teacher">
+		select 
+		tea_num teaNum,
+		name, 
+		password, 
+		sub_num subNum, 
+		profile_image profileImage
+		from teachers
+		where tea_num like #{teaNum} and password like #{password}
+	</select>
 </mapper>

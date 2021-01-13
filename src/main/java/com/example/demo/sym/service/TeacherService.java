@@ -29,6 +29,11 @@ public class TeacherService {
     	teacherMapper.insertMany(tlist);
     }
 
+	public int register(Teacher teacher) {
+		// TODO Auto-generated method stub
+		return teacherMapper.insert(teacher);
+	}
+
 }
 
 

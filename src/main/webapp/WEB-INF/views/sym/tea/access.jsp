@@ -72,11 +72,11 @@ span.psw {
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uid" required>
+    <label for="uname"><b>교강사번호</b></label>
+    <input type="text" placeholder="Enter Username" id="teaNum" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="pwd" required>
+    <label for="psw"><b>비밀번호</b></label>
+    <input type="password" placeholder="Enter Password" id="password" required>
         
     <button id="tea-login-btn">Login</button>
     <label>
@@ -89,8 +89,6 @@ span.psw {
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
   <script>
-  $(`#tea-login-btn`).click(function(e){
-		e.preventDefault()
-		alert(`티처 로그인 들어옴`)
-	})
+$(`#tea-login-btn`).click(function() {tea.access(`${ctx}`)})
+
   </script>

@@ -61,6 +61,11 @@ public class HomeController {
         logger.info("이동 파일: " + page);
         return String.format("mgr:%s", page);
     }
+    @GetMapping("/tea/{page}") 
+    public String teacher(@PathVariable String page) {
+    	 logger.info("이동 파일: " + page);
+         return String.format("tea:%s", page);
+    }
     /*
      * cop (Content Operater) 디렉토리 이동시 content 사용
      * */

@@ -26,4 +26,7 @@
 	<definition name="mgr:*" extends="auth">
 	    <put-attribute name="container" value="/WEB-INF/views/sym/mgr/{1}.jsp"/>
 	</definition>
+	<definition name="tea:*" extends="auth">
+	    <put-attribute name="container" value="/WEB-INF/views/sym/tea/{1}.jsp"/>
+	</definition>
 </tiles-definitions>
