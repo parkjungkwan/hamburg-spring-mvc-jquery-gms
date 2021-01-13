@@ -65,11 +65,12 @@ public class StudentController {
         map.put("sessionUser", result);
         return map;
     }
+    /*
     @GetMapping("/{userid}")
     public Student profile(@PathVariable String userid){
         return studentMapper.selectById(userid);
     }
-    
+    */
     @GetMapping("/page/{pageSize}/{pageNum}")
     public Map<?,?> list(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
@@ -113,12 +114,16 @@ public class StudentController {
     @GetMapping("/insert-many/{count}")
     public String insertMany(@PathVariable String count) {
     	logger.info(String.format("Insert %s Students ...",count));
-    	managerService.insertMany(1);
-    	subjectService.insertMany(5);
-    	studentService.insertMany(Integer.parseInt(count));
-    	teacherService.insertMany(5);
-    	gradeService.insertMany(Integer.parseInt(count));
     	var map = new HashMap<String, Object>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
+    	if(commonMapper.totalCount(map) == 0) {
+    		managerService.insertMany(1);
+        	subjectService.insertMany(5);
+        	studentService.insertMany(Integer.parseInt(count));
+        	teacherService.insertMany(5);
+        	//gradeService.insertMany(Integer.parseInt(count)); 나중에 추가함
+    	}
+    	map.clear();
     	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
     	return string.apply(commonMapper.totalCount(map));
     }

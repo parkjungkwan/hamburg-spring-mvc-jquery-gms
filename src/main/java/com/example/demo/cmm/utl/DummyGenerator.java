@@ -143,7 +143,7 @@ public class DummyGenerator {
 		return makeUserid()+ls.get(0);
 	}
 	
-	
+
 	public Student makeStudent() {
 		return new Student(makeUserid(), 
 				"1", 
@@ -171,12 +171,14 @@ public class DummyGenerator {
 	 * Teacher Dummy Data Generator 
 	 * *******************************
 	 */
+	
+	// String name, String password, String profileImage, int subNum)
 	public Teacher makeTeacher() {
-		return new Teacher("", 
+		return new Teacher(
 				makeUsername(), 
 				"1", 
-				"", 
-				Path.DEFAULT_PROFILE.toString()
+				Path.DEFAULT_PROFILE.toString(),
+				makeSubNum()
 				);
 	}
 	/*********************************

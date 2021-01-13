@@ -39,10 +39,10 @@
 </resultMap>
 <insert id="insertMany" parameterType="list">
 	insert into grades
-	( subject, score, stu_num, exam_date )
+	( sub_num, score, stu_num, exam_date )
 	values 
 	 <foreach item="i" collection="list" separator=",">
-        ( #{i.subject}, #{i.score}, 
+        ( #{i.subNum}, #{i.score}, 
         #{i.stuNum}, #{i.examDate} )
   	</foreach>
 </insert>

@@ -11,8 +11,10 @@ public enum Sql {
 		case CREATE_MANAGERS:
 			query = "create table managers(\n" + 
 					"   mgr_num int primary key auto_increment ,\n" + 
+					"   name varchar(20),\n" + 
 					"   email varchar(20),\n" + 
-					"   password varchar(20)\n" + 
+					"   password varchar(20),\n" + 
+					"   profile_image varchar(100)\n" + 
 					"   )"; break;
 		case CREATE_SUBJECTS:
 			query = "create table subjects \n" + 
@@ -29,7 +31,6 @@ public enum Sql {
 					"   gender varchar(20),\n" + 
 					"   reg_date varchar(20),\n" + 
 					"   profile_image varchar(100), \n" + 
-					"   sub_num int,\n" + 
 					"   mgr_num int,\n" + 
 					"   constraint mgr_stu_fk foreign key(mgr_num) " + 
 					"                references managers(mgr_num)\n" +

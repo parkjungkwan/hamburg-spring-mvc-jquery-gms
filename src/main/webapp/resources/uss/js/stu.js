@@ -8,7 +8,6 @@ stu.count = x => {
 	$.getJSON(`${x}/students/count`, 
 			d => { $(`#stu-count`).text(d)})}
 stu.list = x => {	
-	alert(`학생목록 가져옴`)
 	$.getJSON(`${x.ctx}/students/page/${x.pageSize}/${x.pageNum}`, d => { 
 		$(`<h3/>`)
 		.attr({id: `title`})
@@ -20,7 +19,7 @@ stu.list = x => {
 		.appendTo(`#title`) 
 		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
 		$.each(
-			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`], 
+			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`담당매니저`], 
 			(i,j) => {
 			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
 			.appendTo(`#tr_1`)
@@ -33,7 +32,7 @@ stu.list = x => {
 						<td>${j.birthday}</td>
 						<td>${j.gender}</td>
 						<td>${j.regDate}</td>
-						<td>${j.subject}</td></tr>`)
+						<td>${j.mgrNum}</td></tr>`)
 						.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
 						.appendTo(`#tab`)
 		})

@@ -18,7 +18,7 @@
 		(email, password, name, profile_image) 
 		values 
 		 <foreach item="i" collection="list" separator=",">
-	        (#{i.email}, #{i.password}, #{name}, #{profileImage})
+	        (#{i.email}, #{i.password}, #{i.name}, #{i.profileImage})
 	  	</foreach>
 	</insert>
 </mapper>
