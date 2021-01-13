@@ -7,7 +7,7 @@
 <delete id="dropTable" parameterType="map">
 	${DROP_TABLE}
 </delete>
-<insert id="generateDB" parameterType="map">
+<insert id="createTable" parameterType="map">
 	${CREATE_TABLE}
 </insert>
 <select id="tableCount" parameterType="map" resultType="int">

@@ -3,6 +3,7 @@ package com.example.demo.uss.web;
 import java.util.Map;
 
 import com.example.demo.cmm.enm.Messenger;
+import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.enm.Table;
 import com.example.demo.cmm.service.CommonMapper;
 import com.example.demo.cmm.utl.Pagination;
@@ -72,11 +73,14 @@ public class StudentController {
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
     	var map = new HashMap<String, Object>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
     	var page = new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),
 				integer.apply(pageNum),
-				commonMapper.count(Table.STUDENTS.toString()));
+				commonMapper.totalCount(map))
+				;
+    	map.clear();
     	map.put("list", studentService.list(page));
     	map.put("page", page);
         return map;
@@ -85,11 +89,13 @@ public class StudentController {
     public List<?> selectAll(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
+    	var map = new HashMap<String, Object>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
         return studentMapper.selectAll(new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),
 				integer.apply(pageNum),
-				commonMapper.count(Table.STUDENTS.toString())));
+				commonMapper.totalCount(map)));
     }
     
     @PutMapping("")
@@ -113,7 +119,9 @@ public class StudentController {
     @GetMapping("/count")
     public String count() {
     	logger.info(String.format("Count Students ..."));
-    	return string.apply(commonMapper.count(Table.STUDENTS.toString()));
+    	var map = new HashMap<String, Object>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
+    	return string.apply(commonMapper.totalCount(map));
     }
     @GetMapping("/find-by-gender/{gender}")
     public List<Student> findByGender(@PathVariable String gender) {

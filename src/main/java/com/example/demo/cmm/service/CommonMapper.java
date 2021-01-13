@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface CommonMapper {
 	public int totalCount(Map<?,?>map);
 	public int dropTable(Map<?,?>map);
-	public int generateDB(Map<?,?>map);
+	public int createTable(Map<?,?>map);
 	public int tableCount(Map<?,?> map);
 }

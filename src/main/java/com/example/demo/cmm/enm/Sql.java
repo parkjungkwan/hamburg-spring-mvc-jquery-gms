@@ -32,7 +32,7 @@ public enum Sql {
 					"   mgr_num int,\n" + 
 					"   sub_num int,\n" + 
 					"   constraint mgr_stu_fk foreign key(mgr_num) " + 
-					"                references mangers(mgr_num)\n" +
+					"                references managers(mgr_num)\n" +
 					"   )"; break;
 		case CREATE_TEACHERS:
 			query = "create table teachers(\n" + 
@@ -40,7 +40,7 @@ public enum Sql {
 					"   name varchar(20),\n" + 
 					"   password varchar(20),\n" + 
 					"   subject varchar(20),\n" + 
-					"   profile_image varchar(100)\n" + 
+					"   profile_image varchar(100),\n" + 
 					"   sub_num int,\n" + 
 					"   constraint sub_tea_fk foreign key(sub_num) " + 
 					"                references subjects(sub_num)\n" + 
@@ -51,13 +51,14 @@ public enum Sql {
 					"   subject varchar(20),\n" + 
 					"   score varchar(20),\n" + 
 					"   grade varchar(20),\n" + 
+					"   exam_date varchar(20),\n" + 
 					"   stu_num int,\n" + 
-					"   exam_date varchar(20)\n" + 
-					"   )\n" + 
+					"   sub_num int,\n" + 
 					"   constraint stu_grd_fk foreign key(stu_num) " + 
-					"        references students(stu_num)" +
+					"        references students(stu_num)," +
 					"   constraint sub_grd_fk foreign key(sub_num) " + 
-					"                references subjects(sub_num)\n"
+					"                references subjects(sub_num)\n" +
+					"   )"
 					; break;
 		case CREATE_ARTICLES:
 			query = "create table articles(\n" + 
@@ -70,11 +71,12 @@ public enum Sql {
 					"   stu_num int,\n"+
 					"   tea_num int,\n"+
 					"   constraint mgr_art_fk foreign key(mgr_num) " + 
-					"                references managers(mgr_num)\n" +
+					"                references managers(mgr_num),\n" +
 					"   constraint stu_art_fk foreign key(stu_num) " + 
-					"        references students(stu_num)" +
+					"                references students(stu_num),\n" +
 					"   constraint tea_art_fk foreign key(tea_num) " + 
-					"                references subjects(tea_num)\n" 
+					"                references teachers(tea_num)\n" +
+					"   )"
 					; break;
 		case CREATE_REPLIES:
 			query = "create table replies(\n" + 
@@ -86,13 +88,14 @@ public enum Sql {
 					"   stu_num int,\n"+
 					"   tea_num int,\n"+
 					"   constraint art_rep_fk foreign key(art_num) " +
-					"                references articles(art_num)\n" + 
-					"   constraint mgr_art_fk foreign key(mgr_num) " + 
-					"                references managers(mgr_num)\n" +
-					"   constraint stu_art_fk foreign key(stu_num) " + 
-					"                  references students(stu_num)\n" +
-					"   constraint tea_art_fk foreign key(tea_num) \t" + 
-					"                references teachers(tea_num)\n"
+					"                references articles(art_num),\n" + 
+					"   constraint mgr_rep_fk foreign key(mgr_num) " + 
+					"                references managers(mgr_num),\n" +
+					"   constraint stu_rep_fk foreign key(stu_num) " + 
+					"                  references students(stu_num),\n" +
+					"   constraint tea_rep_fk foreign key(tea_num) \t" + 
+					"                references teachers(tea_num)\n" +
+					"   )"
 					; break;
 		case TRUNCATE:
 			query = "truncate table \t"; break;
@@ -101,7 +104,8 @@ public enum Sql {
 		case DROP_TABLE:
 			query = "drop table if exists \t"; break;
 		case TABLE_COUNT:
-			query = "select count(*) from information_schema.tables where table_schema = \'mariadb\'";
+			query = "select count(*) from information_schema.tables " + 
+					"where table_schema = \'mariadb\'"; break;
 		}
 		return query;
 	}

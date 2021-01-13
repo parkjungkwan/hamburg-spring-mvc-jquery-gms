@@ -18,13 +18,14 @@ public class CommonService {
 	public int generateDB() {
 		var map = new HashMap<String,String>();
 		List<String> l1 = Arrays.asList(
-				Sql.DROP_TABLE.toString()+"managers",
-				Sql.DROP_TABLE.toString()+"subjects",
-				Sql.DROP_TABLE.toString()+"students",
-				Sql.DROP_TABLE.toString()+"teachers",
-				Sql.DROP_TABLE.toString()+"grades",
+				Sql.DROP_TABLE.toString()+"replies",
 				Sql.DROP_TABLE.toString()+"articles",
-				Sql.DROP_TABLE.toString()+"replies")
+				Sql.DROP_TABLE.toString()+"grades",
+				Sql.DROP_TABLE.toString()+"teachers",
+				Sql.DROP_TABLE.toString()+"students",
+				Sql.DROP_TABLE.toString()+"subjects",
+				Sql.DROP_TABLE.toString()+"managers"
+				)
 		;
 		List<String> l2 = Arrays.asList(
 				Sql.CREATE_MANAGERS.toString(),
@@ -39,11 +40,14 @@ public class CommonService {
 			map.put("DROP_TABLE", l1.get(i));
 			commonMapper.dropTable(map);
 			map.clear();
+		}
+		for(int i=0; i< l2.size(); i++) {
 			map.put("CREATE_TABLE", l2.get(i));
-			commonMapper.generateDB(map);
+			commonMapper.createTable(map);
 			map.clear();
 		}
 		map.put("TABLE_COUNT", Sql.TABLE_COUNT.toString());
+		System.out.println("######## 만들어진 수: "+ commonMapper.tableCount(map));
 		return (commonMapper.tableCount(map)!=0) ? 1: 0;
 	}
 	public int totalCount() {

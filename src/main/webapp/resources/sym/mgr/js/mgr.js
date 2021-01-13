@@ -21,6 +21,8 @@ mgr.register = x => {
 }
 
 mgr.access = x => {
+	alert(`>>>>`)
+	/*
 	$.ajax({
 		url: `${x}/managers/access`,
 		type: `post`,
@@ -33,5 +35,6 @@ mgr.access = x => {
 		error: e => {
 			alert(`Fail`)
 		}
-	})
+	}) */
+	location.href = `${x}/mgr/index`
 }
