@@ -101,11 +101,7 @@ public class StudentController {
     	logger.info("Students Deleted Execute ...");
         return studentMapper.delete(s) ==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
-    @GetMapping("/truncate")
-    public Messenger truncate() {
-    	logger.info("Students Truncated Execute ...");
-    	return studentService.truncate()==1?Messenger.SUCCESS:Messenger.FAILURE;
-    }
+    
     @GetMapping("/insert-many/{count}")
     public String insertMany(@PathVariable String count) {
     	logger.info(String.format("Insert %s Students ...",count));

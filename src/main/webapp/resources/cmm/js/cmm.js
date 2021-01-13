@@ -1,5 +1,14 @@
 'use strict'
-var common = common || {}
+var cmm = cmm || {}
+
+
+cmm.generateDB = x => {
+	$.getJSON(`${x}/common/generate/db`,
+	 		d => { location.reload()})
+}
+
+/*
+
 common = (()=>{
 	const init = ctx => {
 		localStorage.setItem('ctx', ctx)
@@ -77,7 +86,7 @@ common = (()=>{
 
 
 
-
+*/
 
 
 

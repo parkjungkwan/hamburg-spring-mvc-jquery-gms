@@ -9,4 +9,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="${mgr}/js/mgr.js"></script> 
 <script src="${stu}/js/stu.js"></script>	
+<script src="${cmm}/js/cmm.js"></script>	
 </head>

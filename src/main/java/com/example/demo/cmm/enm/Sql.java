@@ -99,7 +99,7 @@ public enum Sql {
 		case COUNT:
 			query = "select count(*) count from "; break;
 		case DROP:
-			query = "drop table "; break;
+			query = "drop table if exists "; break;
 		}
 		return query;
 	}

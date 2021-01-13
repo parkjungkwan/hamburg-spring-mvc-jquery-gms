@@ -37,7 +37,7 @@ public class StudentService{
     @Transactional
     public int truncate() {
     	var map = new HashMap<String,String>();
-    	map.put("TRUNCATE_STUDENTS", Sql.TRUNCATE_STUDENTS.toString());
+    	map.put("TRUNCATE_STUDENTS", Sql.TRUNCATE.toString() + " students");
     	studentMapper.truncate(map);
     	return count() != 0 ? 0 : 1;
     }
