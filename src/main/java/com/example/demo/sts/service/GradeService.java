@@ -25,4 +25,8 @@ public class GradeService {
 			}
 		}
     }
+	
+	public List<GradeVo> selectAllforExam(String examDate){
+		return gradeMapper.selectJoinAll(examDate);
+	}
 }
