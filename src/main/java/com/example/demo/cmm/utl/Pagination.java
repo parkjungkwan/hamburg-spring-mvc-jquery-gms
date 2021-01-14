@@ -15,7 +15,7 @@ public class Pagination {
 	public final int BLOCK_SIZE = 5;
 	private String tname;
 	private boolean existPrev, existNext;
-	
+	// SQL 방식
 	public Pagination(String tname, int pageSize, int pageNum, int count) {
 		this.tname = tname;
 		this.pageSize = pageSize;
@@ -32,5 +32,9 @@ public class Pagination {
 		this.existNext = (blockNum + 1) != blockCount;
 		this.nextBlock = startPage + BLOCK_SIZE;
 		this.prevBlock = startPage - BLOCK_SIZE;
+	}
+	// POJO 방식을 위한 생성자 오버로드
+	public Pagination(int pageSize, int pageNum, int count) {
+		
 	}
 }

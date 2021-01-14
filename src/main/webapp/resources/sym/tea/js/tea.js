@@ -37,3 +37,6 @@ tea.access = x => {
 	})
 	
 }
+tea.grade_mgmt = x => {
+	alert(`-----`)
+}

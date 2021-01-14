@@ -1,14 +1,26 @@
 package com.example.demo.sym.web;
 
+import static com.example.demo.cmm.utl.Util.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.cmm.enm.Messenger;
+import com.example.demo.cmm.enm.Sql;
+import com.example.demo.cmm.enm.Table;
+import com.example.demo.cmm.utl.Pagination;
+import com.example.demo.sts.service.GradeVo;
 import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.ManagerMapper;
 import com.example.demo.sym.service.ManagerService;
@@ -35,6 +47,33 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @PostMapping("/access")
     public Teacher access(@RequestBody Teacher teacher) {
     	return teacherMapper.access(teacher);
+    }
+  
+    @GetMapping("/page/{pageSize}/{pageNum}/subject/{subNum}/{examDate}/option/{}/{}")
+    public Map<?,?> selectAllBySubject(
+    		@PathVariable String pageSize, 
+			@PathVariable String pageNum,
+    		@PathVariable String subNum,
+    		@PathVariable String examDate
+    		){
+    	logger.info("/***************************************\n"
+    			+ "해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환"
+    			+ "******************************************");
+    	var map = new HashMap<String, String>();
+    	map.put("examDate", examDate);
+    	map.put("subNum", subNum);
+    	List<GradeVo> list = teacherMapper.selectAll(map);
+    	map.clear();
+    	// POJO 로 구현하는 Pagination	
+    	var page = new Pagination(
+				Table.STUDENTS.toString(), 
+				integer.apply(pageSize),
+				integer.apply(pageNum),
+				list.size())
+				;
+    	//map.put("list", studentService.list(page));
+    	//map.put("page", page);
+    	return map;
     }
 
 }
