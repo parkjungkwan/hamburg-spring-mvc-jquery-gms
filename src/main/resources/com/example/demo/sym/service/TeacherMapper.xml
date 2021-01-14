@@ -49,9 +49,9 @@
 		from teachers
 		where tea_num like #{teaNum} and password like #{password}
 	</select>
-	<select id="selectJoinAll" resultMap="gradeMap" parameterType='map'>
+	<select id="selectAll" resultMap="gradeMap" parameterType='map'>
 select
- count(t.tea_num) count,
+ 
  a.*, 
  t.tea_num teaNum, 
  t.name teaName,
@@ -77,7 +77,7 @@ from grades g
 	join students s on s.stu_num = g.stu_num) a
 	join teachers t on t.sub_num = a.subNum
 	
-where a.examDate like #{value}
+where a.examDate LIKE #{examDate} AND a.subNum =  #{subNum}
 
 </select>
 </mapper>

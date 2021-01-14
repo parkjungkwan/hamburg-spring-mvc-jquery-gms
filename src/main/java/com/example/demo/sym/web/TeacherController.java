@@ -5,6 +5,8 @@ import static com.example.demo.cmm.utl.Util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,31 +51,38 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     	return teacherMapper.access(teacher);
     }
   
-    @GetMapping("/page/{pageSize}/{pageNum}/subject/{subNum}/{examDate}/option/{}/{}")
+    @GetMapping("/page/{pageSize}/{pageNum}/subject/{subNum}/{examDate}")
     public Map<?,?> selectAllBySubject(
     		@PathVariable String pageSize, 
 			@PathVariable String pageNum,
     		@PathVariable String subNum,
-    		@PathVariable String examDate
-    		){
-    	logger.info("/***************************************\n"
-    			+ "해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환"
-    			+ "******************************************");
-    	var map = new HashMap<String, String>();
+    		@PathVariable String examDate){
+    	logger.info("/\n***************************************\n"
+    			+ "해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환\n"
+    			+ "******************************************\n");
+    	var map = new HashMap<String, Object>();
     	map.put("examDate", examDate);
     	map.put("subNum", subNum);
     	List<GradeVo> list = teacherMapper.selectAll(map);
     	map.clear();
-    	// POJO 로 구현하는 Pagination	
-    	var page = new Pagination(
-				Table.STUDENTS.toString(), 
-				integer.apply(pageSize),
-				integer.apply(pageNum),
-				list.size())
-				;
-    	//map.put("list", studentService.list(page));
-    	//map.put("page", page);
+    	map.put("list", list.stream()
+			    	    	.skip(mySkip.apply(pageNum, pageSize))
+			    	    	.limit(integer.apply(pageSize))
+			    	    	.collect(Collectors.toList()));
+    	map.put("page", new Pagination(integer.apply(pageSize), 
+    								   integer.apply(pageNum), 
+    								   list.size()));    	
     	return map;
     }
-
+  
 }
+
+
+
+
+
+
+
+
+
+
