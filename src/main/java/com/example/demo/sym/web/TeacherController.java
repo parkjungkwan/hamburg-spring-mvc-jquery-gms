@@ -1,12 +1,13 @@
 package com.example.demo.sym.web;
 
 import static com.example.demo.cmm.utl.Util.*;
-
+import static java.util.stream.Collectors.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.BiFunction;
-import java.util.stream.Collectors;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,15 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.enm.Table;
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.Pagination;
+import com.example.demo.sts.service.Grade;
 import com.example.demo.sts.service.GradeVo;
+import com.example.demo.sts.service.SubjectMapper;
 import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.ManagerMapper;
 import com.example.demo.sym.service.ManagerService;
 import com.example.demo.sym.service.Teacher;
 import com.example.demo.sym.service.TeacherMapper;
 import com.example.demo.sym.service.TeacherService;
-
+import java.util.IntSummaryStatistics;
 @RestController
 @RequestMapping("/teachers")
 public class TeacherController {
@@ -37,6 +41,8 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @Autowired TeacherService teacherService;
     @Autowired TeacherMapper teacherMapper;
+    @Autowired SubjectMapper subjectMapper;
+    @Autowired Box<Object> box;
     
 
     @PostMapping("")
@@ -65,17 +71,37 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     	map.put("subNum", subNum);
     	List<GradeVo> list = teacherMapper.selectAll(map);
     	map.clear();
+    	
+    	IntSummaryStatistics is =list.stream().collect(summarizingInt(GradeVo::getScore));// 204
+    	map.put("max", is.getMax());
+    	map.put("min", is.getMin());
+    	map.put("sum", is.getSum());
+    	map.put("avg", is.getAverage());
+    	map.put("count", is.getCount());
+    	
+    	System.out.println(is);
+    	
     	map.put("list", list.stream()
 			    	    	.skip(mySkip.apply(pageNum, pageSize))
 			    	    	.limit(integer.apply(pageSize))
-			    	    	.collect(Collectors.toList()));
+			    	    	.collect(toList()));
+    	
     	map.put("page", new Pagination(integer.apply(pageSize), 
     								   integer.apply(pageNum), 
-    								   list.size()));    	
+    								   list.size()));   
+    	
+    	map.put("subjects",subjectMapper.selectAllSubject()
+					    	.stream()
+					    	.collect(joining(",")));
+    	
+    	Optional<GradeVo> highScoreGrade = list.stream()
+    			.collect(reducing( (g1, g2) -> g1.getScore() > g2.getScore() ? g1 : g2 ));
+    	
+    	
     	return map;
     }
   
-}
+} 
 
 
 

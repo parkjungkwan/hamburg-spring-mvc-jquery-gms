@@ -92,54 +92,78 @@
 <section id="data-mgt">
     <table class="my-tab" id="mgr-tab">
     	<tr>
-    		<th style="width: 30%">관리 항목</th><th id="result-form">조회결과</th>
+    		<th style="width: 30%">통계 자료</th><th id="result-form">성적 리스트</th>
     	</tr>
     	<tr>
-    		<td>학 생 (총 <span id="stu-count"></span> 명) <button id="mgr-generate-db">DB생성</button><br/><br/>
-    			<input type="text" id="stu-data-count" placeholder="학생수 입력"/><button id="mgr-insert-many-stu">DB초기화</button><br/><br/>
-    			<button id="grd-register">성적등록</button><br/>
-	    		<input type="text" id="stu-data-update" placeholder="ID 입력"/><button>ID 검색</button><br/><br/>
-	    		<input type="text" id="stu-data-delete" placeholder="ID 입력"/><button>ID 삭제</button><br/><br/>
-	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성 <!--  P.167 anyMatch -->
-	    		<input type="radio" name="stu-data-gender" value="F" style="margin-left:5px"/>여성<button style="margin-left:5px">성별조회</button><br/><br/>
-	    		<input type="text" id="stu-data-birthday" placeholder="년도입력" /><button>년도 이후 출생 </button><br/> <!--  P.167 allMatch -->
-	    		<input type="text" id="stu-data-birthday-after" placeholder="년도입력" /><button>년도 이전 출생 </button><br/> <!--  P.167 noneMatch -->
-	    		<input type="text" id="stu-data-subject" placeholder="수강과목 입력" /><button>수강과목별 학생 </button><br/> <!--  P.168 findAny -->
-	    		<input type="text" id="stu-data-young-man" placeholder="년도입력" /><button>최연소자 학생 </button><br/> <!--  P.169 findFirst -->
-	    		
-	    		
-    		
+    		<td> 
+	    		<table>
+	    			<tr>
+	    				<td>jQuery 점수의 합</td><!-- p.204 -->
+	    				<td>10000 점</td>
+	    			</tr>
+	    			<tr>
+	    				<td>최고 점수</td><!-- p.172 -->
+	    				<td>100 점</td>
+	    			</tr>
+	    			<tr>
+	    				<td>최하 점수</td><!-- p.172 -->
+	    				<td>0 점</td>
+	    			</tr>
+	    			<tr>
+	    				<td>평균 점수</td>
+	    				<td>50 점</td>
+	    			</tr>
+	    			<tr>
+	    				<td>노월황이 시험을 치렀는가?</td><!-- p.180 -->
+	    				<td></td>
+	    			</tr>
+	    			<tr>
+	    				<td>학생들 수강과목 중복없이 나열</td><!-- p.179 -->	
+	    				<td>....</td>
+	    			</tr>
+	    			<tr>
+	    				<td>점수별 내림차순 정렬</td><!-- p.179 -->
+	    				<td>....</td>
+	    			</tr>
+	    			<tr>
+	    				<td>이름별 오름차순 정렬</td><!-- p.180 -->
+	    				<td>....</td>
+	    			</tr>
+	    			<tr>
+	    				<td>과목별 평균점수</td><!-- p.199 -->
+	    				<td> 
+	    				<table>
+	    					<tr>
+	    						<td>Java</td>
+	    						<td></td>
+	    					</tr>
+	    					<tr>
+	    						<td>Spring</td>
+	    						<td></td>
+	    					</tr>
+	    					<tr>
+	    						<td>Python</td>
+	    						<td></td>
+	    					</tr>
+	    					<tr>
+	    						<td>jQuery</td>
+	    						<td></td>
+	    					</tr>
+	    					<tr>
+	    						<td>eGovframe</td>
+	    						<td></td>
+	    					</tr>
+	    				</table> 
+	    				</td>
+	    			</tr>
+	    			
+	    		</table>
     		</td>
     		<td>
     			<div id="mgr-data-mgt-stu"></div>
     		</td>
     	</tr>
-    	<tr>
-    		<td>교강사
-    		
-    			<input type="text" id="tea-data-count"/>
-    			<button id="mgr-insert-many-tea">건의 더미 데이터생성</button>
-	    		<button>조회</button>
-	    		<button>수정</button>
-	    		<button>삭제</button>
-	    		<button>전체삭제</button>
-    		</td>
-    		<td>
-	    		<div id="mgr-data-mgt-tea"></div>
-    		</td>
-    	</tr>
-    	<tr>
-    		<td>사 원 
-    			<button>조회</button>
-	    		<button>수정</button>
-	    		<button>삭제</button>
-	    		<button>전체삭제</button>
-    		
-    		</td>
-    		<td>
-	    		<div id="mgr-data-mgt-emp"></div>
-    		</td>
-    	</tr>
+    	
     </table>
     
 </section>

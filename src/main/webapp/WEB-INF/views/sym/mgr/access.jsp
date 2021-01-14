@@ -74,7 +74,7 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uid" value="fNhS@gmail.com" required>
+    <input type="text" placeholder="Enter Username" id="uid" value="kfyp@test.com" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" id="pwd" value="1" required>

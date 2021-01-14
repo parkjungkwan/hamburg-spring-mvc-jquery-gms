@@ -73,5 +73,7 @@ public class GradeController {
     	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.GRADES);	
         return commonMapper.totalCount(map)!=0?Messenger.SUCCESS:Messenger.FAILURE;
     }
+    
+    
 	
 }
