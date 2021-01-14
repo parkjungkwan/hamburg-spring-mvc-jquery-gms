@@ -38,5 +38,18 @@ tea.access = x => {
 	
 }
 tea.grade_mgmt = x => {
-	alert(`-----`)
+	$.getJSON(`${ctx}/teachers/page/${x.pageSize}/${x.pageNum}/subject/${x.subNum}/${x.examDate}`, d => {
+		
+	})
 }
+
+
+
+
+
+
+
+
+
+
+
