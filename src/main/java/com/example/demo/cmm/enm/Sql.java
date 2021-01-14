@@ -50,7 +50,7 @@ public enum Sql {
 			query = "create table grades(\r\n" + 
 					"   grd_num int primary key auto_increment,\n" + 
 					"   score varchar(20),\n" + 
-					"   grade varchar(20),\n" + 
+					"   grade varchar(20) default '미정',\n" + 
 					"   exam_date varchar(20),\n" + 
 					"   stu_num int,\n" + 
 					"   sub_num int,\n" + 

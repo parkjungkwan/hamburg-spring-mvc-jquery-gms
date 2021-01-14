@@ -64,6 +64,7 @@ from (select
 	g.exam_date examDate,
 	j.sub_num subNum,
 	j.description description,
+	j.subject subject,
 	s.userid userid,
 	s.password stuPassword,
 	s.name stuName,
@@ -72,6 +73,7 @@ from (select
 	s.reg_date regDate,
 	s.profile_image stuProfileImage,
 	s.stu_num stuNum
+	
 from grades g
 	join subjects j on j.sub_num = g.sub_num
 	join students s on s.stu_num = g.stu_num) a

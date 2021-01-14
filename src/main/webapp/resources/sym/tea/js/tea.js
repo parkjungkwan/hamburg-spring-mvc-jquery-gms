@@ -38,8 +38,90 @@ tea.access = x => {
 	
 }
 tea.grade_mgmt = x => {
-	$.getJSON(`${ctx}/teachers/page/${x.pageSize}/${x.pageNum}/subject/${x.subNum}/${x.examDate}`, d => {
+	$.getJSON(`${x.ctx}/teachers/page/${x.pageSize}/${x.pageNum}/subject/${x.subNum}/${x.examDate}`, d => {
+		const list = d.list
+		const page = d.page
+		$(`<h3/>`)
+		.attr({id: `title`})
+		.text(`${list[0].examDate} ${list[0].subject} 성적`)
+		.appendTo(`#mgr-data-mgt-stu`)
+		$(`<table/>`)
+		.attr({id: `tab`})
+		.css({width: `100%`})
+		.appendTo(`#title`) 
+		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
+		$.each(
+			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`점수`,`학점`], 
+			(i,j) => {
+			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
+			.appendTo(`#tr_1`)
+		})
+		$.each(list, 
+			(i, j) => {
+					$(`<tr><td>${j.stuNum}</td>
+		   	    		<td>${j.userid}</td>
+		   	    		<td>${j.stuName}</td>
+						<td>${j.birthday}</td>
+						<td>${j.gender}</td>
+						<td>${j.score}</td>
+						<td>${j.grade}</td></tr>`)
+						.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
+						.appendTo(`#tab`)
+		})
+		$(`<div/>`)
+		.attr({id: `stu_page`})
+		.addClass(`pagination`)
+		.appendTo(`#mgr-data-mgt-stu`)
 		
+		/*function* range(start, end) {
+			for (let i = start; i <= end; i++) {
+		        yield i;
+		    }
+		} 아래 형태는 for 가 배재된 재귀함수 */
+		function* range(start, end) {
+		    yield start;
+		    if (start === end) return;
+		    yield* range(start + 1, end);
+		}
+		
+		if(page.existPrev){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.text(`<<`)
+			.css({backgroundColor: `gray`})
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.prevBlock})
+			})
+		}
+		$.each(
+			[...range(page.startPage, page.endPage)] ,
+			 (i, j) => {
+				$(`<a/>`)
+					.attr({href: `#`})
+					.css({backgroundColor: (j != page.pageNum) ? `gray` : `yellow`})
+					.text(`${j}`)
+					.appendTo(`#stu_page`)
+					.click(e=>{
+						e.preventDefault()
+						$(`#mgr-data-mgt-stu`).empty()
+						stu.list({ctx: x.ctx, pageSize: `10`, pageNum: j})
+					})
+		})
+		if(page.existNext){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.css({backgroundColor: `gray`})
+			.text(`>>`)
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.nextBlock})
+			})
+		}
 	})
 }
 

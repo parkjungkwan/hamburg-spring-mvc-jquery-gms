@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="${mgr}/js/mgr.js"></script> 
-<script src="${tea}/js/tea.js"></script> 
+<script src="<%=application.getContextPath()%>/resources/sym/tea/js/tea.js"></script> 
 <script src="${stu}/js/stu.js"></script>	
 <script src="${cmm}/js/cmm.js"></script>	
 <script src="${sts}/js/grd.js"></script>	

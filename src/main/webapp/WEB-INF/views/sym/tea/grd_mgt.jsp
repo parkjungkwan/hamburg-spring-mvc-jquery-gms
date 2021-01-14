@@ -144,11 +144,13 @@
     
 </section>
 <script>
-stu.count(`${ctx}`)
-stu.list({ctx: `${ctx}`, pageSize: `10`, pageNum: `1`})
-$(`#mgr-generate-db`).click(function(){cmm.generateDB(`${ctx}`)})
-$(`#grd-register`).click(function(){grd.register_form(`${ctx}`)})
-$(`#mgr-insert-many-stu`).click(function(){ stu.insertMany(`${ctx}`)})
+tea.grade_mgmt({ctx: `${ctx}`, 
+	pageSize: `10`, 
+	pageNum: `1`,
+	subNum: `4`,
+	examDate: `2020-11-30`
+	})
+
 </script>
 
 
