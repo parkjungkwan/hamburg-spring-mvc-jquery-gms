@@ -93,7 +93,10 @@ tea.grade_mgmt = x => {
 			.click(e=>{
 				e.preventDefault()
 				$(`#mgr-data-mgt-stu`).empty()
-				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.prevBlock})
+				tea.grade_mgmt({ctx: x.ctx, pageSize: `10`, 
+								pageNum: page.prevBlock, 
+								subNum: list[0].subNum,
+								examDate: list[0].examDate})
 			})
 		}
 		$.each(
@@ -107,7 +110,11 @@ tea.grade_mgmt = x => {
 					.click(e=>{
 						e.preventDefault()
 						$(`#mgr-data-mgt-stu`).empty()
-						stu.list({ctx: x.ctx, pageSize: `10`, pageNum: j})
+						tea.grade_mgmt({ctx: x.ctx, 
+										pageSize: `10`, 
+										pageNum: j,
+										subNum: list[0].subNum,
+										examDate: list[0].examDate})
 					})
 		})
 		if(page.existNext){
@@ -119,7 +126,11 @@ tea.grade_mgmt = x => {
 			.click(e=>{
 				e.preventDefault()
 				$(`#mgr-data-mgt-stu`).empty()
-				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.nextBlock})
+				tea.grade_mgmt({ctx: x.ctx, 
+								pageSize: `10`, 
+								pageNum: page.nextBlock,
+								subNum: list[0].subNum,
+								examDate: list[0].examDate})
 			})
 		}
 	})

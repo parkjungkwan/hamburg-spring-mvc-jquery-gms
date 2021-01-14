@@ -173,14 +173,13 @@ public class DummyGenerator {
 	 */
 	
 	// String name, String password, String profileImage, int subNum)
-	public Teacher makeTeacher() {
+	public Teacher makeTeacher(int i) {
 		return new Teacher(
 				makeUsername(), 
-				"1", 
+				"1", // 비번
 				Path.DEFAULT_PROFILE.toString(),
-				makeSubNum()
-				);
-	}
+				i); // makeTeacher() 를 1 ~ 5 까지만 생성하기 위해
+	}// makeSubNum()
 	/*********************************
 	 * Manager Dummy Data Generator 
 	 * *******************************
