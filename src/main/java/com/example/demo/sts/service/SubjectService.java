@@ -1,10 +1,16 @@
 package com.example.demo.sts.service;
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
+
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.DummyGenerator;
 import com.example.demo.cmm.utl.Inventory;
 import com.example.demo.sts.service.GradeService;
+import com.example.demo.sym.service.TeacherMapper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +20,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubjectService {
 	@Autowired SubjectMapper subjectMapper;
+	@Autowired TeacherMapper teacherMapper;
 	@Autowired DummyGenerator dummy;
 	@Autowired Inventory<Subject> ls;
+	@Autowired Box<List<GradeVo>> bx;
 	
 	public void insertMany(int count) {
 		
@@ -32,8 +40,8 @@ public class SubjectService {
 		subjectMapper.insertMany(ls.get());
     }
 	
-	public List<GradeVo> groupBySubject(Map<?,?> paramMap){
-		
+	public List<GradeVo> groupBySubject(Box<String> param){
+    	bx.put("groupBy", teacherMapper.selectAll(param));
 		return Arrays.asList();
 	}
 }

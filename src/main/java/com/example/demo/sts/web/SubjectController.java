@@ -1,5 +1,6 @@
 package com.example.demo.sts.web;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -8,6 +9,7 @@ import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.enm.Table;
 import com.example.demo.cmm.service.CommonMapper;
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.Pagination;
 import com.example.demo.cmm.utl.Util;
 import com.example.demo.sts.service.Grade;
@@ -62,6 +64,7 @@ public class SubjectController {
     @Autowired ManagerService managerService;
     @Autowired CommonMapper commonMapper;
     @Autowired Pagination page;
+    @Autowired Box<String> bx;
     
     @PostMapping("")
     public Messenger register(@RequestBody Subject s){
@@ -71,10 +74,8 @@ public class SubjectController {
     @GetMapping("/groupBy/{examDate}")
     public Map<?,?> totalScoreGroupBySubject(
     		@PathVariable String examDate){
-    	var paramMap = new HashMap<String, Object>();
-    	paramMap.put("examDate", examDate);
-    	subjectService.groupBySubject(paramMap);
-    	
+    	bx.put("examDate", examDate);
+    	subjectService.groupBySubject(bx);
     	return null;
     }
     

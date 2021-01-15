@@ -1,5 +1,6 @@
 package com.example.demo.sym.web;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import static com.example.demo.cmm.utl.Util.*;
 import static java.util.stream.Collectors.*;
 import java.util.HashMap;
@@ -42,7 +43,7 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired TeacherService teacherService;
     @Autowired TeacherMapper teacherMapper;
     @Autowired SubjectMapper subjectMapper;
-    @Autowired Box<Object> box;
+    @Autowired Box<String> bx;
     
 
     @PostMapping("")
@@ -67,12 +68,11 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     		@PathVariable String subNum,
     		@PathVariable String examDate){
     	logger.info(" selectAllBySubject Executed ...");
-    	var paramMap = new HashMap<String, Object>();
-    	paramMap.put("pageSize", pageSize);
-    	paramMap.put("pageNum", pageNum);
-    	paramMap.put("subNum", subNum);
-    	paramMap.put("examDate", examDate);
-    	teacherService.selectAllBySubject(paramMap);
+    	bx.put("pageSize", pageSize);
+    	bx.put("pageNum", pageNum);
+    	bx.put("subNum", subNum);
+    	bx.put("examDate", examDate);
+    	teacherService.selectAllBySubject(bx);
     	
     	return null;
     }

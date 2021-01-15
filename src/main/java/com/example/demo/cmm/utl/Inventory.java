@@ -1,5 +1,6 @@
 package com.example.demo.cmm.utl;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import java.util.ArrayList;
 
 import org.springframework.context.annotation.Lazy;
@@ -18,7 +19,6 @@ public class Inventory<T> {
 	public void add(T t) {inventory.add(t);}
 	public T get(int i) {return inventory.get(i);}
 	public ArrayList<T> get(){return inventory;}
-	// set
 	public void clear() {inventory.clear();}
 	public int size() {return inventory.size();}
 }

@@ -1,5 +1,6 @@
 package com.example.demo.uss.service;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import java.util.ArrayList;
 import static java.util.Comparator.comparing;
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.enm.Table;
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.DummyGenerator;
 import com.example.demo.cmm.utl.Pagination;
 
@@ -23,9 +25,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService{
 	@Autowired DummyGenerator dummy;
-    @Autowired
-    StudentMapper studentMapper;
-
+    @Autowired StudentMapper studentMapper;
+    @Autowired Box<String> bx;
     @Transactional
     public int insertMany(int count) {
     	for(int i=0; i < count; i++) {
@@ -35,16 +36,16 @@ public class StudentService{
     }
     @Transactional
     public int truncate() {
-    	var map = new HashMap<String,String>();
-    	map.put("TRUNCATE_STUDENTS", Sql.TRUNCATE.toString() + Table.STUDENTS);
-    	studentMapper.truncate(map);
+    	bx.clear();
+    	bx.put("TRUNCATE_STUDENTS", Sql.TRUNCATE.toString() + Table.STUDENTS);
+    	studentMapper.truncate(bx);
     	return count() != 0 ? 0 : 1;
     }
     
     public int count() {
-    	var map = new HashMap<String,String>();
-    	map.put("COUNT_STUDENTS", Sql.TOTAL_COUNT.toString() +  Table.STUDENTS);
-    	return studentMapper.count(map);
+    	bx.clear();
+    	bx.put("COUNT_STUDENTS", Sql.TOTAL_COUNT.toString() +  Table.STUDENTS);
+    	return studentMapper.count(bx);
     }
     
     public List<Student> list(Pagination page){

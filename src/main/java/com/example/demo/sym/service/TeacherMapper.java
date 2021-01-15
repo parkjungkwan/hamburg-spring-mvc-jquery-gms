@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.sts.service.Grade;
 import com.example.demo.sts.service.GradeVo;
 
@@ -13,5 +14,5 @@ public interface TeacherMapper {
 	public int insertMany(List<Teacher>list);
 	public Teacher access(Teacher teacher);
 	public int insert(Teacher teacher);
-	public List<GradeVo> selectAll(Map<?,?> paramMap);
+	public List<GradeVo> selectAll(Box<String> bx);
 }

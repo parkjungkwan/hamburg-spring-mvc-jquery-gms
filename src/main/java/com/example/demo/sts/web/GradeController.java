@@ -1,5 +1,6 @@
 package com.example.demo.sts.web;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -8,6 +9,7 @@ import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.enm.Table;
 import com.example.demo.cmm.service.CommonMapper;
+import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.Pagination;
 import com.example.demo.cmm.utl.Util;
 import com.example.demo.sts.service.Grade;
@@ -34,7 +36,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
-import static com.example.demo.cmm.utl.Util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,6 +60,7 @@ public class GradeController {
     @Autowired ManagerService managerService;
     @Autowired CommonMapper commonMapper;
     @Autowired Pagination page;
+    @Autowired Box<String> bx;
     
     @PostMapping("")
     public Messenger register(@RequestBody Grade g){
@@ -69,9 +71,8 @@ public class GradeController {
     public Messenger registerMany(){
     	logger.info("Grade List Register ...");
     	gradeService.insertMany();
-    	var map = new HashMap<String, Object>();
-    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.GRADES);	
-        return commonMapper.totalCount(map)!=0?Messenger.SUCCESS:Messenger.FAILURE;
+    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.GRADES);	
+        return commonMapper.totalCount(bx)!=0?Messenger.SUCCESS:Messenger.FAILURE;
     }
     
     

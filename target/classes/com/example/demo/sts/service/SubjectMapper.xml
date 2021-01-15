@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.sts.service.SubjectMapper">
+
+<resultMap type="com.example.demo.sts.service.GradeVo" id="gradeMap">
+	<id property="gradeNum" column="gradeNum"/>
+	<result property="score" column="score"/>
+	<result property="stuNum" column="stuNum"/>
+	<result property="subject" column="subject"/>
+	<result property="grade" column="grade"/>
+	<result property="passExam" column="passExam"/>
+	<result property="subNum" column="subNum"/>
+	<result property="teaNum" column="teaNum"/>
+	<result property="description" column="description"/>
+	<result property="teaName" column="teaName"/>
+	<result property="teaPassword" column="teaPassword"/>
+	<result property="teaProfileImage" column="teaProfileImage"/>
+	<result property="userid" column="userid"/>
+	<result property="stuPassword" column="stuPassword"/>
+	<result property="stuName" column="stuName"/>
+	<result property="birthday" column="birthday"/>
+	<result property="gender" column="gender"/>
+	<result property="regDate" column="regDate"/>
+	<result property="examDate" column="examDate"/>
+	<result property="stuProfileImage" column="stuProfileImage"/>
+</resultMap>
 <insert id="insertMany" parameterType="list">
 	insert into subjects
 	( subject, description )

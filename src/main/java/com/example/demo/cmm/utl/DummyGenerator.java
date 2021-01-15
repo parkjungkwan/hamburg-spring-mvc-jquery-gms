@@ -1,5 +1,6 @@
 package com.example.demo.cmm.utl;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +17,6 @@ import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.Teacher;
 import com.example.demo.uss.service.Student;
 
-import static com.example.demo.cmm.utl.Util.*;
 
 @Service("dummy")
 public class DummyGenerator {
