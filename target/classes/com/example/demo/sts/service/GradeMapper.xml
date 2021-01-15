@@ -82,5 +82,6 @@ from grades g
 	
 where a.examDate like #{value}
 
+
 </select>
 </mapper>

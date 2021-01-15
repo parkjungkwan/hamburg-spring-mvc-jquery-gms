@@ -12,4 +12,39 @@
 <select id="selectAllSubject" resultType="string">
 	select subject from subjects
 </select>
+
+<select id="groupBySubject" resultMap="gradeMap" parameterType='map'>
+select
+ count(t.tea_num) count,
+ a.*, 
+ t.tea_num teaNum, 
+ t.name teaName,
+ t.password teaPassword,
+ t.profile_image teaProfileImage
+from (select 
+	g.grd_num gradeNum, 
+	g.score score,
+	g.grade grade,
+	g.exam_date examDate,
+	j.sub_num subNum,
+	j.description description,
+	s.userid userid,
+	s.password stuPassword,
+	s.name stuName,
+	s.birthday birthday,
+	s.gender gender,
+	s.reg_date regDate,
+	s.profile_image stuProfileImage,
+	s.stu_num stuNum
+from grades g
+	join subjects j on j.sub_num = g.sub_num
+	join students s on s.stu_num = g.stu_num) a
+	join teachers t on t.sub_num = a.subNum
+	
+where a.examDate like #{value}
+  <if test="subject != null">
+    AND title like '%${name}%'
+  </if>
+
+</select>
 </mapper>

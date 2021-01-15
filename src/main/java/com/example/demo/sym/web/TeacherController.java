@@ -56,49 +56,25 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     public Teacher access(@RequestBody Teacher teacher) {
     	return teacherMapper.access(teacher);
     }
-  
+    /**
+     * 해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환
+     * 
+     * */
     @GetMapping("/page/{pageSize}/{pageNum}/subject/{subNum}/{examDate}")
     public Map<?,?> selectAllBySubject(
     		@PathVariable String pageSize, 
 			@PathVariable String pageNum,
     		@PathVariable String subNum,
     		@PathVariable String examDate){
-    	logger.info("/\n***************************************\n"
-    			+ "해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환\n"
-    			+ "******************************************\n");
-    	var map = new HashMap<String, Object>();
-    	map.put("examDate", examDate);
-    	map.put("subNum", subNum);
-    	List<GradeVo> list = teacherMapper.selectAll(map);
-    	map.clear();
+    	logger.info(" selectAllBySubject Executed ...");
+    	var paramMap = new HashMap<String, Object>();
+    	paramMap.put("pageSize", pageSize);
+    	paramMap.put("pageNum", pageNum);
+    	paramMap.put("subNum", subNum);
+    	paramMap.put("examDate", examDate);
+    	teacherService.selectAllBySubject(paramMap);
     	
-    	IntSummaryStatistics is =list.stream().collect(summarizingInt(GradeVo::getScore));// 204
-    	map.put("max", is.getMax());
-    	map.put("min", is.getMin());
-    	map.put("sum", is.getSum());
-    	map.put("avg", is.getAverage());
-    	map.put("count", is.getCount());
-    	
-    	System.out.println(is);
-    	
-    	map.put("list", list.stream()
-			    	    	.skip(mySkip.apply(pageNum, pageSize))
-			    	    	.limit(integer.apply(pageSize))
-			    	    	.collect(toList()));
-    	
-    	map.put("page", new Pagination(integer.apply(pageSize), 
-    								   integer.apply(pageNum), 
-    								   list.size()));   
-    	
-    	map.put("subjects",subjectMapper.selectAllSubject()
-					    	.stream()
-					    	.collect(joining(",")));
-    	
-    	Optional<GradeVo> highScoreGrade = list.stream()
-    			.collect(reducing( (g1, g2) -> g1.getScore() > g2.getScore() ? g1 : g2 ));
-    	
-    	
-    	return map;
+    	return null;
     }
   
 } 
