@@ -12,14 +12,16 @@ import org.springframework.stereotype.Component;
 p.82 참조
 메소드 목록 : https://www.javatpoint.com/java-arraylist
  * */
-@Component("ls") @Lazy
-public class Inventory<T> {
-	private ArrayList<T> inventory;
-	public Inventory() {inventory = new ArrayList<T>();}
-	public void add(T t) {inventory.add(t);}
-	public T get(int i) {return inventory.get(i);}
-	public ArrayList<T> get(){return inventory;}
-	public void clear() {inventory.clear();}
-	public int size() {return inventory.size();}
+@Component("vc") @Lazy
+public class Vector<T> {
+	private ArrayList<T> vc;
+	public Vector() {vc = new ArrayList<T>();}
+	public void add(T t) {vc.add(t);}
+	public T get(int i) {return vc.get(i);}
+	public ArrayList<T> get(){return vc;}
+	public void clear() {vc.clear();}
+	public int size() {return vc.size();}
+	public void set(ArrayList<T> list) {vc = list;}
+
 }
 

@@ -26,7 +26,7 @@ public class Box<T> {
 	public List<T> listValues(String key){return (List<T>) box.get(key);}
 	@SuppressWarnings("unchecked")
 	public Set<T> setValues(String key){return (Set<T>) box.get(key);}
-	public void putAll(Inventory<String> l, Inventory<T> v) {
+	public void putAll(Vector<String> l, Vector<T> v) {
 		for(int i=0; i< l.size(); i++) {
 			box.put(l.get(i), v.get(i));
 		}

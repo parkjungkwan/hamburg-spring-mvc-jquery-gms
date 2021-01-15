@@ -11,11 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.cmm.enm.Sql;
 import com.example.demo.cmm.utl.Box;
+import com.example.demo.cmm.utl.Vector;
 
 @Service
 public class CommonService {
 	@Autowired CommonMapper commonMapper;
 	@Autowired Box<String> bx;
+	@Autowired Vector<String> vc;
 	
 	@Transactional
 	public int generateDB() {

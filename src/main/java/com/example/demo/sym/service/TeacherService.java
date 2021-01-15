@@ -54,7 +54,7 @@ public class TeacherService {
 		String pageNum = param.get("pageNum").toString();
 		String pageSize = param.get("pageSize").toString();
 		
-		List<GradeVo> list = teacherMapper.selectAll(param);
+		List<GradeVo> list = teacherMapper.selectAll(param.get());
     	
     	
     	IntSummaryStatistics is =list.stream().collect(summarizingInt(GradeVo::getScore));// 204
@@ -77,7 +77,7 @@ public class TeacherService {
     								   integer.apply(pageNum), 
     								   list.size()));   
     	
-    	bx.put("subjects",subjectMapper.selectAllSubject()
+    	bx.put("subjects",subjectMapper.selectAllSubject().get()
 					    	.stream()
 					    	.collect(joining(",")));
     	
