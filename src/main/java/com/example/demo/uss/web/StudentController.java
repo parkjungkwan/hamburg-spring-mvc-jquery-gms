@@ -73,32 +73,34 @@ public class StudentController {
         return studentMapper.selectById(userid);
     }
     */
-    @GetMapping("/page/{pageSize}/{pageNum}")
+    @GetMapping("/list/{pageSize}/{pageNum}")
     public Map<?,?> list(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
+    	var map = new HashMap<String,String>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
     	var page = new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),
 				integer.apply(pageNum),
-				commonMapper.totalCount(bx))
+				commonMapper.totalCount(map))
 				;
-    	var map = new HashMap<String, Object>();
-    	map.put("list", studentService.list(page));
-    	map.put("page", page);
-        return map;
+    	var map2 = new HashMap<String, Object>();
+    	map2.put("list", studentService.list(page));
+    	map2.put("page", page);
+        return map2;
     }
     @GetMapping("/page/{pageSize}/{pageNum}/selectAll")
     public List<?> selectAll(@PathVariable String pageSize, 
     					@PathVariable String pageNum){
     	logger.info("Students List Execute ...");
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
+    	var map = new HashMap<String,String>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
         return studentMapper.selectAll(new Pagination(
 				Table.STUDENTS.toString(), 
 				integer.apply(pageSize),
 				integer.apply(pageNum),
-				commonMapper.totalCount(bx)));
+				commonMapper.totalCount(map)));
     }
     
     @PutMapping("")
@@ -114,25 +116,25 @@ public class StudentController {
     @GetMapping("/insert-many/{count}")
     public String insertMany(@PathVariable String count) {
     	logger.info(String.format("Insert %s Students ...",count));
-    	bx.clear();
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
-    	if(commonMapper.totalCount(bx) == 0) {
+    	var map = new HashMap<String,String>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
+    	if(commonMapper.totalCount(map) == 0) {
     		managerService.insertMany(1);
         	subjectService.insertMany(5);
         	studentService.insertMany(Integer.parseInt(count));
         	teacherService.insertMany(5);
         	//gradeService.insertMany(Integer.parseInt(count)); 나중에 추가함
     	}
-    	bx.clear();
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
-    	return string.apply(commonMapper.totalCount(bx));
+    	map.clear();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);
+    	return string.apply(commonMapper.totalCount(map));
     }
     @GetMapping("/count")
     public String count() {
     	logger.info(String.format("Count Students ..."));
-    	bx.clear();
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
-    	return string.apply(commonMapper.totalCount(bx));
+    	var map = new HashMap<String,String>();
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.STUDENTS);	
+    	return string.apply(commonMapper.totalCount(map));
     }
     @GetMapping("/find-by-gender/{gender}")
     public List<Student> findByGender(@PathVariable String gender) {

@@ -44,24 +44,15 @@ public class SubjectService {
 		subjectMapper.insertMany(vcSubject.get());
     }
 	
-	public Vector<GradeVo> groupBySubject(Box<String> bx){
-		System.out.println(">>>>>>>>>>>>");
-		List<GradeVo> l = subjectMapper
-				.groupBySubject(bx.get());
-		System.out.println("그래이드 총 카운트: "+ l.size());
-		//l.forEach(System.out::println);
-		
-		//211
-		//List<GradeVo> l = vcGradeVo.get();
-		//l.stream().collect(Collectors.groupingBy()});
+	public Vector<GradeVo> groupBySubject(Box<String> bx){ //210
+		List<GradeVo> l = subjectMapper.groupBySubject(bx.get());
 		Map<Integer, List<GradeVo>> m 
         = l.stream().collect( groupingBy(GradeVo::getSubNum)); 
-    	//bx.put("groupBy", teacherMapper.selectAll(param.get()));
 		List<GradeVo> l2 = m.get(integer.apply(bx.get("subNum")));
 		l2.forEach(System.out::println);
 		return vcGradeVo;
 	}
-	public Vector<GradeVo> groupByGrade(Box<String> bx){
+	public Vector<GradeVo> groupByGrade(Box<String> bx){ // 211
 		List<GradeVo> l = subjectMapper
 				.groupBySubject(bx.get());
 		
@@ -76,6 +67,18 @@ public class SubjectService {
         			 else return SubjectCate.GRADE_F;
         		})); 
 		List<GradeVo> l2 = m.get(SubjectCate.GRADE_B);
+		l2.forEach(System.out::println);
+		return vcGradeVo;
+	}
+	public Vector<GradeVo> filterBySubject(Box<String> bx){ // 212
+		List<GradeVo> l = subjectMapper
+				.groupBySubject(bx.get());
+		
+		Map<Integer, List<GradeVo>> m 
+	        = l.stream()
+	        .filter(grade -> grade.getScore() > 70)
+	        .collect(groupingBy( GradeVo::getSubNum)); 
+		List<GradeVo> l2 = m.get(1);
 		l2.forEach(System.out::println);
 		return vcGradeVo;
 	}

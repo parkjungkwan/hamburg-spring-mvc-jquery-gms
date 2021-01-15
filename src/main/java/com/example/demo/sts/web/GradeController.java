@@ -60,7 +60,6 @@ public class GradeController {
     @Autowired ManagerService managerService;
     @Autowired CommonMapper commonMapper;
     @Autowired Pagination page;
-    @Autowired Box<String> bx;
     
     @PostMapping("")
     public Messenger register(@RequestBody Grade g){
@@ -69,10 +68,11 @@ public class GradeController {
    
     @GetMapping("/register")
     public Messenger registerMany(){
+    	var map = new HashMap<String, String>();
     	logger.info("Grade List Register ...");
     	gradeService.insertMany();
-    	bx.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.GRADES);	
-        return commonMapper.totalCount(bx)!=0?Messenger.SUCCESS:Messenger.FAILURE;
+    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.GRADES);	
+        return commonMapper.totalCount(map)!=0?Messenger.SUCCESS:Messenger.FAILURE;
     }
     
     

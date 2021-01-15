@@ -21,6 +21,7 @@ public class CommonService {
 	
 	@Transactional
 	public int generateDB() {
+		var map = new HashMap<String,String>();
 		List<String> l1 = Arrays.asList(
 				Sql.DROP_TABLE.toString()+"replies",
 				Sql.DROP_TABLE.toString()+"articles",
@@ -41,20 +42,20 @@ public class CommonService {
 				Sql.CREATE_REPLIES.toString())
 		;
 		for(int i=0; i< l1.size(); i++) {
-			bx.put("DROP_TABLE", l1.get(i));
-			commonMapper.dropTable(bx);
-			bx.clear();
+			map.put("DROP_TABLE", l1.get(i));
+			commonMapper.dropTable(map);
+			map.clear();
 		}
 		for(int i=0; i< l2.size(); i++) {
-			bx.put("CREATE_TABLE", l2.get(i));
-			commonMapper.createTable(bx);
-			bx.clear();
+			map.put("CREATE_TABLE", l2.get(i));
+			commonMapper.createTable(map);
+			map.clear();
 		}
 		bx.put("TABLE_COUNT", Sql.TABLE_COUNT.toString());
 		
 		
 		
-		return (commonMapper.tableCount(bx)!=0) ? 1: 0;
+		return (commonMapper.tableCount(map)!=0) ? 1: 0;
 	}
 	public int totalCount() {
 		return 0;
