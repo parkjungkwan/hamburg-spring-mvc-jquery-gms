@@ -10,8 +10,8 @@ import com.example.demo.cmm.utl.Vector;
 @Repository
 public interface SubjectMapper {
 	public int insertMany(List<Subject>list);
-	public Vector<String> selectAllSubject();
-	public Vector<GradeVo> groupBySubject(Map<?,?> paramMap);
+	public List<String> selectAllSubject();
+	public List<GradeVo> groupBySubject(Map<?,?> paramMap);
 	public int insert(Subject s);
 
 }

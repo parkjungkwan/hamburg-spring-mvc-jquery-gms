@@ -1,7 +1,9 @@
 package com.example.demo.sts.service;
 import static com.example.demo.cmm.utl.Util.*;
 import static java.util.stream.Collectors.*;
+import java.util.stream.Collectors;
 
+import com.example.demo.cmm.enm.SubjectCate;
 import com.example.demo.cmm.utl.Box;
 import com.example.demo.cmm.utl.DummyGenerator;
 import com.example.demo.cmm.utl.Vector;
@@ -13,6 +15,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,11 +44,45 @@ public class SubjectService {
 		subjectMapper.insertMany(vcSubject.get());
     }
 	
-	public Vector<GradeVo> groupBySubject(Box<String> param){
-		bx.clear();
+	public Vector<GradeVo> groupBySubject(Box<String> bx){
+		System.out.println(">>>>>>>>>>>>");
+		List<GradeVo> l = subjectMapper
+				.groupBySubject(bx.get());
+		System.out.println("그래이드 총 카운트: "+ l.size());
+		//l.forEach(System.out::println);
+		
+		//211
+		//List<GradeVo> l = vcGradeVo.get();
+		//l.stream().collect(Collectors.groupingBy()});
+		Map<Integer, List<GradeVo>> m 
+        = l.stream().collect( groupingBy(GradeVo::getSubNum)); 
     	//bx.put("groupBy", teacherMapper.selectAll(param.get()));
+		List<GradeVo> l2 = m.get(integer.apply(bx.get("subNum")));
+		l2.forEach(System.out::println);
+		return vcGradeVo;
+	}
+	public Vector<GradeVo> groupByGrade(Box<String> bx){
+		List<GradeVo> l = subjectMapper
+				.groupBySubject(bx.get());
+		
+		Map<Object, List<GradeVo>> m 
+        = l.stream().collect( groupingBy(
+        		return gradeVo -> {
+        			if(true) return SubjectCate.GRADE_A;
+        		}
+        		)); 
+		List<GradeVo> l2 = m.get(integer.apply(bx.get("subNum")));
+		l2.forEach(System.out::println);
 		return vcGradeVo;
 	}
 }
+
+
+
+
+
+
+
+
 
 

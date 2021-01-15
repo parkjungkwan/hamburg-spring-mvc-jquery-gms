@@ -1,9 +1,14 @@
 package com.example.demo.sts.web;
 import static com.example.demo.cmm.utl.Util.*;
 import static java.util.stream.Collectors.*;
+
+import java.util.Arrays;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import com.example.demo.cmm.enm.Messenger;
 import com.example.demo.cmm.enm.Sql;
@@ -68,13 +73,23 @@ public class SubjectController {
     
     @PostMapping("")
     public Messenger register(@RequestBody Subject s){
+    	
+    	// Get the List 
+        List<String> g 
+            = Arrays.asList("geeks", "for", "geeks"); 
+  
+        // Collect the list as map 
+        // by groupingBy() method 
+       subjectService.groupBySubject(bx);
         return subjectMapper.insert(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
    
-    @GetMapping("/groupBy/{examDate}")
+    @GetMapping("/groupBy/{examDate}/{subNum}")
     public Map<?,?> totalScoreGroupBySubject(
-    		@PathVariable String examDate){
+    		@PathVariable String examDate,
+    		@PathVariable String subNum){
     	bx.put("examDate", examDate);
+    	bx.put("subNum", subNum);
     	subjectService.groupBySubject(bx);
     	return null;
     }
