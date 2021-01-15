@@ -65,13 +65,17 @@ public class SubjectService {
 		List<GradeVo> l = subjectMapper
 				.groupBySubject(bx.get());
 		
-		Map<Object, List<GradeVo>> m 
-        = l.stream().collect( groupingBy(
-        		return gradeVo -> {
-        			if(true) return SubjectCate.GRADE_A;
-        		}
-        		)); 
-		List<GradeVo> l2 = m.get(integer.apply(bx.get("subNum")));
+		Map<SubjectCate, List<GradeVo>> m 
+        = l.stream().collect( 
+        		groupingBy( gradeVo -> {
+        			 if(gradeVo.getScore() > 90) return SubjectCate.GRADE_A;
+        			 if(gradeVo.getScore() > 80) return SubjectCate.GRADE_B;
+        			 if(gradeVo.getScore() > 70) return SubjectCate.GRADE_C;
+        			 if(gradeVo.getScore() > 60) return SubjectCate.GRADE_D;
+        			 if(gradeVo.getScore() > 50) return SubjectCate.GRADE_E;
+        			 else return SubjectCate.GRADE_F;
+        		})); 
+		List<GradeVo> l2 = m.get(SubjectCate.GRADE_B);
 		l2.forEach(System.out::println);
 		return vcGradeVo;
 	}

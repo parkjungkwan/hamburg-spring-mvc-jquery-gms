@@ -93,6 +93,17 @@ public class SubjectController {
     	subjectService.groupBySubject(bx);
     	return null;
     }
+    @GetMapping("/groupByGrade/{examDate}/{subNum}")
+    public Map<?,?> groupByGrade(
+    		@PathVariable String examDate,
+    		@PathVariable String subNum){
+    	bx.put("examDate", examDate);
+    	bx.put("subNum", subNum);
+    	subjectService.groupBySubject(bx);
+    	return null;
+    }
+    
+    
     
 
 }

@@ -77,7 +77,7 @@ public class TeacherService {
     								   integer.apply(pageNum), 
     								   list.size()));   
     	
-    	bx.put("subjects",subjectMapper.selectAllSubject().get()
+    	bx.put("subjects",subjectMapper.selectAllSubject()
 					    	.stream()
 					    	.collect(joining(",")));
     	
