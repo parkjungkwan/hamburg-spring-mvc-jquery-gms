@@ -33,9 +33,8 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="C:/Users/bitcamp/____/482__Spring/__4__/__46__/eGovFrame/eclipse/lombok.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/bitcamp/Downloads/12.1.0.1-atlassian-hosted/12.1.0.1-atlassian-hosted/ojdbc6-12.1.0.1-atlassian-hosted.jar"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>

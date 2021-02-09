@@ -184,7 +184,8 @@ public class DummyGenerator {
 	 * *******************************
 	 */
 	public Manager makeManager() {
-		return new Manager("",makeEmail(), "1", makeUsername(), Path.DEFAULT_PROFILE.toString());
+		return null;
+				//new Manager("",makeEmail(), "1", makeUsername(), Path.DEFAULT_PROFILE.toString());
 	}
 	
 }

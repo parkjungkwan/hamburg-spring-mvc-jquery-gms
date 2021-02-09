@@ -74,10 +74,10 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uid" value="kfyp@test.com" required>
+    <input type="text" placeholder="Enter Username" id="mgrNum" value="1" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="pwd" value="1" required>
+    <input type="password" placeholder="Enter Password" id="password" value="1" required>
         
     <button id="mgr-access-btn">Login</button>
     <label>

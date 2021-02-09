@@ -11,4 +11,6 @@ public interface AuthMapper {
 	public Manager loginManager(Manager manager);
 	public Student loginStudent(Student student);
 	public Teacher loginTeacher(Teacher student);
+	public Manager selectUserInfoOne(String inputUserId);
+	public Manager selectUserAuthOne(String inputUserId);
 }

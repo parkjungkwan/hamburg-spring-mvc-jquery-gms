@@ -4,7 +4,7 @@
 <select id="loginManager" resultType="Manager" parameterType="Manager">
 		select email, password, name, profile_image profileImage
 		from managers
-		where email like #{email} and password like #{password}
+		where mgr_num like #{mgrNum} and password like #{password}
 	</select>
 	<select id="loginTeacher" resultType="Teacher" parameterType="Teacher">
 		select 

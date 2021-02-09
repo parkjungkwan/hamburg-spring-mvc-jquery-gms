@@ -17,8 +17,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.info("########## preHandle ###############");
+		// if() {return false;}
 		
-		return false;
+		return true;
 	}
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,

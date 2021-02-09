@@ -9,6 +9,6 @@
 		<typeAlias type="com.example.demo.uss.domain.Teacher" alias="Teacher"/>
 		<typeAlias type="com.example.demo.dwh.domain.Pagination" alias="Pagination"/>
 		<typeAlias type="com.example.demo.aim.domain.GradeVo" alias="GradeVo"/>
-		<!-- <typeAlias type="com.example.demo.aim.domain.Grade" alias="Grade"/> -->
+		<typeAlias type="com.example.demo.aim.domain.Grade" alias="Grade"/> 
 	</typeAliases>
 </configuration>
