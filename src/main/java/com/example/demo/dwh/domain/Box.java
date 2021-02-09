@@ -1,0 +1,34 @@
+package com.example.demo.dwh.domain;
+import static com.example.demo.dwh.domain.Util.*;
+import static java.util.stream.Collectors.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+@Component @Lazy
+public class Box<T> {
+	private HashMap<String,T> box;
+	public Box() {box = new HashMap<String, T>();}
+	public void clear() {box.clear();}
+	public boolean	containsKey(String key) {return box.containsKey(key);}
+	public boolean	containsValue(String value) {return box.containsValue(value);}
+	public T get(String key) {return box.get(key);}
+	public HashMap<String, T> get(){return box;}
+	public boolean	isEmpty() {return box.isEmpty();}
+	public void put(String s, T t) {box.put(s, t);}
+	public void remove(String key) {box.remove(key);}
+	public void replace(String key, T t) {box.replace(key, t);}
+	public int size() {return box.size();}
+	@SuppressWarnings("unchecked")
+	public List<T> listValues(String key){return (List<T>) box.get(key);}
+	@SuppressWarnings("unchecked")
+	public Set<T> setValues(String key){return (Set<T>) box.get(key);}
+	public void putAll(Vector<String> l, Vector<T> v) {
+		for(int i=0; i< l.size(); i++) {
+			box.put(l.get(i), v.get(i));
+		}
+	}
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.uss.mapper.TeacherMapper">
+<resultMap type="com.example.demo.aim.domain.GradeVo" id="gradeMap">
+	<id property="gradeNum" column="gradeNum"/>
+	<result property="score" column="score"/>
+	<result property="stuNum" column="stuNum"/>
+	<result property="subject" column="subject"/>
+	<result property="grade" column="grade"/>
+	<result property="passExam" column="passExam"/>
+	<result property="subNum" column="subNum"/>
+	<result property="teaNum" column="teaNum"/>
+	<result property="description" column="description"/>
+	<result property="teaName" column="teaName"/>
+	<result property="teaPassword" column="teaPassword"/>
+	<result property="teaProfileImage" column="teaProfileImage"/>
+	<result property="userid" column="userid"/>
+	<result property="stuPassword" column="stuPassword"/>
+	<result property="stuName" column="stuName"/>
+	<result property="birthday" column="birthday"/>
+	<result property="gender" column="gender"/>
+	<result property="regDate" column="regDate"/>
+	<result property="examDate" column="examDate"/>
+	<result property="stuProfileImage" column="stuProfileImage"/>
+</resultMap>
+
+	<insert id="insertMany" parameterType="list">
+		insert into teachers
+		( name, password, sub_num, profile_image )
+		values 
+		 <foreach item="i" collection="list" separator=",">
+	        ( #{i.name}, #{i.password}, #{i.subNum}, #{i.profileImage} )
+	  	</foreach>
+	</insert>
+	<insert id="insert" parameterType="com.example.demo.uss.domain.Teacher">
+			insert into teachers(name, password, sub_num, profile_image ) 
+			values (#{name}, #{password}, #{subNum}, #{profileImage} )
+	</insert>
+	<select id="access"
+		resultType="com.example.demo.uss.domain.Teacher"
+	 parameterType="com.example.demo.uss.domain.Teacher">
+		select 
+		tea_num teaNum,
+		name, 
+		password, 
+		sub_num subNum, 
+		profile_image profileImage
+		from teachers
+		where tea_num like #{teaNum} and password like #{password}
+	</select>
+	
+</mapper>
