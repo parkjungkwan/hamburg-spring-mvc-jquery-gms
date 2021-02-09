@@ -2,17 +2,11 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.uss.mapper.ManagerMapper">
-	<insert id="insert" parameterType="com.example.demo.uss.domain.Manager">
+	<insert id="insert" parameterType="Manager">
 		insert into managers(email, password, name, profile_image) 
 		values (#{email}, #{password}, #{name}, #{profileImage})
 	</insert>
-	<select id="access"
-		resultType="com.example.demo.uss.domain.Manager"
-	 parameterType="com.example.demo.uss.domain.Manager">
-		select email, password, name, profile_image profileImage
-		from managers
-		where email like #{email} and password like #{password}
-	</select>
+	
 	  <insert id="insertMany" parameterType="list">
 		insert into managers
 		(email, password, name, profile_image) 

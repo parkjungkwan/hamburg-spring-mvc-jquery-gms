@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.example.demo.sec.interceptor.AuthInterceptor;
 /**
  * Handles requests for the application home page.
  */
@@ -19,11 +21,11 @@ public class HomeController {
 	@Autowired HttpSession session;
 	@Autowired HttpServletRequest request;
 	
-	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/")
     public String index(HttpSession session, HttpServletRequest request) {
+    	
     	String ctx = request.getContextPath();
     	session.setAttribute("ctx", ctx);
     	session.setAttribute("cmm", ctx+"/resources/cmm");

@@ -50,10 +50,7 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
         		: Messenger.FAILURE;
     }
     
-    @PostMapping("/access")
-    public Teacher access(@RequestBody Teacher teacher) {
-    	return teacherMapper.access(teacher);
-    }
+    
     /**
      * 해당 교강사가 담당하는 과목의 최근 시험결과에 따른 결과반환
      * 

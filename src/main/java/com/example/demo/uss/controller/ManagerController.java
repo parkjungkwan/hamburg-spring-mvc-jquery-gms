@@ -32,11 +32,7 @@ public class ManagerController {
         		: Messenger.FAILURE;
     }
     
-    @PostMapping("/access")
-    public Manager access(@RequestBody Manager manager) {
-    	return managerMapper.access(manager);
-    }
-    
+  
 }
 
 

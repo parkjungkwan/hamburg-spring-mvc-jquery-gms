@@ -11,6 +11,8 @@ import com.example.demo.dwh.domain.DummyGenerator;
 import com.example.demo.uss.domain.Manager;
 import com.example.demo.uss.mapper.ManagerMapper;
 
+
+
 @Service
 public class ManagerService {
     @Autowired ManagerMapper managerMapper;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.sec.mapper.AuthMapper">
+<select id="loginManager" resultType="Manager" parameterType="Manager">
+		select email, password, name, profile_image profileImage
+		from managers
+		where email like #{email} and password like #{password}
+	</select>
+	<select id="loginTeacher" resultType="Teacher" parameterType="Teacher">
+		select 
+		tea_num teaNum,
+		name, 
+		password, 
+		sub_num subNum, 
+		profile_image profileImage
+		from teachers
+		where tea_num like #{teaNum} and password like #{password}
+	</select>
+	<select id="loginStudent" resultType="Student" parameterType="Student">
+		select email, password, name, profile_image profileImage
+		from managers
+		where email like #{email} and password like #{password}
+	</select>
+</mapper>

@@ -13,7 +13,7 @@ import com.example.demo.uss.domain.Student;
 public interface StudentMapper {
 
 	public int insert(Student s);
-	public Student login(Student s);
+	
 	public List<Student> selectAll(Pagination page);
 	public List<Student> list();
 	public int update(Student s);

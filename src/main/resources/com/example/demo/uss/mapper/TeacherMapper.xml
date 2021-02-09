@@ -23,7 +23,7 @@
 	<result property="regDate" column="regDate"/>
 	<result property="examDate" column="examDate"/>
 	<result property="stuProfileImage" column="stuProfileImage"/>
-</resultMap>
+</resultMap> 
 
 	<insert id="insertMany" parameterType="list">
 		insert into teachers
@@ -33,21 +33,9 @@
 	        ( #{i.name}, #{i.password}, #{i.subNum}, #{i.profileImage} )
 	  	</foreach>
 	</insert>
-	<insert id="insert" parameterType="com.example.demo.uss.domain.Teacher">
+	<insert id="insert" parameterType="Teacher">
 			insert into teachers(name, password, sub_num, profile_image ) 
 			values (#{name}, #{password}, #{subNum}, #{profileImage} )
 	</insert>
-	<select id="access"
-		resultType="com.example.demo.uss.domain.Teacher"
-	 parameterType="com.example.demo.uss.domain.Teacher">
-		select 
-		tea_num teaNum,
-		name, 
-		password, 
-		sub_num subNum, 
-		profile_image profileImage
-		from teachers
-		where tea_num like #{teaNum} and password like #{password}
-	</select>
 	
 </mapper>

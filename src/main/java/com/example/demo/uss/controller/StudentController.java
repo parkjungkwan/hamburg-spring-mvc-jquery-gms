@@ -58,14 +58,7 @@ public class StudentController {
     public Messenger register(@RequestBody Student s){
         return studentMapper.insert(s)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
-    @PostMapping("/login")
-    public Map<?,?> login(@RequestBody Student s){
-        var map = new HashMap<>();
-        Student result = studentMapper.login(s);
-        map.put("message", result!=null?"SUCCESS":"FAILURE");
-        map.put("sessionUser", result);
-        return map;
-    }
+    
     /*
     @GetMapping("/{userid}")
     public Student profile(@PathVariable String userid){

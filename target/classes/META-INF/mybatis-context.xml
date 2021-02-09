@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.example.demo.uss.domain.Manager" alias="Manager"/>
+		<typeAlias type="com.example.demo.uss.domain.Student" alias="Student"/>
+		<typeAlias type="com.example.demo.uss.domain.Teacher" alias="Teacher"/>
+		<typeAlias type="com.example.demo.dwh.domain.Pagination" alias="Pagination"/>
+		<typeAlias type="com.example.demo.aim.domain.GradeVo" alias="GradeVo"/>
+		<!-- <typeAlias type="com.example.demo.aim.domain.Grade" alias="Grade"/> -->
+	</typeAliases>
+</configuration>

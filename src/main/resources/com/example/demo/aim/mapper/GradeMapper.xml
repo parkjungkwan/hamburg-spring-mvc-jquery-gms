@@ -14,8 +14,8 @@
 	// Student
     private String userid, stuPassword, stuName, birthday, gender, 
     			stuRegDate, stuProfileImage;
-
-<resultMap type="com.example.demo.sts.service.GradeVo" id="gradeMap">
+-->
+<resultMap type="com.example.demo.aim.domain.GradeVo" id="gradeMap">
 	<id property="gradeNum" column="gradeNum"/>
 	<result property="score" column="score"/>
 	<result property="stuNum" column="stuNum"/>
@@ -36,8 +36,8 @@
 	<result property="regDate" column="regDate"/>
 	<result property="examDate" column="examDate"/>
 	<result property="stuProfileImage" column="stuProfileImage"/>
-</resultMap> -->
-<insert id="insert" parameterType="com.example.demo.aim.domain.Grade">
+</resultMap> 
+<insert id="insert" parameterType="GradeVo">
 	insert into grades
 	( sub_num, score, stu_num, exam_date )
 	values 
@@ -52,7 +52,7 @@
         #{i.stuNum}, #{i.examDate} )
   	</foreach>
 </insert>
-<!--<select id="selectJoinAll" resultMap="gradeMap" parameterType='string'>
+<select id="selectJoinAll" resultMap="gradeMap" parameterType='string'>
 select
  count(t.tea_num) count,
  a.*, 
@@ -83,5 +83,5 @@ from grades g
 where a.examDate like #{value}
 
 
-</select> -->
+</select> 
 </mapper>

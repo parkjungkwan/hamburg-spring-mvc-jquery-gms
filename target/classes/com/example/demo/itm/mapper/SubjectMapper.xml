@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.itm.mapper.SubjectMapper">
-
-<resultMap type="com.example.demo.aim.domain.GradeVo" id="gradeMap">
+ 
+<resultMap type="GradeVo" id="gradeMap">
 	<id property="gradeNum" column="gradeNum"/>
 	<result property="score" column="score"/>
 	<result property="stuNum" column="stuNum"/>
@@ -23,7 +23,7 @@
 	<result property="regDate" column="regDate"/>
 	<result property="examDate" column="examDate"/>
 	<result property="stuProfileImage" column="stuProfileImage"/>
-</resultMap>
+</resultMap> 
 <insert id="insertMany" parameterType="list">
 	insert into subjects
 	( subject, description )
@@ -36,7 +36,7 @@
 	select subject from subjects
 </select>
 
-<!-- <select id="groupBySubject" resultMap="gradeMap" parameterType='map'>
+<select id="groupBySubject" resultMap="gradeMap" parameterType='map'>
 select
  
  a.*, 
@@ -69,5 +69,5 @@ where a.examDate like #{examDate}
     AND title like '%${name}%'
   </if>
 
-</select> -->
+</select> 
 </mapper>
