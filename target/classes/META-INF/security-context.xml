@@ -23,7 +23,9 @@
 			password-parameter="userPw"
 			login-processing-url="/loginAsk" 
 			login-page="/loginView" default-target-url="/"
-			authentication-failure-url="/loginView" />
+			
+			authentication-failure-handler-ref="userLoginFailHandler" />
+		<!-- 	authentication-failure-url="/loginView" /> -->
 
 		<!-- 로그아웃 설정 -->
 		<s:logout 
