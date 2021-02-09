@@ -43,5 +43,11 @@
 		<s:authentication-provider user-service-ref="userLoginService">
 		</s:authentication-provider>
 	</s:authentication-manager>-->
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+		
+		<!-- 자동 로그인(토큰 유효기간 일주일) 
+		<s:remember-me key="hsweb" token-validity-seconds="60000"
+		authentication-success-handler-ref="userLoginSuccessHandler"/>-->
 		
 </beans>

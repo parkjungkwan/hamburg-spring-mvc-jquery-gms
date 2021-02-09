@@ -16,4 +16,8 @@ public interface ManagerMapper {
 
 	public int insertMany(List<Manager> list);
 
+
+
+	public Integer selectUserInfoCount(String string);
+
 }
