@@ -12,4 +12,10 @@
 <script src="${stu}/js/stu.js"></script>	
 <script src="${cmm}/js/cmm.js"></script>	
 <script src="${sts}/js/grd.js"></script>	
+<link rel="shortcut icon" href="${cmm}/images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="${cmm}/images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="${cmm}/images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="${cmm}/images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="${cmm}/images/ico/apple-touch-icon-57-precomposed.png">
+<link rel="stylesheet" href="${ctx}/resources/uss/css/login.css" />
 </head>

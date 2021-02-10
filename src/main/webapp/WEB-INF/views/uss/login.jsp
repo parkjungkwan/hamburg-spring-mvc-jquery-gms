@@ -3,19 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/tags/form" %>   
-   
-    <link rel="shortcut icon" href="${cmm}/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${cmm}/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${cmm}/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${cmm}/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="${cmm}/images/ico/apple-touch-icon-57-precomposed.png">
-  <link rel="stylesheet" href="${stu}/css/login.css" />
 </head><!--/head-->
-
 <body>
-    <div class="logo-image">                                
-       <a id="home" href="#"><img class="img-responsive" src="${cmm}/images/logo.png" alt=""> </a> 
-    </div>
      <section id="coming-soon">        
          <div class="container">
             <div class="row">

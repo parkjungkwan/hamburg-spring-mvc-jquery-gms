@@ -73,6 +73,12 @@
         }
       }
   </style>
+<script>
+
+$(function(){
+	 $('#signupbtn').click(function(){ mgr.register(`${ctx}`)})
+})
+ </script> 
      <section id="coming-soon">        
          <div class="container">
             <div class="row">
@@ -113,6 +119,4 @@
         </div>       
     </section>
  
-  <script>
-  $('#signupbtn').click(function(){ mgr.register(`${ctx}`)})
-  </script>  
+
