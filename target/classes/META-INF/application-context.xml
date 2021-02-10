@@ -42,6 +42,7 @@
 			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/admin/*"/>
 			<mvc:exclude-mapping path="/fileupload"/>
+			<mvc:exclude-mapping path="/fileupload/*"/>
 			<mvc:exclude-mapping path="/auth/*"/>
 			<mvc:exclude-mapping path="/resources/**"/>
 			<bean class="com.example.demo.sec.interceptor.AuthInterceptor"/>

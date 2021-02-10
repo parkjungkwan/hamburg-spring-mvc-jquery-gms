@@ -75,6 +75,7 @@ $(`#tea-login-btn`).click(function(){
 	location.href = `${ctx}/auth/tea/login`
 })
 $(`#file-upload-btn`).click(function(){
+	alert('>>>')
 	location.href = `${ctx}/fileupload`
 })
 </script>
