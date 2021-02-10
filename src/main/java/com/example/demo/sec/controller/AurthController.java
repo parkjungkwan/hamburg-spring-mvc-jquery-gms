@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,11 +44,12 @@ public class AurthController {
 	        return map;
 	}
 	@PostMapping("/manager/login")
-	public Map<?,?> managerLogin(@ModelAttribute Manager manager){
+	public Map<?,?> managerLogin(@ModelAttribute Manager manager, Model model){
 		 var map = new HashMap<>();
 		 	Manager result = authMapper.loginManager(manager);
 	        map.put("message", result!=null?"SUCCESS":"FAILURE");
 	        map.put("sessionUser", result);
+	        model.addAttribute("manager", manager);
 	        return map;
 	}
 	/* 로그인 화면 요청 */

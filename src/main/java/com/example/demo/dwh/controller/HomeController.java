@@ -78,6 +78,15 @@ public class HomeController {
         logger.info("이동 파일: " + page);
         return String.format("content:%s/%s", dir, page);
     }
+    /*
+     * cop (Content Operater) 디렉토리 이동시 content 사용
+     * */
+    @GetMapping("/auth/mgr/login") public String mgrloginForm() { 
+    	return "sym/mgr/login.jsp";}
+    @GetMapping("/auth/tea/login") public String tealoginForm() { 
+    	return "sym/tea/login.jsp";}
+    @GetMapping("/auth/stu/login") public String stuloginForm() { 
+    	return "uss/login.jsp";}
 
   
 	

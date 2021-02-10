@@ -11,7 +11,7 @@
 		<s:intercept-url pattern="/resources/**" access="permitAll" />
 
 		<!-- 로그인된 상태에서는 로그인이나 회원가입 화면에 접근 못하도록 함 -->
-		<s:intercept-url pattern="/loginView" access="isAnonymous()" />
+		<s:intercept-url pattern="/admin/mgr/login" access="isAnonymous()" />
 		<s:intercept-url pattern="/registerUserView" access="isAnonymous()" />
 
 		<!-- 관리자페이지는 관리자만 접근 허용 -->
@@ -22,7 +22,7 @@
 			username-parameter="userId" 
 			password-parameter="userPw"
 			login-processing-url="/loginAsk" 
-			login-page="/loginView" default-target-url="/"
+			login-page="/admin/mgr/login" default-target-url="/"
 			
 			authentication-failure-handler-ref="userLoginFailHandler" />
 		<!-- 	authentication-failure-url="/loginView" /> -->

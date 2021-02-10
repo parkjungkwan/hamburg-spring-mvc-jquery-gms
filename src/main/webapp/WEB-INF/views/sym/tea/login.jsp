@@ -13,7 +13,7 @@
 
   <div class="container">
     <label for="uname"><b>교강사번호</b></label>
-    <input type="text" placeholder="Enter Username" id="teaNum" required>
+    <input type="text" placeholder="Enter Username" id="teaNum" >
 
     <label for="psw"><b>비밀번호</b></label>
     <input type="password" placeholder="Enter Password" id="password" required>
