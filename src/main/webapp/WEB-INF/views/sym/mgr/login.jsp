@@ -47,7 +47,7 @@
   <div class="container">
   	<sec:csrfInput />
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="ID 입력" id="mgrNum"/>
+    <input type="text" placeholder="Email 입력" id="email"/>
     <label for="psw"><b>Password</b></label>
     <input type="password" id="password" placeholder="비번 입력" />
     <input type="submit" id="mgr-access-btn" value="로그인"/>

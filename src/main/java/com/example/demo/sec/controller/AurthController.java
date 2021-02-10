@@ -44,12 +44,14 @@ public class AurthController {
 	        return map;
 	}
 	@PostMapping("/manager/login")
-	public Map<?,?> managerLogin(@ModelAttribute Manager manager, Model model){
-		 var map = new HashMap<>();
+	public Map<?,?> managerLogin(@ModelAttribute Manager manager){
+		System.out.println("############ managerLogin ::: ##############" +manager.toString()); 
+		
+		var map = new HashMap<>();
 		 	Manager result = authMapper.loginManager(manager);
 	        map.put("message", result!=null?"SUCCESS":"FAILURE");
 	        map.put("sessionUser", result);
-	        model.addAttribute("manager", manager);
+	        
 	        return map;
 	}
 	/* 로그인 화면 요청 */
