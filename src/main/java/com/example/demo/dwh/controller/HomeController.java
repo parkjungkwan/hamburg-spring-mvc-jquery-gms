@@ -87,6 +87,8 @@ public class HomeController {
     	return "sym/tea/login.jsp";}
     @GetMapping("/auth/stu/login") public String stuloginForm() { 
     	return "uss/login.jsp";}
+    @GetMapping("/fileupload") public String fileupload() { 
+    	return "sym/mgr/fileupload.jsp";}
 
   
 	

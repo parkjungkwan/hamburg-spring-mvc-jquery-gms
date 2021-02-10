@@ -61,6 +61,7 @@
         <div class="panel-footer">
           <button id="mgr-join-btn" class="btn btn-lg">Sign Up</button>
           <button id="mgr-login-btn" class="btn btn-lg">Sign In</button>
+          <button id="file-upload-btn" class="btn btn-lg">파일업로드</button>
         </div>
       </div>      
     </div>    
@@ -72,5 +73,8 @@ $(`#mgr-login-btn`).click(function(){
 })
 $(`#tea-login-btn`).click(function(){
 	location.href = `${ctx}/auth/tea/login`
+})
+$(`#file-upload-btn`).click(function(){
+	location.href = `${ctx}/fileupload`
 })
 </script>

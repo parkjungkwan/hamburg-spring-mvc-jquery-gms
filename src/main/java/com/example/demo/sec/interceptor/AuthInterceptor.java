@@ -17,7 +17,11 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.info("########## preHandle ###############");
-		// if() {return false;}
+		if(request.getSession().getAttribute("sessionUser")== null) {
+			System.out.println(" 로그인한 관리자가 아닙니다 !!!");
+			response.sendRedirect(request.getContextPath()+"/auth/mgr/login");
+			return false;
+		}
 		
 		return true;
 	}
