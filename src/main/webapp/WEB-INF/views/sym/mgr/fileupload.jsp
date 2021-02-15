@@ -4,23 +4,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <script>
-var csrfParameter = $('meta[name="_csrf_parameter"]').attr('content')
-var csrfHeader = $('meta[name="_csrf_header"]').attr('content')
-var csrfToken = $('meta[name="_csrf"]').attr('content')
+
 $(function(){
+	var csrfParameter = $('meta[name="_csrf_parameter"]').attr('content')
+	var csrfHeader = $('meta[name="_csrf_header"]').attr('content')
+	var csrfToken = $('meta[name="_csrf"]').attr('content')
 	
 	$('#fileForm').submit(function(e){
 		e.preventDefault()
 		const formData = new FormData($('#fileForm')[0])
-		$.ajaxSetup({ 
-			beforeSend: function(xhr) { 
-				xhr.setRequestHeader(csrfHeader, csrfToken); 
-			}  
-		})  
+		if(csrfToken && csrfHeader) {
+	        $(document).ajaxSend(function(event, xhr, options) {
+	            xhr.setRequestHeader(header, token);
+	        });
+	    }
+		
 		$.ajax({ 
 			type: "POST", 
 			enctype: 'multipart/form-data', // 필수 
-			url: '/fileupload/image', 
+			url: '${ctx}/fileupload/image', 
 			data: formData, // 필수 
 			processData: false, // 필수 
 			contentType: false, // 필수 
@@ -28,9 +30,9 @@ $(function(){
 			success: function (d) {
 				alert('SUCCESS')
 			}, 
-			error: function (e) {
-				
-			} 
+			error:function(status, request, error){
+	               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
 			});
 	})
 })

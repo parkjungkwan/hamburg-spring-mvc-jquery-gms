@@ -59,6 +59,7 @@
           <p><strong>Endless</strong> Amet</p>
         </div>
         <div class="panel-footer">
+    이미지 경로:     <%= application.getRealPath("/") %>
           <button id="mgr-join-btn" class="btn btn-lg">Sign Up</button>
           <button id="mgr-login-btn" class="btn btn-lg">Sign In</button>
           <button id="file-upload-btn" class="btn btn-lg">파일업로드</button>
